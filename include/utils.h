@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/24 01:23:45 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/03 11:33:35 by nhanafi          ###   ########.fr       */
+/*   Created: 2022/08/03 09:17:28 by nhanafi           #+#    #+#             */
+/*   Updated: 2022/08/03 11:24:41 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
+#ifndef UTILS_H
+# define UTILS_H
 
-# include <stdio.h>
-# include <unistd.h>
-# include "utils.h"
-# include <stdio.h>
-# include <stdlib.h>
-# include <readline/readline.h>
-# include <readline/history.h>
-# include <string.h>
-# include <unistd.h>
-# include <fcntl.h>
+#include <stdlib.h>
+
+int		ft_strlen(char *str);
+char	*ft_join(char *s1, char *s2);
 
 #endif

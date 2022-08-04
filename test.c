@@ -19,12 +19,16 @@ int ft_instr(char *str, char c)
     return 0;
 }
 
+
+
+
 int ft_parcing(char *buf)
 {
     int i;
     char    c;
 
     i = 0;
+    c = 0;
     while(buf[i])
     {
         if(buf[i] == c)
@@ -32,13 +36,16 @@ int ft_parcing(char *buf)
         else if(!c && ft_instr("\"\'", buf[i]))
             c = buf[i];
         else if(!c && ft_instr("(", buf[i]))
-            c = ')';
-        else if(!c && ft_instr(")", buf[i]))
+            c = buf[i] + 1;
+        else if(!c && ft_instr(")}]", buf[i]))
+        {
+
             return 1;
+        }
         i++;
     }
     if(c)
-        return 1;
+        ;
     else
         return 0;
 }
