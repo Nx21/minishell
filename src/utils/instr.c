@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.h                                            :+:      :+:    :+:   */
+/*   instr.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/03 09:17:28 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/04 09:36:56 by nhanafi          ###   ########.fr       */
+/*   Created: 2022/08/04 06:28:51 by nhanafi           #+#    #+#             */
+/*   Updated: 2022/08/04 06:29:50 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_H
-# define UTILS_H
+#include "utils.h"
 
-# include <stdlib.h>
+int	ft_instr(char *str, char c)
+{
+	int	i;
 
-int		ft_strlen(char *str);
-char	*ft_join(char *s1, char *s2);
-int     ft_instr(char *str, char c);
-#endif
+	i = 0;
+	while(str[i])
+	{
+		if(str[i] == c)
+			return 1;
+		i++;
+	}
+	return 0;
+}

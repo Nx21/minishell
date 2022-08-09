@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 01:23:45 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/03 11:33:35 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/08/04 10:14:24 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@
 # include <string.h>
 # include <unistd.h>
 # include <fcntl.h>
-
+char *ft_parcing(char *buf);
 #endif

@@ -6,8 +6,9 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # PARTICULAR PURPOSE.
 
 # This program built for i386-apple-darwin11.3.0
+ 
 
-# Make data base, printed on Thu Aug  4 06:07:29 2022
+# Make data base, printed on Tue Aug  9 11:50:43 2022
 
 # Variables
 
@@ -36,17 +37,21 @@ VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupp
 # environment
 _ = /usr/bin/make
 # makefile (from `Makefile', line 18)
-CFLAGS = $(CPPFLAGS) -Wall -Werror -Wextra -g -lreadline
+CFLAGS = $(CPPFLAGS) -Wall -Werror -Wextra -g
 # makefile (from `Makefile', line 1)
 MAKEFILE_LIST :=  Makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000ccz400337s/T/vscode-ipc-e475c3c2-1d64-4624-87d9-de57bc4e3cf2.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000ccz400337s/T/vscode-ipc-02fbdd8a-d291-4e59-8262-c63c4b6328fd.sock
 # environment
 VSCODE_CWD = /
 # environment
-PATH = /usr/bin:/bin:/usr/sbin:/sbin
+PATH = /Users/nhanafi/goinfre/.brew/bin:/Users/nhanafi/.brew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki
+# environment
+LSCOLORS = Gxfxcxdxbxegedabagacad
+# environment
+LaunchInstanceID = B6A8F0CF-B70D-4899-A43C-1A0CB4513053
 # environment
 VSCODE_LOG_STACK = false
 # environment
@@ -56,9 +61,11 @@ LDFLAGS = -L/Users/nhanafi/.brew/opt/readline/lib
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.5FCxBGDWmo/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.v946EiCqas/Listeners
 # automatic
 %F = $(notdir $%)
+# environment
+HOMEBREW_TEMP = /tmp/nhanafi/Homebrew/Temp
 # environment
 VSCODE_PIPE_LOGGING = true
 # environment
@@ -80,6 +87,8 @@ APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # makefile (from `Makefile', line 22)
 HEADERS = include/minishell.h include/utils.h
 # environment
+ZSH = /Users/nhanafi/.oh-my-zsh
+# environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # automatic
 ^D = $(patsubst %/,%,$(dir $^))
@@ -89,6 +98,8 @@ XPC_FLAGS = 0x0
 MAKE = $(MAKE_COMMAND)
 # default
 MAKECMDGOALS := all
+# environment
+HOMEBREW_CACHE = /tmp/nhanafi/Homebrew/Caches
 # environment
 SHLVL = 1
 # makefile (from `Makefile', line 13)
@@ -103,6 +114,8 @@ USER = nhanafi
 .DEFAULT_GOAL := all
 # makefile (from `Makefile', line 28)
 NAME = minishell
+# environment
+LESS = -R
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
 # default
@@ -124,19 +137,27 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-XPC_SERVICE_NAME = com.microsoft.VSCode.2180
+XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x10000002.Electron
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
 +F = $(notdir $+)
 # environment
 __CF_USER_TEXT_ENCODING = 0x18CF9:0:0
+# environment
+COMMAND_MODE = unix2003
 # default
 MAKEFILES := 
+# environment
+HOMEBREW_NO_AUTO_UPDATE = 1
 # automatic
 <F = $(notdir $<)
 # environment
+PAGER = less
+# environment
 LC_ALL = C
+# environment
+SECURITYSESSIONID = 186a8
 # automatic
 ^F = $(notdir $^)
 # default
@@ -148,11 +169,11 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 16231
+VSCODE_PID = 4075
 # makefile (from `Makefile', line 25)
-FILES = main utils/ft_join utils/ft_strlen
+FILES = main ft_parcing utils/ft_join utils/ft_strlen utils/instr
 # variable set hash-table stats:
-# Load=70/1024=7%, Rehash=0, Collisions=3/101=3%
+# Load=80/1024=8%, Rehash=0, Collisions=3/118=3%
 
 # Pattern-specific Variable Values
 
@@ -162,10 +183,9 @@ FILES = main utils/ft_join utils/ft_strlen
 
 # include (device 16777225, inode 1036576): 4 files, no impossibilities so far.
 # . (device 16777225, inode 990215): 12 files, no impossibilities.
-# src/utils (device 16777225, inode 1036583): 4 files, no impossibilities so far.
-# src (device 16777225, inode 1036579): 3 files, no impossibilities so far.
+# src (device 16777225, inode 1036579): 4 files, no impossibilities so far.
 
-# 23 files, no impossibilities in 4 directories.
+# 20 files, no impossibilities in 3 directories.
 
 # Implicit Rules
 
@@ -184,14 +204,23 @@ all: minishell
 #  Implicit rule search has been done.
 #  File does not exist.
 #  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/7=0%
+
+# Not a target:
+include/minishell.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-04 10:14:24
+#  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
-include/minishell.h:
+src/ft_parcing.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-03 11:33:35
+#  Last modified 2022-08-04 10:15:25
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -200,7 +229,7 @@ include/minishell.h:
 obj/main.o: src/main.c include/minishell.h include/utils.h
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `main'
-#  Last modified 2022-08-03 11:33:42
+#  Last modified 2022-08-04 10:14:26
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -219,21 +248,27 @@ obj/main.o: src/main.c include/minishell.h include/utils.h
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-03 11:34:07
+#  Last modified 2022-08-04 09:37:59
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
-minishell: obj/main.o obj/utils/ft_join.o obj/utils/ft_strlen.o
+# Not a target:
+obj/utils/instr.o:
 #  Implicit rule search has not been done.
-#  Last modified 2022-08-03 11:34:08
+#  Modification time never checked.
+#  File has not been updated.
+
+minishell: obj/main.o obj/ft_parcing.o obj/utils/ft_join.o obj/utils/ft_strlen.o obj/utils/instr.o
+#  Implicit rule search has not been done.
+#  Last modified 2022-08-04 10:14:26
 #  File has been updated.
-#  Successfully updated.
+#  Needs to be updated (-q is set).
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+# Load=0/32=0%, Rehash=0, Collisions=0/7=0%
 #  commands to execute (from `Makefile', line 33):
-	$(CC) $(CFLAGS) $(LDFLAGS) $^ -o $@
+	$(CC) $(CFLAGS) -lreadline $(LDFLAGS) $^ -o $@
 	
 
 fclean: clean
@@ -247,24 +282,17 @@ fclean: clean
 # Not a target:
 src/main.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-03 11:33:24
+#  Last modified 2022-08-04 10:14:11
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
-obj/utils/ft_strlen.o: src/utils/ft_strlen.c include/minishell.h include/utils.h
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `utils/ft_strlen'
-#  Last modified 2022-08-03 11:33:42
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 36):
-	mkdir -p $(@D)
-	$(CC) $(CFLAGS) $(INC) -c $< -o $@
-	
+# Not a target:
+obj/utils/ft_strlen.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 .DEFAULT:
@@ -285,49 +313,53 @@ clean:
 	rm -rf $(ODIR)
 	
 
-obj/utils/ft_join.o: src/utils/ft_join.c include/minishell.h include/utils.h
+# Not a target:
+obj/utils/ft_join.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+ 
+obj/ft_parcing.o: src/ft_parcing.c include/minishell.h include/utils.h
 #  Implicit rule search has been done.
-#  Implicit/static pattern stem: `utils/ft_join'
-#  Last modified 2022-08-03 11:33:42
+#  Implicit/static pattern stem: `ft_parcing'
+#  Last modified 2022-08-04 10:14:26
 #  File has been updated.
-#  Successfully updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := obj/ft_parcing.o
+# automatic
+# % := 
+# automatic
+# * := ft_parcing
+# automatic
+# + := src/ft_parcing.c include/minishell.h include/utils.h
+# automatic
+# | := 
+# automatic
+# < := src/ft_parcing.c
+# automatic
+# ^ := src/ft_parcing.c include/minishell.h include/utils.h
+# automatic
+# ? := src/ft_parcing.c
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+# Load=8/32=25%, Rehash=0, Collisions=1/18=6%
 #  commands to execute (from `Makefile', line 36):
 	mkdir -p $(@D)
 	$(CC) $(CFLAGS) $(INC) -c $< -o $@
 	
 
 # Not a target:
-src/utils/ft_strlen.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-08-03 09:16:54
- 
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-# Not a target:
 include/utils.h:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-03 11:24:41
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-# Not a target:
-src/utils/ft_join.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-08-03 10:53:46
+#  Last modified 2022-08-04 09:36:56
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # files hash-table stats:
-# Load=16/1024=2%, Rehash=0, Collisions=0/57=0%
+# Load=17/1024=2%, Rehash=0, Collisions=0/53=0%
 # VPATH Search Paths
 
 # No `vpath' search paths.
@@ -339,6 +371,6 @@ src/utils/ft_join.c:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Thu Aug  4 06:07:29 2022
+# Finished Make data base on Tue Aug  9 11:50:43 2022
 
  

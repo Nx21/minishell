@@ -6,7 +6,7 @@
 #    By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/03 10:54:07 by nhanafi           #+#    #+#              #
-#    Updated: 2022/08/03 11:34:07 by nhanafi          ###   ########.fr        #
+#    Updated: 2022/08/04 09:37:59 by nhanafi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,14 +15,14 @@ CC = cc
 LDFLAGS= -L/Users/nhanafi/.brew/opt/readline/lib
 CPPFLAGS= -I/Users/nhanafi/.brew/opt/readline/include
 
-CFLAGS = $(CPPFLAGS) -Wall -Werror -Wextra -g -lreadline
+CFLAGS = $(CPPFLAGS) -Wall -Werror -Wextra -g
 
 INC = -I./include
 
 HEADERS = include/minishell.h include/utils.h
 
 ODIR = obj
-FILES = main utils/ft_join utils/ft_strlen
+FILES = main ft_parcing utils/ft_join utils/ft_strlen utils/instr
 
 OBJ = $(addprefix $(ODIR)/, $(FILES:=.o))
 NAME = minishell
@@ -30,7 +30,7 @@ NAME = minishell
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(LDFLAGS) $^ -o $@
+	$(CC) $(CFLAGS) -lreadline $(LDFLAGS) $^ -o $@
 
 $(ODIR)/%.o: src/%.c $(HEADERS)
 	mkdir -p $(@D)
