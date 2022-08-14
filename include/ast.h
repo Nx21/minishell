@@ -1,24 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.h                                            :+:      :+:    :+:   */
+/*   ast.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/03 09:17:28 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/14 02:11:41 by nhanafi          ###   ########.fr       */
+/*   Created: 2022/08/09 13:17:27 by nhanafi           #+#    #+#             */
+/*   Updated: 2022/08/13 23:18:19 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_H
-# define UTILS_H
+#ifndef AST_H
+# define AST_H
 
 # include <stdlib.h>
+ 
+typedef enum e_token
+{
+	W = 1,
+	ARG = 1 << 1,
+	LR = 1 << 2,
+	RR = 1 << 3,
+	DLR = 1 << 4,
+	DRR = 1 << 5,
+	
+	
+	SQ = 1 << 6,
+}	t_token;
 
-int		ft_strlen(char *str);
-char	*ft_join(char *s1, char *s2);
-int     ft_instr(char *str, char c);
-char    ft_substr(char *s, unsigned int start, size_t len);
-int     ft_linstr(char *str, char *to_find);
-// int	    ft_instr(char *str, char to_find);
+typedef struct s_node
+{
+	char			*str;
+	t_token			token;
+	struct s_node	*left;
+	struct s_node	*right;
+}   t_node;
+t_node	*add_node(char *str, t_token token);
+
 #endif

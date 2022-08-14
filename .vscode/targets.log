@@ -8,10 +8,11 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This program built for i386-apple-darwin11.3.0
  
 
-# Make data base, printed on Tue Aug  9 11:50:43 2022
+# Make data base, printed on Sun Aug 14 20:04:22 2022
 
 # Variables
 
+ 
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
 # automatic
@@ -43,15 +44,13 @@ MAKEFILE_LIST :=  Makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000ccz400337s/T/vscode-ipc-02fbdd8a-d291-4e59-8262-c63c4b6328fd.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000ccz400337s/T/vscode-ipc-a6b96d70-d632-4c05-81e1-6156acbb911e.sock
 # environment
 VSCODE_CWD = /
 # environment
-PATH = /Users/nhanafi/goinfre/.brew/bin:/Users/nhanafi/.brew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki
+Apple_PubSub_Socket_Render = /private/tmp/com.apple.launchd.eVzb6lGlta/Render
 # environment
-LSCOLORS = Gxfxcxdxbxegedabagacad
-# environment
-LaunchInstanceID = B6A8F0CF-B70D-4899-A43C-1A0CB4513053
+PATH = /usr/bin:/bin:/usr/sbin:/sbin
 # environment
 VSCODE_LOG_STACK = false
 # environment
@@ -61,11 +60,9 @@ LDFLAGS = -L/Users/nhanafi/.brew/opt/readline/lib
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.v946EiCqas/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.ue1NjbOpvV/Listeners
 # automatic
 %F = $(notdir $%)
-# environment
-HOMEBREW_TEMP = /tmp/nhanafi/Homebrew/Temp
 # environment
 VSCODE_PIPE_LOGGING = true
 # environment
@@ -77,7 +74,7 @@ VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
 HOME = /Users/nhanafi
 # default
-MAKEFILEPATH = $(shell /usr/bin/xcode-select -print-path 2>/dev/null || echo /Developer)/Makefiles
+MAKEFILEPATH := /Applications/Xcode.app/Contents/Developer/Makefiles
 # environment
 VSCODE_CODE_CACHE_PATH = /Users/nhanafi/Library/Application Support/Code/CachedData/57fd6d0195bb9b9d1b49f6da5db789060795de47
 # environment
@@ -85,9 +82,7 @@ LOGNAME = nhanafi
 # environment
 APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # makefile (from `Makefile', line 22)
-HEADERS = include/minishell.h include/utils.h
-# environment
-ZSH = /Users/nhanafi/.oh-my-zsh
+HEADERS = include/minishell.h include/utils.h include/ast.h
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # automatic
@@ -98,8 +93,6 @@ XPC_FLAGS = 0x0
 MAKE = $(MAKE_COMMAND)
 # default
 MAKECMDGOALS := all
-# environment
-HOMEBREW_CACHE = /tmp/nhanafi/Homebrew/Caches
 # environment
 SHLVL = 1
 # makefile (from `Makefile', line 13)
@@ -114,12 +107,10 @@ USER = nhanafi
 .DEFAULT_GOAL := all
 # makefile (from `Makefile', line 28)
 NAME = minishell
-# environment
-LESS = -R
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
 # default
-MAKE_COMMAND := /Library/Developer/CommandLineTools/usr/bin/make
+MAKE_COMMAND := /Applications/Xcode.app/Contents/Developer/usr/bin/make
 # makefile (from `Makefile', line 20)
 INC = -I./include
 # default
@@ -137,7 +128,7 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x10000002.Electron
+XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x10000001.Electron
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
@@ -148,12 +139,8 @@ __CF_USER_TEXT_ENCODING = 0x18CF9:0:0
 COMMAND_MODE = unix2003
 # default
 MAKEFILES := 
-# environment
-HOMEBREW_NO_AUTO_UPDATE = 1
 # automatic
 <F = $(notdir $<)
-# environment
-PAGER = less
 # environment
 LC_ALL = C
 # environment
@@ -169,11 +156,11 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 4075
+VSCODE_PID = 3964
 # makefile (from `Makefile', line 25)
-FILES = main ft_parcing utils/ft_join utils/ft_strlen utils/instr
+FILES = main ft_parcing utils/ft_join utils/ft_strlen utils/instr ast/add_node utils/substr
 # variable set hash-table stats:
-# Load=80/1024=8%, Rehash=0, Collisions=3/118=3%
+# Load=73/1024=7%, Rehash=0, Collisions=3/104=3%
 
 # Pattern-specific Variable Values
 
@@ -181,15 +168,17 @@ FILES = main ft_parcing utils/ft_join utils/ft_strlen utils/instr
 
 # Directories
 
-# include (device 16777225, inode 1036576): 4 files, no impossibilities so far.
-# . (device 16777225, inode 990215): 12 files, no impossibilities.
-# src (device 16777225, inode 1036579): 4 files, no impossibilities so far.
+# include (device 16777227, inode 1036576): 5 files, no impossibilities so far.
+# . (device 16777227, inode 990215): 13 files, no impossibilities.
+# src/utils (device 16777227, inode 1036583): 6 files, no impossibilities so far.
+# src/ast (device 16777227, inode 1378714): 3 files, no impossibilities so far.
+# src (device 16777227, inode 1036579): 5 files, no impossibilities so far.
 
-# 20 files, no impossibilities in 3 directories.
+# 32 files, no impossibilities in 5 directories.
 
 # Implicit Rules
 
-obj/%.o: src/%.c include/minishell.h include/utils.h
+obj/%.o: src/%.c include/minishell.h include/utils.h include/ast.h
 #  commands to execute (from `Makefile', line 36):
 	mkdir -p $(@D)
 	$(CC) $(CFLAGS) $(INC) -c $< -o $@
@@ -199,37 +188,70 @@ obj/%.o: src/%.c include/minishell.h include/utils.h
 
 # Files
 
+ 
 all: minishell
+#  Phony target (prerequisite of .PHONY).
 #  Command-line target.
-#  Implicit rule search has been done.
+#  Implicit rule search has not been done.
 #  File does not exist.
 #  File has been updated.
-#  Needs to be updated (-q is set).
+#  Successfully updated.
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/7=0%
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
 include/minishell.h:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-04 10:14:24
+#  Last modified 2022-08-11 21:35:17
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/utils/substr.o: src/utils/substr.c include/minishell.h include/utils.h include/ast.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `utils/substr'
+#  Last modified 2022-08-14 02:55:40
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 36):
+	mkdir -p $(@D)
+	$(CC) $(CFLAGS) $(INC) -c $< -o $@
+	
+
+.PHONY: re fclean clean all
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 src/ft_parcing.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-04 10:15:25
+#  Last modified 2022-08-14 02:48:39
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
-obj/main.o: src/main.c include/minishell.h include/utils.h
+obj/ast/add_node.o: src/ast/add_node.c include/minishell.h include/utils.h include/ast.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `ast/add_node'
+#  Last modified 2022-08-14 02:55:40
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 36):
+	mkdir -p $(@D)
+	$(CC) $(CFLAGS) $(INC) -c $< -o $@
+	
+
+obj/main.o: src/main.c include/minishell.h include/utils.h include/ast.h
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `main'
-#  Last modified 2022-08-04 10:14:26
+#  Last modified 2022-08-14 02:55:40
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -248,32 +270,67 @@ obj/main.o: src/main.c include/minishell.h include/utils.h
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-04 09:37:59
+#  Last modified 2022-08-11 21:41:09
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/utils/instr.o: src/utils/instr.c include/minishell.h include/utils.h include/ast.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `utils/instr'
+#  Last modified 2022-08-14 02:55:40
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 36):
+	mkdir -p $(@D)
+	$(CC) $(CFLAGS) $(INC) -c $< -o $@
+	
+
+# Not a target:
+src/utils/substr.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-14 01:01:41
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+minishell: obj/main.o obj/ft_parcing.o obj/utils/ft_join.o obj/utils/ft_strlen.o obj/utils/instr.o obj/ast/add_node.o obj/utils/substr.o
+#  Implicit rule search has not been done.
+#  Last modified 2022-08-14 02:55:40
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 33):
+	$(CC) $(CFLAGS) -lreadline $(LDFLAGS) $^ -o $@
+	
+
+# Not a target:
+include/ast.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-13 23:18:19
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
-obj/utils/instr.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-minishell: obj/main.o obj/ft_parcing.o obj/utils/ft_join.o obj/utils/ft_strlen.o obj/utils/instr.o
-#  Implicit rule search has not been done.
-#  Last modified 2022-08-04 10:14:26
+src/ast/add_node.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-13 23:20:02
 #  File has been updated.
-#  Needs to be updated (-q is set).
+#  Successfully updated.
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/7=0%
-#  commands to execute (from `Makefile', line 33):
-	$(CC) $(CFLAGS) -lreadline $(LDFLAGS) $^ -o $@
-	
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 fclean: clean
+#  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
-#  Modification time never checked.
+#  File does not exist.
 #  File has not been updated.
 #  commands to execute (from `Makefile', line 43):
 	rm -rf $(NAME)
@@ -282,17 +339,33 @@ fclean: clean
 # Not a target:
 src/main.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-04 10:14:11
+#  Last modified 2022-08-14 02:55:35
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
-obj/utils/ft_strlen.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/utils/instr.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-14 02:49:27
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/utils/ft_strlen.o: src/utils/ft_strlen.c include/minishell.h include/utils.h include/ast.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `utils/ft_strlen'
+#  Last modified 2022-08-14 02:55:40
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 36):
+	mkdir -p $(@D)
+	$(CC) $(CFLAGS) $(INC) -c $< -o $@
+	
 
 # Not a target:
 .DEFAULT:
@@ -301,49 +374,50 @@ obj/utils/ft_strlen.o:
 #  File has not been updated.
 
 re: fclean all
+#  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
-#  Modification time never checked.
+#  File does not exist.
 #  File has not been updated.
 
 clean:
+#  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
-#  Modification time never checked.
+#  File does not exist.
 #  File has not been updated.
 #  commands to execute (from `Makefile', line 40):
 	rm -rf $(ODIR)
 	
 
-# Not a target:
-obj/utils/ft_join.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+obj/utils/ft_join.o: src/utils/ft_join.c include/minishell.h include/utils.h include/ast.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `utils/ft_join'
+#  Last modified 2022-08-14 02:55:40
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 36):
+	mkdir -p $(@D)
+	$(CC) $(CFLAGS) $(INC) -c $< -o $@
+	
 
- 
-obj/ft_parcing.o: src/ft_parcing.c include/minishell.h include/utils.h
+# Not a target:
+src/utils/ft_strlen.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-03 09:16:54
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+obj/ft_parcing.o: src/ft_parcing.c include/minishell.h include/utils.h include/ast.h
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `ft_parcing'
-#  Last modified 2022-08-04 10:14:26
+#  Last modified 2022-08-14 02:55:40
 #  File has been updated.
-#  Needs to be updated (-q is set).
-# automatic
-# @ := obj/ft_parcing.o
-# automatic
-# % := 
-# automatic
-# * := ft_parcing
-# automatic
-# + := src/ft_parcing.c include/minishell.h include/utils.h
-# automatic
-# | := 
-# automatic
-# < := src/ft_parcing.c
-# automatic
-# ^ := src/ft_parcing.c include/minishell.h include/utils.h
-# automatic
-# ? := src/ft_parcing.c
+#  Successfully updated.
 # variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=1/18=6%
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 #  commands to execute (from `Makefile', line 36):
 	mkdir -p $(@D)
 	$(CC) $(CFLAGS) $(INC) -c $< -o $@
@@ -352,14 +426,23 @@ obj/ft_parcing.o: src/ft_parcing.c include/minishell.h include/utils.h
 # Not a target:
 include/utils.h:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-04 09:36:56
+#  Last modified 2022-08-14 02:11:41
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/utils/ft_join.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-04 09:24:34
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # files hash-table stats:
-# Load=17/1024=2%, Rehash=0, Collisions=0/53=0%
+# Load=26/1024=3%, Rehash=0, Collisions=0/117=0%
 # VPATH Search Paths
 
 # No `vpath' search paths.
@@ -371,6 +454,6 @@ include/utils.h:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Tue Aug  9 11:50:43 2022
+# Finished Make data base on Sun Aug 14 20:04:22 2022
 
  

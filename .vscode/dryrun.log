@@ -6,10 +6,15 @@ mkdir -p obj
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -g -I./include -c src/ft_parcing.c -o obj/ft_parcing.o
 mkdir -p obj/utils
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -g -I./include -c src/utils/ft_join.c -o obj/utils/ft_join.o
+ 
 mkdir -p obj/utils
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -g -I./include -c src/utils/ft_strlen.c -o obj/utils/ft_strlen.o
 mkdir -p obj/utils
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -g -I./include -c src/utils/instr.c -o obj/utils/instr.o
-cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -g -lreadline -L/Users/nhanafi/.brew/opt/readline/lib obj/main.o obj/ft_parcing.o obj/utils/ft_join.o obj/utils/ft_strlen.o obj/utils/instr.o -o minishell
+mkdir -p obj/ast
+cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -g -I./include -c src/ast/add_node.c -o obj/ast/add_node.o
+mkdir -p obj/utils
+cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -g -I./include -c src/utils/substr.c -o obj/utils/substr.o
+cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -g -lreadline -L/Users/nhanafi/.brew/opt/readline/lib obj/main.o obj/ft_parcing.o obj/utils/ft_join.o obj/utils/ft_strlen.o obj/utils/instr.o obj/ast/add_node.o obj/utils/substr.o -o minishell
 make: Leaving directory `/Users/nhanafi/Desktop/minishell'
  

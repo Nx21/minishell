@@ -6,7 +6,7 @@
 #    By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/03 10:54:07 by nhanafi           #+#    #+#              #
-#    Updated: 2022/08/04 09:37:59 by nhanafi          ###   ########.fr        #
+#    Updated: 2022/08/11 21:41:09 by nhanafi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,10 +19,10 @@ CFLAGS = $(CPPFLAGS) -Wall -Werror -Wextra -g
 
 INC = -I./include
 
-HEADERS = include/minishell.h include/utils.h
+HEADERS = include/minishell.h include/utils.h include/ast.h
 
 ODIR = obj
-FILES = main ft_parcing utils/ft_join utils/ft_strlen utils/instr
+FILES = main ft_parcing utils/ft_join utils/ft_strlen utils/instr ast/add_node utils/substr
 
 OBJ = $(addprefix $(ODIR)/, $(FILES:=.o))
 NAME = minishell
@@ -43,3 +43,5 @@ fclean: clean
 	rm -rf $(NAME)
 
 re: fclean all
+
+.PHONY : re fclean clean all

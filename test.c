@@ -103,8 +103,21 @@
 
 #include <stdio.h>
 
-int main(int argc, char *argv[], char *envp[])
+// int main(int argc, char *argv[], char *envp[])
+// {
+//     while(*envp)
+//         printf("%s\n",*envp++);
+// }
+#include <stdlib.h>
+int main()
 {
-    while(*envp)
-        printf("%s\n",*envp++);
+    char *str;
+
+    str = malloc(26);
+    int i;
+    for (i = 0; i <= 26; i++)
+        str[i] = 'a' +i;
+    str[i] = 0;
+    // free(str);
+    while(1);
 }
