@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 01:23:45 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/11 21:35:17 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/08/14 21:49:03 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@
 # include <string.h>
 # include <unistd.h>
 # include <fcntl.h>
-
+#include <sys/types.h>
+#include <sys/types.h>
+#include <sys/wait.h>
 # include "utils.h"
 # include "ast.h"
 char *ft_parcing(char *buf);

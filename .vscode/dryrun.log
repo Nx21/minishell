@@ -6,7 +6,6 @@ mkdir -p obj
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -g -I./include -c src/ft_parcing.c -o obj/ft_parcing.o
 mkdir -p obj/utils
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -g -I./include -c src/utils/ft_join.c -o obj/utils/ft_join.o
- 
 mkdir -p obj/utils
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -g -I./include -c src/utils/ft_strlen.c -o obj/utils/ft_strlen.o
 mkdir -p obj/utils
