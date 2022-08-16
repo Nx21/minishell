@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 13:17:27 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/14 21:53:17 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/08/16 03:04:18 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define AST_H
 
 # include <stdlib.h>
- 
+
 typedef enum e_token
 {
 	W = 1,

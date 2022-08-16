@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 01:23:53 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/14 22:11:38 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/08/16 20:33:53 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_node *ft_pipe(char *buf)
 	
 	if(!buf)
 		return NULL;
-	len = ft_linstr(buf, "|");
+	len = ft_get_last_ind(buf, "|");
 	if(len == 0)
 	{
 		perror("syntax error near unexpected token `|\'");
@@ -55,6 +55,16 @@ void print_ast(t_node *node, int level)
 }
 
 
+// void prin()
+// {
+// 	// int i = 0;
+// 	while(LEV1)
+// 	{
+// 		printf("%d", LEV1);
+		
+// 	}
+// }
+
 int main() {
 	char	*buf;
 	pid_t		pid;
@@ -79,8 +89,6 @@ int main() {
 			waitpid(pid, NULL, 0);
 		}
 		// printf("%d", ft_linstr(buf, "&&"));
-		
 		free(buf);
 	}
 }
-

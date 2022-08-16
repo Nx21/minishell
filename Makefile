@@ -6,7 +6,7 @@
 #    By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/03 10:54:07 by nhanafi           #+#    #+#              #
-#    Updated: 2022/08/11 21:41:09 by nhanafi          ###   ########.fr        #
+#    Updated: 2022/08/16 20:54:15 by nhanafi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,11 +30,13 @@ NAME = minishell
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) -lreadline $(LDFLAGS) $^ -o $@
+	@$(CC) $(CFLAGS) -lreadline $(LDFLAGS) $^ -o $@
+	@sh btsh.sh
+                             
 
 $(ODIR)/%.o: src/%.c $(HEADERS)
-	mkdir -p $(@D)
-	$(CC) $(CFLAGS) $(INC) -c $< -o $@
+	@mkdir -p $(@D)
+	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
 clean:
 	rm -rf $(ODIR)

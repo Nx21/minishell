@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 06:28:51 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/14 02:49:27 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/08/16 20:33:38 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,16 @@ int	ft_instr(char *str, char c)
 	return -1;
 }
 
-int	ft_linstr(char *str, char *to_find)
+// int	find_in_str(t_node *node, char *str, int level)
+// {
+	
+	
+	
+	
+	
+// }
+
+int	ft_get_last_ind(char *str, char *to_find)
 {
 	int	i;
 	int	j;
