@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 06:28:51 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/17 01:19:04 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/08/17 02:28:00 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,31 @@ int	ft_instr(char *str, char c)
 	return -1;
 }
 
+int	find_lev1(t_token *token, char *str)
+{
+	const char	*lev[] = {"||", "&&"};
+	int			max;
+	int			idx;
+	int			i;
+	
+	max = -1;
+	i = 0;
+	while(i < 2)
+	{
+		idx = ft_get_last_ind(str, (char *)lev[i]);
+		if(idx > max)
+		{
+			max = idx;
+			*token = i;
+		}
+		i++;
+	}
+	return max;
+}
+
 int	find_lev2(t_token *token, char *str)
 {
-	const char	*lev[] = {"<<", ">>","|", "<", ">"};
+	const char	*lev[] = {"<<", ">>", "|", "<", ">"};
 	int			max;
 	int			idx;
 	int			i;
