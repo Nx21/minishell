@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 13:17:27 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/16 03:04:18 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/08/17 01:19:25 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,16 @@
 
 typedef enum e_token
 {
-	W = 1,
-	ARG = 1 << 1,
-	LR = 1 << 2,
-	RR = 1 << 3,
-	DLR = 1 << 4,
-	DRR = 1 << 5,
-	PIPE = 1 << 7,
-	SQ = 1 << 6,
+	OR = 1,
+	AND = 2,
+	DLR = 3,
+	DRR = 4,
+	PIPE = 5,
+	LR = 6,
+	RR = 7,
+	W = 8,
+	ARG = 9,
+	SQ = 10,
 }	t_token;
 
 typedef struct s_node
