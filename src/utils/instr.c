@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 06:28:51 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/17 02:28:00 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/08/17 03:03:36 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	find_lev1(t_token *token, char *str)
 		if(idx > max)
 		{
 			max = idx;
-			*token = i;
+			*token = i + 1;
 		}
 		i++;
 	}
@@ -83,7 +83,7 @@ int	ft_get_last_ind(char *str, char *to_find)
 		j = 0;
 		if(!c && ft_instr("\"\'", str[i]) >= 0)
 			c = str[i];
-		else if(!c && ft_instr("(", str[i]) >= 0)
+		else if(!c && ft_instr(")", str[i]) >= 0)
 			c = str[i] - 1;
 		else if(c == str[i])
 			c = 0;
