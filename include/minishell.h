@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 01:23:45 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/14 21:49:03 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/08/17 02:18:46 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,7 @@
 # include "utils.h"
 # include "ast.h"
 char *ft_parcing(char *buf);
+
+t_node *ft_ast_lev1(char *buf);
+t_node *ft_ast_lev2(char *buf);
 #endif

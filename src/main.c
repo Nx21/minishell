@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 01:23:53 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/17 01:17:37 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/08/17 03:43:22 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,19 @@
 
 t_node *ft_cmd(char *buf)
 {
+	int	len;
+
+	while(*buf && ft_instr(" \n\t", *buf) >= 0)
+		buf++;
+	len = ft_strlen(buf) - 1;
+	while(len >= 0 && ft_instr(" \n\t", buf[len]) >= 0)
+		len--;
+	// printf("len = %d\n",len);
+	buf[len + 1] = 0;
 	return add_node(buf, W);
 }
 
-t_node *ft_pipe(char *buf)
+t_node *ft_ast_lev1(char *buf)
 {	
 	int len;
 	t_node	*node;
@@ -25,9 +34,32 @@ t_node *ft_pipe(char *buf)
 	
 	if(!buf)
 		return NULL;
-	// node = NULL;
+	len = find_lev1(&token, buf);
+	if(len == 0)
+	{
+		perror("syntax error near unexpected token `|\'");
+		exit(1);
+	}
+	buf[len - 1] = 0;
+	if(len > 0)
+	{
+		node = add_node(NULL, token);
+		node->left = ft_ast_lev1(buf);
+		node->right = ft_ast_lev2(buf + len + 1);
+		return node;
+	}
+	return ft_ast_lev2(buf);
+}
+
+t_node *ft_ast_lev2(char *buf)
+{	
+	int len;
+	t_node	*node;
+	t_token token;
+	
+	if(!buf)
+		return NULL;
 	len = find_lev2(&token, buf);
-	printf("%s LEN = %d\n ", buf , len);
 	if(len == 0)
 	{
 		perror("syntax error near unexpected token `|\'");
@@ -37,9 +69,8 @@ t_node *ft_pipe(char *buf)
 	if(len > 0)
 	{
 		node = add_node(NULL, token);
-		node->left = ft_pipe(buf);
+		node->left = ft_ast_lev2(buf);
 		node->right = ft_cmd(buf + len + 1);
-		printf("wahdbajbd : %s\n", buf + len + 1);
 		return node;
 	}
 	return ft_cmd(buf);
@@ -49,7 +80,7 @@ void print_ast(t_node *node, int level)
 {
 	for (int i = 0; i < level; i++)
 		printf("-----");
-	printf("%s       %d\n", node->str, node->token);
+	printf("|%s|       %d\n", node->str, node->token);
 	if(node->left)
 		print_ast(node->left, level + 1);
 	if(node->right)
@@ -75,7 +106,7 @@ int main() {
 			if(pid == 0)
 			{
 				printf("%s\n\n", buf);
-				head = ft_pipe(buf);
+				head = ft_ast_lev1(buf);
 				print_ast(head, 0);
 				exit(0);
 			}

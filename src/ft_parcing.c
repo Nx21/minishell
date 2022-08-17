@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 06:27:59 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/17 00:39:07 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/08/17 03:33:32 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,9 @@ char *ft_comp_line(char *buf)
 
 int	buf_end(char *buf , int len)
 {
-	// while(ft_instr(" \n\t", buf[len]) >= 0)
-	// 	len--;
+	while(len >= 0 && ft_instr(" \n\t", buf[len]) >= 0)
+		len--;
+	printf("%d  kdsmkd\n", len);
 	if(buf[len] == '|')
 		return (1);
 	if(len > 0 && buf[len] == '&' && buf[len - 1] == '&')
@@ -59,7 +60,7 @@ char *ft_parcing(char *buf)
 			return buf;
 		i++;
 	}
-	if(c)
+	if(c || buf_end(buf, i - 1))
 		return ft_comp_line(buf);
 	else
 	{
