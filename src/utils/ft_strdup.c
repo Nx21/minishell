@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   add_node.c                                         :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/09 13:29:23 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/18 02:12:11 by nhanafi          ###   ########.fr       */
+/*   Created: 2022/08/11 21:40:51 by nhanafi           #+#    #+#             */
+/*   Updated: 2022/08/18 01:52:30 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ast.h"
+#include "utils.h"
 
-t_node	*add_node(char **str, t_token token)
+char	*ft_strdup(char *src)
 {
-	t_node *node;
+	int		l;
+	char	*cpy;
+	int		i;
 
-	node = (t_node *) malloc(sizeof(t_node));
-	node->str = str;
-	node->token = token;
-	node->left = NULL;
-	node->right = NULL;
-	return node;
+	i = 0;
+	l = ft_strlen(src);
+	cpy = (char *)malloc(sizeof(char) * (l + 1));
+	if (cpy == NULL)
+		return (NULL);
+	while (src[i])
+	{
+		cpy[i] = src[i];
+		i++;
+	}
+	cpy[i] = '\0';
+	return (cpy);
 }

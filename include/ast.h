@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 13:17:27 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/17 01:19:25 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/08/18 02:13:01 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@ typedef enum e_token
 
 typedef struct s_node
 {
-	char			*str;
+	char			**str;
 	t_token			token;
 	struct s_node	*left;
 	struct s_node	*right;
 }   t_node;
-t_node	*add_node(char *str, t_token token);
+t_node	*add_node(char **str, t_token token);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 06:27:59 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/17 03:33:32 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/08/18 01:37:43 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,5 @@ char *ft_parcing(char *buf)
 	if(c || buf_end(buf, i - 1))
 		return ft_comp_line(buf);
 	else
-	{
-		// if(buf)
-		// 	printf("%s\n", buf);
 		return buf;
-	}
 }

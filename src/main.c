@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 01:23:53 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/17 04:26:13 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/08/18 02:16:47 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ t_node *ft_cmd(char *buf)
 	len = ft_strlen(buf) - 1;
 	while(len >= 0 && ft_instr(" \n\t", buf[len]) >= 0)
 		len--;
-	// printf("len = %d\n",len);
 	if(buf[0] == '(' && buf[len] == ')')
 	{
 		buf[len] = 0;
@@ -29,7 +28,7 @@ t_node *ft_cmd(char *buf)
 		return ft_ast_lev1(buf);
 	}
 	buf[len + 1] = 0;
-	return add_node(buf, W);
+	return add_node(ft_split(buf, ' '), W);
 }
 
 t_node *ft_ast_lev1(char *buf)
@@ -84,9 +83,12 @@ t_node *ft_ast_lev2(char *buf)
 
 void print_ast(t_node *node, int level)
 {
+	int i = 0;
 	for (int i = 0; i < level; i++)
 		printf("-----");
-	printf("|%s|       %d\n", node->str, node->token);
+	while(node->str && node->str[i])
+		printf("|%s|  ", node->str[i++]);
+	printf("  %d\n", node->token);
 	if(node->left)
 		print_ast(node->left, level + 1);
 	if(node->right)
