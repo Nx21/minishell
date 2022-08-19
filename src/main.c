@@ -41,7 +41,7 @@ t_node *ft_pipe(char *buf)
 		node->right = ft_cmd(buf + len + 1);
 		printf("wahdbajbd : %s\n", buf + len + 1);
 		return node;
-	}
+	} 
 	return ft_cmd(buf);
 }
 

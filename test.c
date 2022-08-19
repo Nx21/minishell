@@ -109,15 +109,36 @@
 //         printf("%s\n",*envp++);
 // }
 #include <stdlib.h>
+
+
+
+int check_error(char *str)
+{
+    static int i;
+    int re = 0;
+
+    i = 0;
+    while (str[i] == ' ')
+        i++;
+    if (str[i] == '|' || str[i]=='&')
+        return(0);
+    while(str[i])
+    {
+        if ((str[i] == '|' && str[i+1] != '|') || (str[i] == '&' && str[i+1] != '&'))
+            return(check_error(str + (i+1)));
+        i++;
+        if ( str[i] == '|' || str[i] == '&')
+        {
+            re++;
+            if(re > 2)
+                return(0);
+        }
+    }
+    return(1);
+}
+
 int main()
 {
-    char *str;
-
-    str = malloc(26);
-    int i;
-    for (i = 0; i <= 26; i++)
-        str[i] = 'a' +i;
-    str[i] = 0;
-    // free(str);
-    while(1);
+   printf("%d",check_error("ls &&  & wc"));
+   
 }
