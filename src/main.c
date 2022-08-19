@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 01:23:53 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/18 02:16:47 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/08/19 00:05:07 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,6 @@ t_node *ft_ast_lev1(char *buf)
 	if(!buf)
 		return NULL;
 	len = find_lev1(&token, buf);
-	if(len == 0)
-	{
-		perror("syntax error near unexpected token `|\'");
-		exit(1);
-	}
 	buf[len - 1] = 0;
 	if(len > 0)
 	{

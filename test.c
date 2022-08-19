@@ -113,7 +113,8 @@
 #include <stdlib.h>
 int main(int argc, char **argv, char **env)
 {
-    char *str[] = {"ls", "-l", NULL};
+    
+    char *str[] = {"ls", "*.c", NULL};
 
     // str = malloc(26);
     // int i;
