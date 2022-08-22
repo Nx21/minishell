@@ -6,11 +6,13 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 01:23:53 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/19 00:05:07 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/08/22 02:38:28 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+
 
 t_node *ft_cmd(char *buf)
 {
@@ -91,6 +93,23 @@ void print_ast(t_node *node, int level)
 	
 }
 
+int ft_echo(int flag, char **str)
+{
+	while(*str)
+	{
+		printf("%s ", *str);
+		str++;
+	}
+	if(!flag)
+		printf("\n");
+	return 1;
+}
+
+int	ft_cd(char *path)
+{
+	
+}
+
 int main() {
 	char	*buf;
 	pid_t		pid;
@@ -110,12 +129,13 @@ int main() {
 			{
 				printf("%s\n\n", buf);
 				head = ft_ast_lev1(buf);
+				
 				print_ast(head, 0);
 				exit(0);
 			}
 			waitpid(pid, NULL, 0);
+			free(buf);
 		}
 		// printf("%d", ft_linstr(buf, "&&"));
-		free(buf);
 	}
 }

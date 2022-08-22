@@ -101,27 +101,48 @@
 
 
 
-#include <stdio.h>
-#include <stdlib.h>	/* needed to define exit() */
-#include <unistd.h>	/* needed to define getpid() */
-#include <stdio.h>	
-// int main(int argc, char *argv[], char *envp[])
+// #include <stdio.h>
+// #include <stdlib.h>	/* needed to define exit() */
+// #include <unistd.h>	/* needed to define getpid() */
+// #include <stdio.h>	
+// // int main(int argc, char *argv[], char *envp[])
+// // {
+// //     while(*envp)
+// //         printf("%s\n",*envp++);
+// // }
+// #include <stdlib.h>
+// int main(int argc, char **argv, char **env)
 // {
-//     while(*envp)
-//         printf("%s\n",*envp++);
-// }
-#include <stdlib.h>
-int main(int argc, char **argv, char **env)
-{
     
-    char *str[] = {"ls", "*.c", NULL};
+//     char *str[] = {"ls", "*.c", NULL};
 
-    // str = malloc(26);
-    // int i;
-    // for (i = 0; i <= 26; i++)
-    //     str[i] = 'a' +i;
-    // str[i] = 0;
-    // free(str);
-    // while(1);
-    execve("/bin/ls", str, env);
+//     // str = malloc(26);
+//     // int i;
+//     // for (i = 0; i <= 26; i++)
+//     //     str[i] = 'a' +i;
+//     // str[i] = 0;
+//     // free(str);
+//     // while(1);
+//     execve("/bin/ls", str, env);
+// }
+
+#include <dirent.h>
+#include <stdio.h>
+ 
+int main(void)
+{
+    DIR *d;
+    struct dirent *dir;
+    d = opendir("..");
+    d = opendir("push");
+    if (d)
+    {
+        while ((dir = readdir(d)) != NULL)
+        {
+            printf("%d   ",dir->d_type);
+            printf("%s\n", dir->d_name);
+        }
+        closedir(d);
+    }
+    return(0);
 }

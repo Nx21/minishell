@@ -1,8 +1,8 @@
 Makefile
 a
 a.out
+b
 include
-libft
 minishell
 obj
 src

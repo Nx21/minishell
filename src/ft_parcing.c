@@ -6,11 +6,36 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 06:27:59 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/19 00:02:43 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/08/22 01:10:32 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+int check_error(char *str)
+{
+    static int i;
+    int re = 0;
+
+    i = 0;
+    while (str[i] == ' ')
+        i++;
+    if (str[i] == '|' || str[i]=='&')
+        return(0);
+    while(str[i])
+    {
+        if ((str[i] == '|' && str[i+1] != '|') || (str[i] == '&' && str[i+1] != '&'))
+            return(check_error(str + (i+1)));
+        i++;
+        if ( str[i] == '|' || str[i] == '&')
+        {
+            re++;
+            if(re > 2)
+                return(0);
+        }
+    }
+    return(1);
+}
 
 char *ft_comp_line(char *buf)
 {
@@ -48,6 +73,11 @@ char *ft_parcing(char *buf)
 
 	i = 0;
 	c = 0;
+	if(!check_error(buf))
+	{
+		free(buf);	
+		return NULL;
+	}
 	while(buf[i])
 	{
 		if(buf[i] == c)
