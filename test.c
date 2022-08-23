@@ -146,53 +146,19 @@
 //     }
 //     return(0);
 // }
-# include <stdio.h>
-# include <unistd.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <readline/readline.h>
-# include <readline/history.h>
-# include <string.h>
-# include <unistd.h>
-# include <fcntl.h>
-#include <sys/types.h>
-#include <sys/types.h>
-#include <sys/wait.h>
 
-#define MSGSIZE 16
-char* msg1 = "hello, world #1";
-char* msg2 = "hello, world #2";
-char* msg3 = "hello, world #3";
-  
-int main()
-{
-    char inbuf[MSGSIZE];
-    int p[2], pid, nbytes;
-  
-    if (pipe(p) < 0)
-        exit(1);
-  
-    /* continued */
-    if ((pid = fork()) == 0) {
-        write(p[1], msg1, MSGSIZE);
-        write(p[1], msg2, MSGSIZE);
-        write(p[1], msg3, MSGSIZE);
-  
-        // Adding this line will
-        // not hang the program
-        // close(p[1]);
-    }
-  
-    else {
-        // Adding this line will
-        // not hang the program
-        // close(p[1]);
-        wait(NULL);
-        while ((nbytes = read(p[0], inbuf, MSGSIZE)) > 0)
-            printf("%s\n", inbuf);
-        if (nbytes != 0)
-            exit(2);
-        printf("Finished reading\n");
-    }
-    return 0;
+
+#include <unistd.h>
+#include <stdio.h>
+int main() {
+  char cwd[256];
+
+    
+    printf("%d\n",chdir("src/ast"));
+    if (getcwd(cwd, sizeof(cwd)) == NULL)
+      perror("getcwd() error");
+    else
+      printf("current working directory is: %s\n", cwd);
+   
+   return 0;
 }

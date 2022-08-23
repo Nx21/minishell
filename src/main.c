@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 01:23:53 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/22 02:38:28 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/08/23 23:57:26 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,17 @@ int ft_echo(int flag, char **str)
 
 int	ft_cd(char *path)
 {
+	int ch;
 	
+	ch = chdir(path);
+    if(ch<0)
+	{
+    	perror("cd: no such file or directory: ");
+		perror(path);
+		perror("\n");
+		exit(1);
+	}
+	exit(0);
 }
 
 int main() {
