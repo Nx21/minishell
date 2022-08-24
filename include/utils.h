@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 09:17:28 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/18 02:16:21 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/08/25 00:43:15 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,5 @@ int	find_lev2(t_token *token, char *str);
 char	*ft_strdup(char *src);
 char	*ft_substr(char *s, int start, int len);
 char	**ft_split(char *s, char c);
+int    ft_strcmp(char *str1, char *str2);
 #endif

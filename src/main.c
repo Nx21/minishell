@@ -6,13 +6,11 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 01:23:53 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/24 02:28:19 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/08/25 00:44:40 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-
-
 
 t_node *ft_cmd(char *buf)
 {
@@ -88,8 +86,16 @@ void print_ast(t_node *node, int level)
 	
 }
 
-int ft_echo(int flag, char **str)
+int ft_echo(char **str)
 {
+	int	flag;
+
+	flag = 1;
+	if(ft_strcmp(*str, "-n"))
+	{
+		str++;
+		flag = 1;
+	}
 	while(*str)
 	{
 		printf("%s ", *str);
@@ -97,7 +103,7 @@ int ft_echo(int flag, char **str)
 	}
 	if(!flag)
 		printf("\n");
-	return 1;
+	exit(0);
 }
 
 int	ft_cd(char *path)
@@ -115,12 +121,20 @@ int	ft_cd(char *path)
 	exit(0);
 }
 
+int ft_pwd(void)
+{
+	char cwd[1024];
+
+    printf("%s\n", getcwd(cwd, sizeof(cwd)));
+	exit(0);
+}
+
 int main() {
 	char	*buf;
 	pid_t		pid;
 	t_node	*head;
 
-	while (1) 
+	while (1)
 	{
 		buf = readline("minishell-1.0$ ");
 		if(!buf)
@@ -136,7 +150,7 @@ int main() {
 				head = ft_ast_lev1(buf);
 				
 				print_ast(head, 0);
-				exit(0);
+				exit(0); 
 			}
 			waitpid(pid, NULL, 0);
 			free(buf);
