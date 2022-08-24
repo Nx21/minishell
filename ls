@@ -1,0 +1,10 @@
+Makefile
+a
+a.out
+b
+include
+minishell
+obj
+src
+test.c
+test.py

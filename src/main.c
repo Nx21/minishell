@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 01:23:53 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/23 23:57:26 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/08/24 02:28:19 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ t_node *ft_ast_lev1(char *buf)
 	if(!buf)
 		return NULL;
 	len = find_lev1(&token, buf);
-	buf[len - 1] = 0;
 	if(len > 0)
 	{
+		buf[len - 1] = 0;
 		node = add_node(NULL, token);
 		node->left = ft_ast_lev1(buf);
 		node->right = ft_ast_lev2(buf + len + 1);
@@ -62,14 +62,9 @@ t_node *ft_ast_lev2(char *buf)
 	if(!buf)
 		return NULL;
 	len = find_lev2(&token, buf);
-	if(len == 0)
-	{
-		perror("syntax error near unexpected token `|\'");
-		exit(1);
-	}
-	buf[len - (token < 4)] = 0;
 	if(len > 0)
 	{
+		buf[len - (token < 4)] = 0;
 		node = add_node(NULL, token);
 		node->left = ft_ast_lev2(buf);
 		node->right = ft_cmd(buf + len + 1);
@@ -146,6 +141,5 @@ int main() {
 			waitpid(pid, NULL, 0);
 			free(buf);
 		}
-		// printf("%d", ft_linstr(buf, "&&"));
 	}
 }
