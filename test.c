@@ -206,6 +206,19 @@ char	*ft_strdup(char *src)
 	c[i] = 0;
 	return (c);
 }
+int    ft_strcmp(char *s1, char *s2)
+{
+    size_t            i;
+
+    i = 0;
+    while (s1[i] || s2[i])
+    {
+        if (s1[i] != s2[i])
+            return (s1[i] - s2[i]);
+        i++;
+    }
+    return (0);
+}
 
 char *ft_substr(char  *s, int start,int len)
 {
@@ -243,9 +256,17 @@ t_list *env_list(char **str)
 int main(int argc, char **argv, char **envp)
 {
     t_list *head;
+    t_list *node;
 
     head = env_list(envp);
-
+    node = head;
+    while(node)
+    {
+        printf("%s\t%s\n", node->key, node->value);
+        node = node->next;
+    }
+    printf("\n\n\n\n\n");
+    head = del_one(head, "_");
     while(head)
     {
         printf("%s\t%s\n", head->key, head->value);

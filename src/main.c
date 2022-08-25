@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 01:23:53 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/25 05:57:43 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/08/25 22:11:41 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -181,13 +181,13 @@ t_list *env_list(char **str)
     return list;
 }
 
-t_list *del_one(t_list *head, char str)
+t_list *del_one(t_list *head, char *str)
 {
 	t_list	*node;
 	t_list	*next;
 
 	node = head;
-	if(!strcmp(str, node->key))
+	if(node && !ft_strcmp(str, node->key))
 	{
 		head = node->next;
 		free(node->key);
@@ -195,12 +195,12 @@ t_list *del_one(t_list *head, char str)
 		free(node);
 		return head;
 	}
-	while(node->next)
+	while(node && node->next)
 	{
-		if(!strcmp(str, node->next->key))
+		if(!ft_strcmp(str, node->next->key))
 		{
 			next = node->next;
-			node->key = next->next;
+			node->next = next->next;
 			free(next->key);
 			free(next->value);
 			free(next);
