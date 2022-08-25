@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 06:27:59 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/23 22:20:20 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/08/25 03:02:57 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ int	buf_end(char *buf , int len)
 {
 	while(len >= 0 && ft_instr(" \n\t", buf[len]) >= 0)
 		len--;
-	printf("%d  kdsmkd\n", len);
 	if(buf[len] == '|')
 		return (1);
 	if(len > 0 && buf[len] == '&' && buf[len - 1] == '&')

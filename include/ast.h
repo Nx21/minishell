@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 13:17:27 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/18 02:13:01 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/08/25 04:32:57 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,12 @@ typedef struct s_node
 	struct s_node	*right;
 }   t_node;
 t_node	*add_node(char **str, t_token token);
+
+typedef struct s_list
+{
+	char			*key;
+	char			*value;
+	struct s_node	*s_list;
+}   t_list;
 
 #endif

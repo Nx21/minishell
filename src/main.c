@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 01:23:53 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/25 00:44:40 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/08/25 03:11:27 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,7 +131,7 @@ int ft_pwd(void)
 
 int main() {
 	char	*buf;
-	pid_t		pid;
+	// pid_t		pid;
 	t_node	*head;
 
 	while (1)
@@ -143,16 +143,8 @@ int main() {
 		if(buf)
 		{
 			add_history(buf);
-			pid = fork();
-			if(pid == 0)
-			{
-				printf("%s\n\n", buf);
-				head = ft_ast_lev1(buf);
-				
-				print_ast(head, 0);
-				exit(0); 
-			}
-			waitpid(pid, NULL, 0);
+			head = ft_ast_lev1(buf);
+			print_ast(head, 0);
 			free(buf);
 		}
 	}

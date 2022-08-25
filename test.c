@@ -148,17 +148,44 @@
 // }
 
 
-#include <unistd.h>
-#include <stdio.h>
-int main() {
-  char cwd[256];
+// #include <unistd.h>
+// #include <stdio.h>
+// int main() {
+//   char cwd[256];
 
     
-    printf("%d\n",chdir("src/ast"));
-    if (getcwd(cwd, sizeof(cwd)) == NULL)
-      perror("getcwd() error");
-    else
-      printf("current working directory is: %s\n", cwd);
+//     printf("%d\n",chdir("src/ast"));
+//     if (getcwd(cwd, sizeof(cwd)) == NULL)
+//       perror("getcwd() error");
+//     else
+//       printf("current working directory is: %s\n", cwd);
    
-   return 0;
+//    return 0;
+// }
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+/* To shorten example, not using argp */
+// int main (int argc, char *argv[], char *envp[])
+// {
+//   char *home, *host;
+
+//   home = getenv("HOME");
+//   host = getenv("_");
+
+//   printf ("Your home directory is %s on %s.\n", home, host);
+
+//   return 0;
+// }
+
+#include <stdio.h>
+#include <stdlib.h>
+
+/* To shorten example, not using argp */
+int main(int argc, char **argv, char **envp)
+{
+   while(*envp)
+      printf("%s\n", *envp++);
 }
