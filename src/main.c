@@ -6,11 +6,24 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 01:23:53 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/25 03:11:27 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/08/25 05:20:37 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+char *del_spc(char *buf)
+{
+	int len;
+	
+	while(*buf && ft_instr(" \n\t", *buf) >= 0)
+		buf++;
+	len = ft_strlen(buf) - 1;
+	while(len >= 0 && ft_instr(" \n\t", buf[len]) >= 0)
+		len--;
+	buf[len + 1] = 0;
+	return buf;
+}
 
 t_node *ft_cmd(char *buf)
 {
@@ -51,6 +64,26 @@ t_node *ft_ast_lev1(char *buf)
 	return ft_ast_lev2(buf);
 }
 
+t_node	*ft_read_eof(char *eof)
+{
+	char	**buf;
+	char	*line;
+
+	eof = del_spc(eof);
+	buf =  malloc(sizeof(char *) * 2);
+	*buf = NULL;
+	line =  readline(">");
+	while(line && ft_strcmp(line, eof))
+	{
+		*buf = ft_join(*buf, "\n");
+		*buf = ft_join(*buf, line);
+		line =  readline("> ");
+	}
+	buf[1] = NULL;
+	return (add_node(buf, W));
+}
+
+
 t_node *ft_ast_lev2(char *buf)
 {	
 	int len;
@@ -65,7 +98,10 @@ t_node *ft_ast_lev2(char *buf)
 		buf[len - (token < 4)] = 0;
 		node = add_node(NULL, token);
 		node->left = ft_ast_lev2(buf);
-		node->right = ft_cmd(buf + len + 1);
+		if (token == DLR)
+			node->right = ft_read_eof(buf + len + 1);
+		else
+			node->right = ft_cmd(buf + len + 1);
 		return node;
 	}
 	return ft_cmd(buf);
@@ -129,9 +165,11 @@ int ft_pwd(void)
 	exit(0);
 }
 
-int main() {
+
+
+int main() 
+{
 	char	*buf;
-	// pid_t		pid;
 	t_node	*head;
 
 	while (1)

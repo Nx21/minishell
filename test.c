@@ -184,8 +184,71 @@
 #include <stdlib.h>
 
 /* To shorten example, not using argp */
+
+
+#include "include/ast.h"
+
+char	*ft_strdup(char *src)
+{
+	int		i;
+	char	*c;
+
+	i = 1;
+	while (src[i-1] != 0)
+		i++;
+	c = (char *)malloc(i * sizeof(char));
+	i = 0;
+	while (src[i] != 0)
+	{
+		c[i] = src[i];
+		i++;
+	}
+	c[i] = 0;
+	return (c);
+}
+
+char *ft_substr(char  *s, int start,int len)
+{
+    int i;
+    char *str;
+
+    str = (char *) malloc(sizeof(char)*(len+1));
+    i = 0;
+    while(i < len && s[i + start])
+    {
+        str[i] = s[i+start];
+        i++;
+    }
+    str[i] = 0;
+    return str;
+}
+
+t_list *env_list(char **str)
+{
+    t_list *list;
+    int     i = 0;
+
+    while((*str)[i] != '=')
+        i++;
+    list = malloc(sizeof(t_list));
+    list->key = ft_substr(*str, 0, i);
+    list->value = ft_strdup(*str + i + 1);
+    list->next = NULL;
+    if(*(str + 1))
+        list->next = env_list(str + 1);
+    return list;
+}
+
+
 int main(int argc, char **argv, char **envp)
 {
-   while(*envp)
-      printf("%s\n", *envp++);
+    t_list *head;
+
+    head = env_list(envp);
+
+    while(head)
+    {
+        printf("%s\t%s\n", head->key, head->value);
+        head = head->next;
+    }
 }
