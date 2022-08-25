@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 01:23:53 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/25 05:20:37 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/08/25 05:57:43 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -165,13 +165,62 @@ int ft_pwd(void)
 	exit(0);
 }
 
+t_list *env_list(char **str)
+{
+    t_list *list;
+    int     i = 0;
+
+    while((*str)[i] != '=')
+        i++;
+    list = malloc(sizeof(t_list));
+    list->key = ft_substr(*str, 0, i);
+    list->value = ft_strdup(*str + i + 1);
+    list->next = NULL;
+    if(*(str + 1))
+        list->next = env_list(str + 1);
+    return list;
+}
+
+t_list *del_one(t_list *head, char str)
+{
+	t_list	*node;
+	t_list	*next;
+
+	node = head;
+	if(!strcmp(str, node->key))
+	{
+		head = node->next;
+		free(node->key);
+		free(node->value);
+		free(node);
+		return head;
+	}
+	while(node->next)
+	{
+		if(!strcmp(str, node->next->key))
+		{
+			next = node->next;
+			node->key = next->next;
+			free(next->key);
+			free(next->value);
+			free(next);
+			break;
+		}
+		node = node->next;
+	}
+	return head;	
+}
 
 
-int main() 
+int main(int argc, char **argv, char **envp) 
 {
 	char	*buf;
 	t_node	*head;
+	t_list	*env;
 
+	(void)argc;
+	(void)argv;
+	env = env_list(envp);
 	while (1)
 	{
 		buf = readline("minishell-1.0$ ");
