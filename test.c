@@ -253,23 +253,59 @@ t_list *env_list(char **str)
 }
 
 
-int main(int argc, char **argv, char **envp)
+int check_error(char *str, int bool)
 {
-    t_list *head;
-    t_list *node;
+    int i;
+    int re = 0;
+    i = 0;
+    while (str[i] == ' ')
+        i++;
+    if (!str[i])
+        return(0);
+    if ((str[i] == '>' || str[i]=='<') && bool)
+        return(0);
+    if ((str[i] == '|' || str[i]=='&'))
+        return(0);
+    while(str[i])
+    {
+        if ((str[i] == '>' && str[i+1] != '>') || (str[i] == '<' && str[i+1] != '<'))
+            return(check_error(str+i+1 ,1));
+        i++;
+        if ( str[i] == '>' || str[i] == '<')
+        {
+            re++;
+            if(re > 2)
+                return(0);
+        }
+    }
+    return(1);
+}
 
-    head = env_list(envp);
-    node = head;
-    while(node)
-    {
-        printf("%s\t%s\n", node->key, node->value);
-        node = node->next;
-    }
-    printf("\n\n\n\n\n");
-    head = del_one(head, "_");
-    while(head)
-    {
-        printf("%s\t%s\n", head->key, head->value);
-        head = head->next;
-    }
+
+int main()
+{
+   printf("%d\n",check_error(">> LS >> a ",0));
+    
+
+    
+
+    // t_list *head;
+    // t_list *node;
+
+    // head = env_list(envp);
+    // node = head;
+    // while(node)
+    // {
+    //     printf("%s\t%s\n", node->key, node->value);
+    //     node = node->next;
+    // }
+    // printf("\n\n\n\n\n");
+    // head = del_one(head, "_");
+    // while(head)
+    // {
+    //     printf("%s\t%s\n", head->key, head->value);
+    //     head = head->next;
+    // }
+
+
 }
