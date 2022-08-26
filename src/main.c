@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 01:23:53 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/25 22:11:41 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/08/26 04:39:54 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ t_node	*ft_read_eof(char *eof)
 	eof = del_spc(eof);
 	buf =  malloc(sizeof(char *) * 2);
 	*buf = NULL;
-	line =  readline(">");
+	line =  readline("> ");
 	while(line && ft_strcmp(line, eof))
 	{
 		*buf = ft_join(*buf, "\n");
@@ -139,7 +139,7 @@ int ft_echo(char **str)
 	}
 	if(!flag)
 		printf("\n");
-	exit(0);
+	return (0);
 }
 
 int	ft_cd(char *path)
@@ -147,14 +147,12 @@ int	ft_cd(char *path)
 	int ch;
 	
 	ch = chdir(path);
-    if(ch<0)
+    if (ch < 0)
 	{
-    	perror("cd: no such file or directory: ");
-		perror(path);
-		perror("\n");
-		exit(1);
+    	perror("minishell: ");
+		return (1);
 	}
-	exit(0);
+	return (0);
 }
 
 int ft_pwd(void)
@@ -162,7 +160,7 @@ int ft_pwd(void)
 	char cwd[1024];
 
     printf("%s\n", getcwd(cwd, sizeof(cwd)));
-	exit(0);
+	return (0);
 }
 
 t_list *env_list(char **str)
@@ -180,6 +178,12 @@ t_list *env_list(char **str)
         list->next = env_list(str + 1);
     return list;
 }
+void del_list(t_list *node)
+{
+	free(node->key);
+	free(node->value);
+	free(node);
+}
 
 t_list *del_one(t_list *head, char *str)
 {
@@ -190,9 +194,7 @@ t_list *del_one(t_list *head, char *str)
 	if(node && !ft_strcmp(str, node->key))
 	{
 		head = node->next;
-		free(node->key);
-		free(node->value);
-		free(node);
+		del_list(node);
 		return head;
 	}
 	while(node && node->next)
@@ -201,9 +203,7 @@ t_list *del_one(t_list *head, char *str)
 		{
 			next = node->next;
 			node->next = next->next;
-			free(next->key);
-			free(next->value);
-			free(next);
+			del_list(next);
 			break;
 		}
 		node = node->next;
@@ -211,6 +211,61 @@ t_list *del_one(t_list *head, char *str)
 	return head;	
 }
 
+t_list *add_one(t_list *head, char *key, char *val, int flag)
+{
+	t_list *list;
+	t_list *node;
+
+	list = malloc(sizeof(t_list));
+	list->key = key;
+	list->value = val;
+	list->next= NULL;
+	if(!head)
+		return list;
+	node = head;
+	while(node->next)
+	{
+		if(!ft_strcmp(node->key, list->key))
+		{
+			node->key = key;
+			node->value = val;
+			free(list);
+			return head;
+		}
+		node = node->next;
+	}
+	node->next = list;
+	return head;
+}
+
+t_list	add_one_sort(t_list *head, char *key, char *val, int flag)
+{
+	t_list *list;
+	t_list *node;
+
+	list = malloc(sizeof(t_list));
+	list->key = key;
+	list->value = val;
+	list->next= NULL;
+	if(!head || )
+		return list;
+	node = head;
+	while(node->next)
+	{
+		if(ft_strcmp(node->key, list->key) > 0)
+			
+		if(!ft_strcmp(node->key, list->key))
+		{
+			node->key = key;
+			node->value = val;
+			free(list);
+			return head;
+		}
+		node = node->next;
+	}
+	node->next = list;
+	return head;
+}
 
 int main(int argc, char **argv, char **envp) 
 {
