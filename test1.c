@@ -259,6 +259,34 @@
 // }
 
 
+// int check_error(char *str, int bool)
+// {
+//     int i;
+//     int re = 0;
+//     i = 0;
+//     while (str[i] == ' ')
+//         i++;
+//     if (!str[i])
+//         return(0);
+//     if ((str[i] == '>' || str[i]=='<') && bool)
+//         return(0);
+//     if ((str[i] == '|' || str[i]=='&'))
+//         return(0);
+//     while(str[i])
+//     {
+//         if ((str[i] == '>' && str[i+1] != '>') || (str[i] == '<' && str[i+1] != '<'))
+//             return(check_error(str+i+1 ,1));
+//         i++;
+//         if ( str[i] == '>' || str[i] == '<')
+//         {
+//             re++;
+//             if(re > 2)
+//                 return(0);
+//         }
+//     }
+//     return(1);
+// }
+
 // int main(int argc, char **argv, char **envp)
 // {
 //     t_list *head;
