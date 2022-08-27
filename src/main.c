@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 01:23:53 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/26 04:39:54 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/08/27 01:02:43 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -247,13 +247,17 @@ t_list	add_one_sort(t_list *head, char *key, char *val, int flag)
 	list->key = key;
 	list->value = val;
 	list->next= NULL;
-	if(!head || )
+	if(!head || ft_strcmp(node->key, list->key) > 0)
 		return list;
 	node = head;
 	while(node->next)
 	{
-		if(ft_strcmp(node->key, list->key) > 0)
-			
+		if(ft_strcmp(node->next->key, list->key) > 0)
+		{
+			list->next = node->next;
+			node->next = list;
+			return head;
+		}
 		if(!ft_strcmp(node->key, list->key))
 		{
 			node->key = key;

@@ -194,53 +194,53 @@
 
 #include "include/ast.h"
 
-// char	*ft_strdup(char *src)
-// {
-// 	int		i;
-// 	char	*c;
+char	*ft_strdup(char *src)
+{
+	int		i;
+	char	*c;
 
-// 	i = 1;
-// 	while (src[i-1] != 0)
-// 		i++;
-// 	c = (char *)malloc(i * sizeof(char));
-// 	i = 0;
-// 	while (src[i] != 0)
-// 	{
-// 		c[i] = src[i];
-// 		i++;
-// 	}
-// 	c[i] = 0;
-// 	return (c);
-// }
-// int    ft_strcmp(char *s1, char *s2)
-// {
-//     size_t            i;
+	i = 1;
+	while (src[i-1] != 0)
+		i++;
+	c = (char *)malloc(i * sizeof(char));
+	i = 0;
+	while (src[i] != 0)
+	{
+		c[i] = src[i];
+		i++;
+	}
+	c[i] = 0;
+	return (c);
+}
+int    ft_strcmp(char *s1, char *s2)
+{
+    size_t            i;
 
-//     i = 0;
-//     while (s1[i] || s2[i])
-//     {
-//         if (s1[i] != s2[i])
-//             return (s1[i] - s2[i]);
-//         i++;
-//     }
-//     return (0);
-// }
+    i = 0;
+    while (s1[i] || s2[i])
+    {
+        if (s1[i] != s2[i])
+            return (s1[i] - s2[i]);
+        i++;
+    }
+    return (0);
+}
 
-// char *ft_substr(char  *s, int start,int len)
-// {
-//     int i;
-//     char *str;
+char *ft_substr(char  *s, int start,int len)
+{
+    int i;
+    char *str;
 
-//     str = (char *) malloc(sizeof(char)*(len+1));
-//     i = 0;
-//     while(i < len && s[i + start])
-//     {
-//         str[i] = s[i+start];
-//         i++;
-//     }
-//     str[i] = 0;
-//     return str;
-// }
+    str = (char *) malloc(sizeof(char)*(len+1));
+    i = 0;
+    while(i < len && s[i + start])
+    {
+        str[i] = s[i+start];
+        i++;
+    }
+    str[i] = 0;
+    return str;
+}
 
 // t_list *env_list(char **str)
 // {
@@ -287,68 +287,140 @@
 //     return(1);
 // }
 
-// int main(int argc, char **argv, char **envp)
-// {
-//     t_list *head;
-//     t_list *node;
+t_list	*add_one_sort(t_list *head, t_list *list)
+{
+	t_list *node;
 
-//     head = env_list(envp);
-//     node = head;
-//     while(node)
-//     {
-//         printf("%s\t%s\n", node->key, node->value);
-//         node = node->next;
-//     }
-//     printf("\n\n\n\n\n");
-//     head = del_one(head, "_");
-//     while(head)
-//     {
-//         printf("%s\t%s\n", head->key, head->value);
-//         head = head->next;
-//     }
+	if(!head || ft_strcmp(head->key, list->key) > 0)
+	{
+		list->next = head;
+		return list;
+	}
+	node = head;
+	while(node->next)
+	{
+		if(ft_strcmp(node->next->key, list->key) > 0)
+		{
+			list->next = node->next;
+			node->next = list;
+			return head;
+		}
+		if(!ft_strcmp(node->key, list->key))
+		{
+			node->key = list->key;
+			node->value = list->value;
+			free(list);
+			return head;
+		}
+		node = node->next;
+	}
+	node->next = list;
+	return head;
+}
+
+t_list *env_list_sorted(t_list *head ,char **str)
+{
+    t_list *list;
+    int     i = 0;
+
+    while((*str)[i] != '=')
+        i++;
+    list = malloc(sizeof(t_list));
+    list->key = ft_substr(*str, 0, i);
+    list->value = ft_strdup(*str + i + 1);
+    list->next = NULL;
+	head = add_one_sort(head, list);
+    if(*(str + 1))
+        return env_list(head, str + 1);
+    return head;
+}
+
+t_list *env_list(char **str)
+{
+    t_list *list;
+    int     i = 0;
+
+    while((*str)[i] != '=')
+        i++;
+    list = malloc(sizeof(t_list));
+    list->key = ft_substr(*str, 0, i);
+    list->value = ft_strdup(*str + i + 1);
+    list->next = NULL;
+    if(*(str + 1))
+        list->next = env_list1(str + 1);
+    return list;
+}
+
+int main(int argc, char **argv, char **envp)
+{
+    t_list *head;
+    t_list *node;
+
+    head = env_list(NULL, envp);
+    node = head;
+    while(node)
+    {
+        printf("declare -x %s=\"%s\"\n", node->key, node->value);
+        node = node->next;
+    }
+
+    // printf("\n\n\n\n\n");
+	// head = env_list1(envp);
+    // node = head;
+    // while(node)
+    // {
+    //     printf("%s=%s\n", node->key, node->value);
+    //     node = node->next;
+    // }
+    // head = del_one(head, "_");
+    // while(head)
+    // {
+    //     printf("%s\t%s\n", head->key, head->value);
+    //     head = head->next;
+    // }
+}
+
+// int	check_negative(char *str, int *i)
+// {
+// 	int	neg;
+
+// 	neg = 0;
+// 	while (str[*i] == ' ' || str[*i] == '\r' \
+// 		|| str[*i] == '\n' || str[*i] == '\v' \
+// 		|| str[*i] == '\f' || str[*i] == '\t')
+// 		*i += 1;
+// 	while (str[*i] == '-' || str[*i] == '+')
+// 	{
+// 		if (str[*i] == '-')
+// 			neg++;
+// 		*i += 1;
+// 	}
+// 	return (neg);
 // }
 
-int	check_negative(char *str, int *i)
-{
-	int	neg;
+// unsigned int	ft_atoi(char *str)
+// {
+// 	int	i;
+// 	int	a;
+// 	int	neg;
 
-	neg = 0;
-	while (str[*i] == ' ' || str[*i] == '\r' \
-		|| str[*i] == '\n' || str[*i] == '\v' \
-		|| str[*i] == '\f' || str[*i] == '\t')
-		*i += 1;
-	while (str[*i] == '-' || str[*i] == '+')
-	{
-		if (str[*i] == '-')
-			neg++;
-		*i += 1;
-	}
-	return (neg);
-}
+// 	i = 0;
+// 	neg = check_negative(str, &i);
+// 	a = 0;
+// 	while (str[i] >= '0' && str[i] <= '9')
+// 	{
+// 		a *= 10;
+// 		a += str[i] - 48;
+//         a %= 256;
+// 		i++;
+// 	}
+// 	if (neg % 2)
+// 		a *= -1;
+// 	return (a);
+// }
 
-unsigned int	ft_atoi(char *str)
-{
-	int	i;
-	int	a;
-	int	neg;
-
-	i = 0;
-	neg = check_negative(str, &i);
-	a = 0;
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		a *= 10;
-		a += str[i] - 48;
-        a %= 256;
-		i++;
-	}
-	if (neg % 2)
-		a *= -1;
-	return (a);
-}
-
-int main()
-{
-    printf("%d",ft_atoi("-2415613456515448") % 256);
-}
+// int main()
+// {
+//     printf("%d",ft_atoi("-2415613456515448") % 256);
+// }
 

@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 13:17:27 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/25 05:35:44 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/08/27 02:33:40 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ typedef struct s_list
 {
 	char			*key;
 	char			*value;
+	int				tag;
 	struct s_list	*next;
 }   t_list;
 

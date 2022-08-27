@@ -164,148 +164,168 @@
 // }
 
 
-#include <stdio.h>
-#include <stdlib.h>
+// #include <stdio.h>
+// #include <stdlib.h>
 
-/* To shorten example, not using argp */
-// int main (int argc, char *argv[], char *envp[])
+// /* To shorten example, not using argp */
+// // int main (int argc, char *argv[], char *envp[])
+// // {
+// //   char *home, *host;
+
+// //   home = getenv("HOME");
+// //   host = getenv("_");
+
+// //   printf ("Your home directory is %s on %s.\n", home, host);
+
+// //   return 0;
+// // }
+
+// #include <stdio.h>
+// #include <stdlib.h>
+
+// /* To shorten example, not using argp */
+
+
+// #include "include/ast.h"
+
+// char	*ft_strdup(char *src)
 // {
-//   char *home, *host;
+// 	int		i;
+// 	char	*c;
 
-//   home = getenv("HOME");
-//   host = getenv("_");
+// 	i = 1;
+// 	while (src[i-1] != 0)
+// 		i++;
+// 	c = (char *)malloc(i * sizeof(char));
+// 	i = 0;
+// 	while (src[i] != 0)
+// 	{
+// 		c[i] = src[i];
+// 		i++;
+// 	}
+// 	c[i] = 0;
+// 	return (c);
+// }
+// int    ft_strcmp(char *s1, char *s2)
+// {
+//     size_t            i;
 
-//   printf ("Your home directory is %s on %s.\n", home, host);
-
-//   return 0;
+//     i = 0;
+//     while (s1[i] || s2[i])
+//     {
+//         if (s1[i] != s2[i])
+//             return (s1[i] - s2[i]);
+//         i++;
+//     }
+//     return (0);
 // }
 
+// char *ft_substr(char  *s, int start,int len)
+// {
+//     int i;
+//     char *str;
+
+//     str = (char *) malloc(sizeof(char)*(len+1));
+//     i = 0;
+//     while(i < len && s[i + start])
+//     {
+//         str[i] = s[i+start];
+//         i++;
+//     }
+//     str[i] = 0;
+//     return str;
+// }
+
+// t_list *env_list(char **str)
+// {
+//     t_list *list;
+//     int     i = 0;
+
+//     while((*str)[i] != '=')
+//         i++;
+//     list = malloc(sizeof(t_list));
+//     list->key = ft_substr(*str, 0, i);
+//     list->value = ft_strdup(*str + i + 1);
+//     list->next = NULL;
+//     if(*(str + 1))
+//         list->next = env_list(str + 1);
+//     return list;
+// }
+
+
+// int check_error(char *str, int bool)
+// {
+//     int i;
+//     int re = 0;
+//     i = 0;
+//     while (str[i] == ' ')
+//         i++;
+//     if (!str[i])
+//         return(0);
+//     if ((str[i] == '>' || str[i]=='<') && bool)
+//         return(0);
+//     if ((str[i] == '|' || str[i]=='&'))
+//         return(0);
+//     while(str[i])
+//     {
+//         if ((str[i] == '>' && str[i+1] != '>') || (str[i] == '<' && str[i+1] != '<'))
+//             return(check_error(str+i+1 ,1));
+//         i++;
+//         if ( str[i] == '>' || str[i] == '<')
+//         {
+//             re++;
+//             if(re > 2)
+//                 return(0);
+//         }
+//     }
+//     return(1);
+// }
+
+
+// int main()
+// {
+//    printf("%d\n",check_error(">> LS >> a ",0));
+    
+
+    
+
+//     // t_list *head;
+//     // t_list *node;
+
+//     // head = env_list(envp);
+//     // node = head;
+//     // while(node)
+//     // {
+//     //     printf("%s\t%s\n", node->key, node->value);
+//     //     node = node->next;
+//     // }
+//     // printf("\n\n\n\n\n");
+//     // head = del_one(head, "_");
+//     // while(head)
+//     // {
+//     //     printf("%s\t%s\n", head->key, head->value);
+//     //     head = head->next;
+//     // }
+
+
+// }
+
+
 #include <stdio.h>
+#include <unistd.h>
 #include <stdlib.h>
-
-/* To shorten example, not using argp */
-
-
-#include "include/ast.h"
-
-char	*ft_strdup(char *src)
-{
-	int		i;
-	char	*c;
-
-	i = 1;
-	while (src[i-1] != 0)
-		i++;
-	c = (char *)malloc(i * sizeof(char));
-	i = 0;
-	while (src[i] != 0)
-	{
-		c[i] = src[i];
-		i++;
-	}
-	c[i] = 0;
-	return (c);
-}
-int    ft_strcmp(char *s1, char *s2)
-{
-    size_t            i;
-
-    i = 0;
-    while (s1[i] || s2[i])
-    {
-        if (s1[i] != s2[i])
-            return (s1[i] - s2[i]);
-        i++;
-    }
-    return (0);
-}
-
-char *ft_substr(char  *s, int start,int len)
-{
-    int i;
-    char *str;
-
-    str = (char *) malloc(sizeof(char)*(len+1));
-    i = 0;
-    while(i < len && s[i + start])
-    {
-        str[i] = s[i+start];
-        i++;
-    }
-    str[i] = 0;
-    return str;
-}
-
-t_list *env_list(char **str)
-{
-    t_list *list;
-    int     i = 0;
-
-    while((*str)[i] != '=')
-        i++;
-    list = malloc(sizeof(t_list));
-    list->key = ft_substr(*str, 0, i);
-    list->value = ft_strdup(*str + i + 1);
-    list->next = NULL;
-    if(*(str + 1))
-        list->next = env_list(str + 1);
-    return list;
-}
-
-
-int check_error(char *str, int bool)
-{
-    int i;
-    int re = 0;
-    i = 0;
-    while (str[i] == ' ')
-        i++;
-    if (!str[i])
-        return(0);
-    if ((str[i] == '>' || str[i]=='<') && bool)
-        return(0);
-    if ((str[i] == '|' || str[i]=='&'))
-        return(0);
-    while(str[i])
-    {
-        if ((str[i] == '>' && str[i+1] != '>') || (str[i] == '<' && str[i+1] != '<'))
-            return(check_error(str+i+1 ,1));
-        i++;
-        if ( str[i] == '>' || str[i] == '<')
-        {
-            re++;
-            if(re > 2)
-                return(0);
-        }
-    }
-    return(1);
-}
-
+#include <fcntl.h>
+#include <sys/wait.h>
 
 int main()
 {
-   printf("%d\n",check_error(">> LS >> a ",0));
-    
+	int fd = open("out.txt", O_CREAT | O_WRONLY, 0777);
+	int	stdout_fd = dup(STDOUT_FILENO);
 
-    
+	dup2(fd, STDOUT_FILENO);
+	printf("This test sould now go to the file out.txt\n");
+	fflush(stdout);
 
-    // t_list *head;
-    // t_list *node;
-
-    // head = env_list(envp);
-    // node = head;
-    // while(node)
-    // {
-    //     printf("%s\t%s\n", node->key, node->value);
-    //     node = node->next;
-    // }
-    // printf("\n\n\n\n\n");
-    // head = del_one(head, "_");
-    // while(head)
-    // {
-    //     printf("%s\t%s\n", head->key, head->value);
-    //     head = head->next;
-    // }
-
-
+	dup2(stdout_fd, STDOUT_FILENO);
+	printf("This test sould now go to the STDOUT\n");
 }
