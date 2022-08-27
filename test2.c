@@ -49,9 +49,10 @@ int    ft_exit(char **str)
 
 
 
+
 int main()
 {
     char *tmp[] = {"exit","5", NULL};
     ft_exit(tmp);
 }
-    
+     
