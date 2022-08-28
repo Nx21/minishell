@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 03:40:46 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/28 04:38:09 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/08/29 00:24:03 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,15 @@ int excu_ast(t_node *node, t_data *data)
         return ft_and(node, data);
     // if(node->token == DRR)
     //     return ft_drr(node, data);
-    // if(node->token == PIPE)
-    //     return ft_pipe(node, data);
+    if(node->token == PIPE)
+        return ft_pipe(node, data);
     // if(node->token == RR
     //     return ft_rr(node, data);
     // if(node->token == DLR)
     //     return ft_dlr(node, data);
     // if(node->token == LR)
     //     return ft_lr(node, data);
-    // if(node->token == W)
-    //     return ft_excu(node, data);
+    if(node->token == W)
+        return exe(node, data);
     return (0);   
 }
