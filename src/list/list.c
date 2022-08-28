@@ -6,9 +6,11 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 02:33:07 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/27 02:34:21 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/08/28 01:14:40 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "env.h"
 
 t_list	*add_one_sort(t_list *head, t_list *list)
 {
@@ -55,7 +57,7 @@ t_list *env_list_sorted(t_list *head ,char **str)
     list->next = NULL;
 	head = add_one_sort(head, list);
     if(*(str + 1))
-        return env_list(head, str + 1);
+        return env_list_sorted(head, str + 1); 
     return head;
 }
 
@@ -72,6 +74,38 @@ t_list *env_list(char **str)
     list->tag = 1;
     list->next = NULL;
     if(*(str + 1))
-        list->next = env_list1(str + 1);
+        list->next = env_list(str + 1);
     return list;
+}
+void del_list(t_list *node)
+{
+	free(node->key);
+	free(node->value);
+	free(node);
+}
+
+t_list *del_one(t_list *head, char *str)
+{
+	t_list	*node;
+	t_list	*next;
+
+	node = head;
+	if(node && !ft_strcmp(str, node->key))
+	{
+		head = node->next;
+		del_list(node);
+		return head;
+	}
+	while(node && node->next)
+	{
+		if(!ft_strcmp(str, node->next->key))
+		{
+			next = node->next;
+			node->next = next->next;
+			del_list(next);
+			break;
+		}
+		node = node->next;
+	}
+	return head;	
 }

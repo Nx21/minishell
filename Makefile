@@ -6,7 +6,7 @@
 #    By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/03 10:54:07 by nhanafi           #+#    #+#              #
-#    Updated: 2022/08/26 02:31:11 by nhanafi          ###   ########.fr        #
+#    Updated: 2022/08/28 02:17:30 by nhanafi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,11 +19,15 @@ CFLAGS = $(CPPFLAGS) -Wall -Werror -Wextra
 
 INC = -I./include
 
-HEADERS = include/minishell.h include/utils.h include/ast.h
+HEADERS = include/minishell.h include/utils.h include/ast.h include/env.h
 
 ODIR = obj
-FILES = main ft_parcing utils/ft_join utils/ft_strlen utils/instr\
-	ast/add_node utils/ft_split utils/ft_strdup utils/ft_substr utils/ft_strcmp utils/ft_putstr_fd
+FILES = main pars/check_err pars/ft_comp pars/ft_parsing pars/ft_comp\
+	list/list\
+	utils/ft_atoi utils/ft_join utils/ft_putstr_fd utils/ft_split\
+	utils/ft_strcmp utils/ft_strdup utils/ft_strlen utils/ft_substr utils/instr\
+	excu/ft_cd excu/ft_echo excu/ft_exit excu/ft_pwd\
+	ast/add_node ast/ft_cmd ast/ft_lvl1 ast/ft_lvl2 ast/ft_lvl3 ast/read_eof
 
 OBJ = $(addprefix $(ODIR)/, $(FILES:=.o))
 NAME = minishell

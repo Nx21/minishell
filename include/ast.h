@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 13:17:27 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/27 02:33:40 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/08/28 02:15:02 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 # define AST_H
 
 # include <stdlib.h>
-
+# include "utils.h"
 typedef enum e_token
 {
 	OR = 1,
 	AND = 2,
-	DLR = 3,
-	DRR = 4,
-	PIPE = 5,
-	LR = 6,
-	RR = 7,
+	DRR = 3,
+	PIPE = 4,
+	RR = 5,
+	DLR = 6,
+	LR = 7,
 	W = 8,
 	ARG = 9,
 	SQ = 10,
@@ -38,12 +38,10 @@ typedef struct s_node
 }   t_node;
 t_node	*add_node(char **str, t_token token);
 
-typedef struct s_list
-{
-	char			*key;
-	char			*value;
-	int				tag;
-	struct s_list	*next;
-}   t_list;
-
+t_node	*ft_cmd(char *buf);
+t_node	*add_node(char **str, t_token token);
+t_node *ft_ast_lev1(char *buf);
+t_node *ft_ast_lev2(char *buf);
+t_node *ft_ast_lev3(char *buf);
+t_node	*ft_read_eof(char *eof);
 #endif

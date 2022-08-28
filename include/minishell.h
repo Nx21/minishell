@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 01:23:45 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/17 02:18:46 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/08/28 01:21:42 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,19 @@
 #include <sys/wait.h>
 # include "utils.h"
 # include "ast.h"
+# include "env.h"
 char *ft_parcing(char *buf);
 
 t_node *ft_ast_lev1(char *buf);
 t_node *ft_ast_lev2(char *buf);
+int		ft_echo(char **str);
+int		ft_exit(char **str);
+int		ft_pwd(void);
+t_node	*ft_read_eof(char *eof);
+char    *ft_comp_oq(char *buf);
+char    *ft_comp_op(char *buf);
+t_node	*ft_read_eof(char *eof);
+int     check_err_1(char *str);
+int     check_err_2(char *str, int bool);
+
 #endif

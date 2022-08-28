@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 04:11:13 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/26 04:11:33 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/08/28 00:35:16 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ unsigned int	ft_atoi(char *str)
 	int	a;
 	int	neg;
 
+	if(!str)
+		return (0);
 	i = 0;
 	neg = check_negative(str, &i);
 	a = 0;
