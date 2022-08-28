@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 00:17:26 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/28 01:17:20 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/08/28 03:21:21 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,13 @@ int check_err_2(char *str, int bool)
     {
         if ((str[i] == '>' && str[i+1] != '>') || (str[i] == '<' && str[i+1] != '<'))
             return(check_err_2(str+i+1 ,1));
-        i++;
         if ( str[i] == '>' || str[i] == '<')
         {
             re++;
-            if(re > 2)
+            if(re > 1)
                 return(0);
         }
+        i++;
     }
     return(1);
 }

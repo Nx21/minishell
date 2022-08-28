@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 13:17:27 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/28 02:15:02 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/08/28 03:52:45 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,5 @@ t_node *ft_ast_lev1(char *buf);
 t_node *ft_ast_lev2(char *buf);
 t_node *ft_ast_lev3(char *buf);
 t_node	*ft_read_eof(char *eof);
+
 #endif

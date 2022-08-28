@@ -1,1 +1,11 @@
-/Users/nhanafi/Desktop/minishell
+Makefile
+a
+include
+minishell
+obj
+src
+test.c
+test.py
+test1.c
+test2.c
+test3.c

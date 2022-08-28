@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 02:13:01 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/28 02:22:22 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/08/28 03:24:14 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	find_lev3(t_token *token, char *str)
 {
-	const char	*lev[] = {"<<","<"};
+	const char	*lev[] = {"<<", "<"};
 	int			max;
 	int			idx;
 	int			i;
@@ -27,7 +27,7 @@ int	find_lev3(t_token *token, char *str)
 		if(idx > max)
 		{
 			max = idx;
-			*token = i + 7;
+			*token = i + 6;
 		}
 		i++;
 	}
@@ -45,7 +45,7 @@ t_node *ft_ast_lev3(char *buf)
 	len = find_lev3(&token, buf);
 	if(len > 0)
 	{
-		buf[len - (token < 7)] = 0;
+		buf[len - (token == 6)] = 0;
 		node = add_node(NULL, token);
 		node->left = ft_ast_lev3(buf);
 		if (token == DLR)

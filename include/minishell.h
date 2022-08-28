@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 01:23:45 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/28 01:21:42 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/08/28 04:35:36 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,9 @@ char    *ft_comp_op(char *buf);
 t_node	*ft_read_eof(char *eof);
 int     check_err_1(char *str);
 int     check_err_2(char *str, int bool);
+
+int	excu_ast(t_node *node, t_data *data);
+int ft_or(t_node *node, t_data *data);
+int ft_and(t_node *node, t_data *data);
 
 #endif
