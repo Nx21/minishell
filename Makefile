@@ -6,14 +6,14 @@
 #    By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/03 10:54:07 by nhanafi           #+#    #+#              #
-#    Updated: 2022/08/29 00:08:22 by nhanafi          ###   ########.fr        #
+#    Updated: 2022/08/29 02:00:46 by nhanafi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
-
-LDFLAGS= -L/Users/nhanafi/.brew/opt/readline/lib
-CPPFLAGS= -I/Users/nhanafi/.brew/opt/readline/include
+RLP=$(shell brew --prefix readline)
+LDFLAGS= -L$(RLP)/lib
+CPPFLAGS= -I$(RLP)/include
 
 CFLAGS = $(CPPFLAGS) -Wall -Werror -Wextra
 

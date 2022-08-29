@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 00:06:14 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/29 00:49:44 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/08/29 01:43:26 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,15 @@ char		*get_command(char **paths, char *command)
 int exe(t_node *node, t_data *data)
 {
     char **s;
+    int pid;
 
-    s = get_path(getenv("PATH"));
-    execv(get_command(s, node->str[0]),node->str);
-    (void) data;
-    return 0;
+    pid = fork();
+    if(pid == 0)
+    {
+        s = get_path(getenv("PATH"));
+        execve(get_command(s, node->str[0]),node->str, data->env);
+        (void) data;
+    }
+    wait(0);
+    return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 01:23:53 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/29 00:23:21 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/08/29 01:45:16 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,14 @@ int main(int argc, char **argv, char **envp)
 {
 	char	*buf;
 	t_node	*head;
-	t_list	*env;
+	// t_list	*env;
+	t_data	*data;
 
 	(void)argc;
 	(void)argv;
-	env = env_list(envp);
+	// env = env_list(envp);
+	data = malloc(sizeof(t_data));
+	data->env =  envp;
 	while (1)
 	{
 		buf = readline("minishell-1.0$ ");
@@ -50,7 +53,7 @@ int main(int argc, char **argv, char **envp)
 			add_history(buf);
 			head = ft_ast_lev1(buf);
 			// print_ast(head, 0);
-			excu_ast(head, NULL);
+			excu_ast(head, data);
 			free(buf);
 		}
 	}

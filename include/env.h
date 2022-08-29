@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 01:14:17 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/28 02:29:26 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/08/29 01:45:06 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef struct s_list
 typedef struct s_data
 {
     t_list  *sorted_env;
-    t_list  *env;
+    char  **env;
     t_list  last;
 } t_data;
 
