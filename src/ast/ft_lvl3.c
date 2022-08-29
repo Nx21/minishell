@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lvl3.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rjaanit <rjaanit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 02:13:01 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/28 03:24:14 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/08/29 23:13:23 by rjaanit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,20 @@
 
 int	find_lev3(t_token *token, char *str)
 {
-	const char	*lev[] = {"<<", "<"};
+	const char	*lev[] = {"<<", ">>", "<", ">"};
 	int			max;
 	int			idx;
 	int			i;
 	
 	max = -1;
 	i = 0;
-	while(i < 2)
+	while(i < 4)
 	{
 		idx = ft_get_last_ind(str, (char *)lev[i]);
 		if(idx > max)
 		{
 			max = idx;
-			*token = i + 6;
+			*token = i + 4;
 		}
 		i++;
 	}
@@ -45,7 +45,7 @@ t_node *ft_ast_lev3(char *buf)
 	len = find_lev3(&token, buf);
 	if(len > 0)
 	{
-		buf[len - (token == 6)] = 0;
+		buf[len - (token == 4 || token == 5)] = 0;
 		node = add_node(NULL, token);
 		node->left = ft_ast_lev3(buf);
 		if (token == DLR)

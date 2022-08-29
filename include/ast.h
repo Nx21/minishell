@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ast.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rjaanit <rjaanit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 13:17:27 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/28 03:52:45 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/08/29 23:14:07 by rjaanit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ typedef enum e_token
 {
 	OR = 1,
 	AND = 2,
-	DRR = 3,
-	PIPE = 4,
-	RR = 5,
-	DLR = 6,
-	LR = 7,
+	PIPE = 3,
+	DLR = 4,
+	DRR = 5,
+	LR = 6,
+	RR = 7,
 	W = 8,
 	ARG = 9,
 	SQ = 10,

@@ -14,15 +14,9 @@
 
 int ft_pipe(t_node *node, t_data *data)
 {
-    int fd[2];
+   
     int pid;
-    // int state = 0;
 
-    if (pipe(fd) < 0)
-    {
-        perror("minishell: ");
-        return (1);
-    }
     pid = fork();
     (void) data;
     (void) node;

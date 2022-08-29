@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rjaanit <rjaanit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 01:23:45 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/29 00:24:26 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/08/29 22:39:46 by rjaanit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,8 @@ int ft_or(t_node *node, t_data *data);
 int ft_and(t_node *node, t_data *data);
 int exe(t_node *node, t_data *data);
 int ft_pipe(t_node *node, t_data *data);
+int     ft_drr(t_node *node, t_data *data);
+int     ft_rr(t_node *node, t_data *data);
+int     ft_dlr(t_node *node, t_data *data);
+int     ft_lr(t_node *node, t_data *data);
 #endif

@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_or_and.c                                        :+:      :+:    :+:   */
+/*   ft_lr.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rjaanit <rjaanit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/28 03:47:53 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/29 19:33:01 by rjaanit          ###   ########.fr       */
+/*   Created: 2022/08/29 23:21:19 by rjaanit           #+#    #+#             */
+/*   Updated: 2022/08/29 23:21:20 by rjaanit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int ft_or(t_node *node, t_data *data)
+int     ft_lr(t_node *node, t_data *data)
 {
-    int state;
+    int back_fd;
+    int status;
+    (void) data;
 
-    state = excu_ast(node->left , data);
-    if(state)
-        return excu_ast(node->right, data);
-    return state;
-}
-
-int ft_and(t_node *node, t_data *data)
-{
-    int state;
-
-    state = excu_ast(node->left , data);
-    if(!state)
-        return excu_ast(node->right, data);
-    return (state);
+    int fd = open(node->right->str[0], O_RDWR  , 0777);
+    back_fd = dup(STDIN_FILENO);
+    dup2(fd,STDIN_FILENO);
+    close(fd);
+    status =  excu_ast(node->left, data);
+    dup2(back_fd,STDIN_FILENO);
+    return(status);
 }

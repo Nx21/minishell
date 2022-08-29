@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+         #
+#    By: rjaanit <rjaanit@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/03 10:54:07 by nhanafi           #+#    #+#              #
-#    Updated: 2022/08/29 02:00:46 by nhanafi          ###   ########.fr        #
+#    Updated: 2022/08/29 22:39:59 by rjaanit          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,13 +27,14 @@ FILES = main pars/check_err pars/ft_comp pars/ft_parsing pars/ft_comp\
 	utils/ft_atoi utils/ft_join utils/ft_putstr_fd utils/ft_split\
 	utils/ft_strcmp utils/ft_strdup utils/ft_strlen utils/ft_substr utils/instr\
 	excu/ft_cd excu/ft_echo excu/ft_exit excu/ft_pwd excu/exec_ast excu/ft_or_and\
-	excu/ft_pipe excu/get_path\
+	excu/ft_pipe excu/get_path excu/ft_drr excu/ft_rr excu/ft_dlr excu/ft_lr\
 	ast/add_node ast/ft_cmd ast/ft_lvl1 ast/ft_lvl2 ast/ft_lvl3 ast/read_eof
 
 OBJ = $(addprefix $(ODIR)/, $(FILES:=.o))
 NAME = minishell
 
 all: $(NAME)
+	echo $(RLP)
 
 $(NAME): $(OBJ)
 	@$(CC) $(CFLAGS) -lreadline $(LDFLAGS) $^ -o $@
