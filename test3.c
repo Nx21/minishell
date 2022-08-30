@@ -35,6 +35,6 @@ int main( int argc, char *argv[] )  {
             close( fd1[ 1 ] );
             execlp( "/bin/ls", "ls", NULL );
         }
-}
+	}
     return 0;
 }

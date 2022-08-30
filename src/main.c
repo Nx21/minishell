@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 01:23:53 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/29 01:45:16 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/08/29 23:33:30 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ int main(int argc, char **argv, char **envp)
 		{
 			add_history(buf);
 			head = ft_ast_lev1(buf);
-			// print_ast(head, 0);
-			excu_ast(head, data);
+			print_ast(head, 0);
+			// excu_ast(head, data);
 			free(buf);
 		}
 	}

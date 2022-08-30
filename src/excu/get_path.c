@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 00:06:14 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/29 01:43:26 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/08/29 21:31:55 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,7 @@ char		*get_command(char **paths, char *command)
 	{
 		join_path = ft_join(*paths,"/");
 		get = ft_join(join_path,command);
-		// free(join_path);
-		res = access(get,X_OK);
+		res = access(get, X_OK);
 		if(!res)
 			break;
 		// free(get);
@@ -48,14 +47,18 @@ int exe(t_node *node, t_data *data)
 {
     char **s;
     int pid;
+    int state;
 
     pid = fork();
     if(pid == 0)
     {
         s = get_path(getenv("PATH"));
-        execve(get_command(s, node->str[0]),node->str, data->env);
-        (void) data;
+        state = execve(get_command(s, node->str[0]),node->str, data->env);
+        ft_putstr_fd(node->str[0], 2);
+        ft_putstr_fd(": command not found\n", 2);
+        free(s);
+        exit(state);
     }
-    wait(0);
-    return (1);
+    waitpid(pid,&state,0);
+    return (state);
 }

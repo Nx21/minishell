@@ -1,6 +1,9 @@
 {
     "makefile.extensionOutputFolder": "./.vscode",
     "files.associations": {
-        "iterator": "c"
+        "iterator": "c",
+        "dirent.h": "c",
+        "locale": "c",
+        "string": "c"
     }
 }

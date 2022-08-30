@@ -1,18 +1,94 @@
-make --dry-run --keep-going --print-directory
+make --dry-run --always-make --keep-going --print-directory
 make: Entering directory `/Users/nhanafi/Desktop/minishell'
+mkdir -p obj
+cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/main.c -o obj/main.o
+ 
+mkdir -p obj/pars
+cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/pars/check_err.c -o obj/pars/check_err.o
+ 
+mkdir -p obj/pars
+cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/pars/ft_comp.c -o obj/pars/ft_comp.o
+ 
+mkdir -p obj/pars
+cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/pars/ft_parsing.c -o obj/pars/ft_parsing.o
+mkdir -p obj/list
+cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/list/list.c -o obj/list/list.o
+ 
+mkdir -p obj/utils
+cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/utils/ft_atoi.c -o obj/utils/ft_atoi.o
+ 
+mkdir -p obj/utils
+cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/utils/ft_join.c -o obj/utils/ft_join.o
+ 
+mkdir -p obj/utils
+cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/utils/ft_putstr_fd.c -o obj/utils/ft_putstr_fd.o
+ 
+mkdir -p obj/utils
+cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/utils/ft_split.c -o obj/utils/ft_split.o
+ 
+mkdir -p obj/utils
+cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/utils/ft_strcmp.c -o obj/utils/ft_strcmp.o
+ 
+mkdir -p obj/utils
+cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/utils/ft_strdup.c -o obj/utils/ft_strdup.o
+ 
+mkdir -p obj/utils
+cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/utils/ft_strlen.c -o obj/utils/ft_strlen.o
+ 
+mkdir -p obj/utils
+cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/utils/ft_substr.c -o obj/utils/ft_substr.o
+ 
+mkdir -p obj/utils
+cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/utils/instr.c -o obj/utils/instr.o
+ 
+mkdir -p obj/excu
+cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/excu/ft_cd.c -o obj/excu/ft_cd.o
+ 
+mkdir -p obj/excu
+cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/excu/ft_echo.c -o obj/excu/ft_echo.o
+ 
+mkdir -p obj/excu
+cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/excu/ft_exit.c -o obj/excu/ft_exit.o
+ 
+mkdir -p obj/excu
+cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/excu/ft_pwd.c -o obj/excu/ft_pwd.o
+ 
 mkdir -p obj/excu
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/excu/exec_ast.c -o obj/excu/exec_ast.o
  
 mkdir -p obj/excu
+cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/excu/ft_or_and.c -o obj/excu/ft_or_and.o
+ 
+mkdir -p obj/excu
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/excu/ft_pipe.c -o obj/excu/ft_pipe.o
+ 
 mkdir -p obj/excu
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/excu/get_path.c -o obj/excu/get_path.o
+ 
+mkdir -p obj/ast
+cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/ast/add_node.c -o obj/ast/add_node.o
+ 
+mkdir -p obj/ast
+cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/ast/ft_cmd.c -o obj/ast/ft_cmd.o
+ 
+mkdir -p obj/ast
+cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/ast/ft_lvl1.c -o obj/ast/ft_lvl1.o
+ 
+mkdir -p obj/ast
+cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/ast/ft_lvl2.c -o obj/ast/ft_lvl2.o
+ 
+mkdir -p obj/ast
+cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/ast/ft_lvl3.c -o obj/ast/ft_lvl3.o
+ 
+mkdir -p obj/ast
+cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/ast/read_eof.c -o obj/ast/read_eof.o
  
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -lreadline -L/Users/nhanafi/.brew/opt/readline/lib obj/main.o obj/pars/check_err.o obj/pars/ft_comp.o obj/pars/ft_parsing.o obj/list/list.o obj/utils/ft_atoi.o obj/utils/ft_join.o obj/utils/ft_putstr_fd.o obj/utils/ft_split.o obj/utils/ft_strcmp.o obj/utils/ft_strdup.o obj/utils/ft_strlen.o obj/utils/ft_substr.o obj/utils/instr.o obj/excu/ft_cd.o obj/excu/ft_echo.o obj/excu/ft_exit.o obj/excu/ft_pwd.o obj/excu/exec_ast.o obj/excu/ft_or_and.o obj/excu/ft_pipe.o obj/excu/get_path.o obj/ast/add_node.o obj/ast/ft_cmd.o obj/ast/ft_lvl1.o obj/ast/ft_lvl2.o obj/ast/ft_lvl3.o obj/ast/read_eof.o -o minishell
 echo " ____ _______ _____ _    _  "
 echo "|  _ \__   __/ ____| |  | | "
 echo "| |_) | | | | (___ | |__| | " 
 echo "|  _ <  | |  \___ \|  __  | "
+ 
 echo "| |_) | | |  ____) | |  | | "
 echo "|____/  |_| |_____/|_|  |_| "                        
 make: Leaving directory `/Users/nhanafi/Desktop/minishell'
