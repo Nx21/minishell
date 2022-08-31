@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lr.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rjaanit <rjaanit@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 23:21:19 by rjaanit           #+#    #+#             */
-/*   Updated: 2022/08/29 23:21:20 by rjaanit          ###   ########.fr       */
+/*   Updated: 2022/08/31 02:21:05 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@ int     ft_lr(t_node *node, t_data *data)
     (void) data;
 
     int fd = open(node->right->str[0], O_RDWR  , 0777);
+    if(fd < 0)
+    {
+        perror("minishell: ");
+        return 1;
+    }
     back_fd = dup(STDIN_FILENO);
     dup2(fd,STDIN_FILENO);
     close(fd);

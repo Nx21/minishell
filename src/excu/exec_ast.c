@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exec_ast.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rjaanit <rjaanit@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 03:40:46 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/29 22:39:09 by rjaanit          ###   ########.fr       */
+/*   Updated: 2022/08/31 01:58:30 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ int excu_ast(t_node *node, t_data *data)
         return ft_rr(node, data);
     if(node->token == LR)
         return ft_lr(node, data);
-    // if(node->token == DLR)
-    //     return ft_lr(node, data);
+    if(node->token == DLR)
+        return ft_dlr(node, data);
     if(node->token == W)
         return exe(node, data);
     return (0);   

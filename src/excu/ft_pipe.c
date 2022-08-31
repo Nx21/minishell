@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 03:56:28 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/29 01:45:43 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/08/31 02:19:08 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,30 +47,6 @@ int ft_pipe(t_node *node, t_data *data)
         exit(0);
     }
     wait(0);
-    // if(pid[0] < 0)
-    // {
-    //     perror("minishell: ");
-    //     return (1);
-    // }
-    // if(pid[0] == 0)
-    // {
-    //     dup2(fd[1],1);
-    //     close(fd[0]);
-    //     ft_putstr_fd("ls", fd[1]);
-    //     exit(0);        
-    // }
-    // if(pid[1] == 0)
-    // {
-    //     dup2(fd[0],0);
-    //     // close(fd[0]);
-    //     // close(fd[1]);
-    //     excu_ast(node->right, data);
-    //     exit(0);
-    // }
-    // waitpid(pid[0], NULL,0);
-    // waitpid(pid[1], NULL,0);
-    // close(fd[0]);
-    // close(fd[1]);
     return 1;
 }
 
