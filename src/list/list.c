@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 02:33:07 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/28 01:14:40 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/03 05:25:49 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,3 +109,17 @@ t_list *del_one(t_list *head, char *str)
 	}
 	return head;	
 }
+
+char	*find_one(t_list *head, char *str)
+{
+	if(ft_strcmp("?", str) == 0)
+		ft_strdup("1");
+	while(head)
+	{
+		if(ft_strcmp(head->key, str) == 0)
+			return ft_strdup(head->value);
+		head = head->next;
+	}
+	return ft_strdup("");
+}
+

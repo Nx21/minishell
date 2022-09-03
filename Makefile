@@ -6,7 +6,7 @@
 #    By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/03 10:54:07 by nhanafi           #+#    #+#              #
-#    Updated: 2022/08/31 01:43:07 by nhanafi          ###   ########.fr        #
+#    Updated: 2022/09/03 05:39:22 by nhanafi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,16 +19,18 @@ CFLAGS = $(CPPFLAGS) -Wall -Werror -Wextra
 
 INC = -I./include
 
-HEADERS = include/minishell.h include/utils.h include/ast.h include/env.h
+HEADERS = include/minishell.h include/utils.h include/env.h include/ast.h
 
 ODIR = obj
 FILES = main pars/check_err pars/ft_comp pars/ft_parsing pars/ft_comp\
-	list/list\
+	list/list list/list_split list/list_join list/list_expand list/list_append\
+	list/wc_cmp list/wc_handler list/wc_creat\
 	utils/ft_atoi utils/ft_join utils/ft_putstr_fd utils/ft_split utils/ft_memset\
 	utils/ft_strcmp utils/ft_strdup utils/ft_strlen utils/ft_substr utils/instr\
+	utils/ft_strstr utils/ft_isalnum utils/ft_calloc utils/ft_strcat\
 	excu/ft_cd excu/ft_echo excu/ft_exit excu/ft_pwd excu/exec_ast excu/ft_or_and\
 	excu/ft_pipe excu/get_path excu/ft_drr excu/ft_rr excu/ft_dlr excu/ft_lr\
-	ast/add_node ast/ft_cmd ast/ft_lvl1 ast/ft_lvl2 ast/ft_lvl3 ast/read_eof
+	ast/add_node ast/ft_cmd ast/ft_lvl1 ast/ft_lvl2 ast/ft_lvl3 ast/read_eof 
 
 OBJ = $(addprefix $(ODIR)/, $(FILES:=.o))
 NAME = minishell

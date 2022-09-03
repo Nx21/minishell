@@ -3,12 +3,10 @@
 int     ft_dlr(t_node *node, t_data *data)
 {
     int pid;
+    int state = 0;
 
-    // pid = fork();
-    // (void) data;
-    // (void) node;
-
-    // if ( pid == 0 ) {
+    pid = fork();
+    if ( pid == 0 ) {
         int fd1[ 2 ];
         pipe( fd1 );
         int back_fd = dup(STDIN_FILENO);
@@ -19,9 +17,8 @@ int     ft_dlr(t_node *node, t_data *data)
                 return (1);
             }
             close( fd1[ 0 ] );
-            close( fd1[ 1 ] ); // important; see below
-            // Note: /usr/bin, not /bin
-            excu_ast(node->left, data);
+            close( fd1[ 1 ] );
+            state = excu_ast(node->left, data);
             dup2(back_fd,STDIN_FILENO);
         }
         else if ( pid == 0 ) 
@@ -32,13 +29,13 @@ int     ft_dlr(t_node *node, t_data *data)
             }
             close( fd1[ 0 ] );
             close( fd1[ 1 ] );
-            if( node->right->str[0])
-                printf("%s", node->right->str[0]);
+            if( node->right->list)
+                printf("%s", node->right->list->str);
             exit(0);
         }
-        wait(0);
-    //     exit(0);
-    // }
-    // wait(0);
+        exit(state);
+    }
+    waitpid(pid, &state, 0);
+    free(node);
     return 1;
 }

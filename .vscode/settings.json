@@ -4,6 +4,11 @@
         "iterator": "c",
         "dirent.h": "c",
         "locale": "c",
-        "string": "c"
+        "string": "c",
+        "ios": "c",
+        "__node_handle": "c",
+        "array": "c",
+        "string_view": "c",
+        "vector": "c"
     }
 }

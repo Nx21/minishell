@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 01:14:17 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/29 01:45:06 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/03 05:51:34 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,10 @@ typedef struct s_list
 	struct s_list	*next;
 }   t_list;
 
-typedef struct s_data
-{
-    t_list  *sorted_env;
-    char  **env;
-    t_list  last;
-} t_data;
 
 t_list	*add_one_sort(t_list *head, t_list *list);
 t_list *env_list_sorted(t_list *head ,char **str);
 t_list *env_list(char **str);
 t_list *del_one(t_list *head, char *str);
+char	*find_one(t_list *head, char *str);
 #endif

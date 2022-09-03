@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 09:17:28 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/31 00:37:49 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/03 05:39:05 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,8 @@ void			ft_putstr_fd(char *s, int fd);
 unsigned int	ft_atoi(char *str);
 int             ft_get_last_ind(char *str, char *to_find);
 void    	    *ft_memset(void *str, int c, size_t n);
+char    *ft_strstr(char *str, char *ch1);
+int    ft_isalnum( int str );
+void	*ft_calloc(int number, int size);
+char	*ft_strcat(char *dest, char *src);
 #endif

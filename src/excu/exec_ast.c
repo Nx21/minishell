@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 03:40:46 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/31 01:58:30 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/03 09:55:39 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@ int excu_ast(t_node *node, t_data *data)
     if(node->token == DLR)
         return ft_dlr(node, data);
     if(node->token == W)
-        return exe(node, data);
-    return (0);   
+        return ft_word(node, data);
+    return (1);   
 }

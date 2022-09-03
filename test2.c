@@ -19,23 +19,68 @@ int	ft_strlen(char *str)
 		len++;
 	return (len);	
 }
+char	*ft_strdup(char *src)
+{
+	int		l;
+	char	*cpy;
+	int		i;
 
-char    *ft_strstr(const char *str, const char *ch1)
+	i = 0;
+	l = ft_strlen(src);
+	cpy = (char *)malloc(sizeof(char) * (l + 1));
+	if (cpy == NULL)
+		return (NULL);
+	while (src[i])
+	{
+		cpy[i] = src[i];
+		i++;
+	}
+	cpy[i] = '\0';
+	return (cpy);
+}
+char	*ft_substr(char *s, int start, int len)
+{
+	char	*ptr;
+	int	i;
+
+	if (!s)
+		return (NULL);
+	i = 0;
+	if (start > ft_strlen(s))
+		return (ft_strdup(""));
+	else if (ft_strlen(s) < len)
+		ptr = (char *) malloc(sizeof(char) * ft_strlen(s) + 1);
+	else
+		ptr = (char *)malloc(sizeof(char) * len + 1);
+	if (!ptr)
+		return (NULL);
+	while (s[start] && i < len)
+	{
+		ptr[i] = s[start];
+		i++;
+		start++;
+	}
+	ptr[i] = '\0';
+	return (ptr);
+}
+
+
+char    *ft_strstr(char *str, char *ch1)
 {
     size_t    i;
     size_t    j;
 
     j = 0;
     i = 0;
-    if (ch1[j] == '\0' )
+    if (!ch1 || ch1[j] == '\0' )
         return ((char *)(str));
     while (str[i])
     {
         j = 0;
         while (ch1[j] && ch1[j] == str[i + j])
         {
-            if (ch1[j + 1] == '\0' || ch1[j + 1] == '*')
-                return ((char *) &str[i]);
+            if (ch1[j + 1] == '\0')
+                return ((char *) &str[i + j]);
             j++;
         }
         i++;
@@ -43,6 +88,49 @@ char    *ft_strstr(const char *str, const char *ch1)
     return (NULL);
 }
 
+char	*wft_substr(char *s, int start, int len)
+{
+	char	*ptr;
+	int	i;
+	int j = 0;
+	char c = 0;
+
+	if (!s)
+		return (NULL);
+	i = 0;
+	ptr = (char *)malloc(sizeof(char) * len + 1);
+	if (!ptr)
+		return (NULL);
+	while (s[start + j] &&  j < len)
+	{
+		if(c == s[start + j])
+			c = 0;
+		else if(s[start + j] == '\'' || s[start + j] == '\"')
+			c = s[i];
+		else
+			ptr[i++] = s[start + j];
+		j++;
+	}
+	ptr[i] = '\0';
+	return (ptr);
+}
+int 	ft_strchr(char *s, char ch)
+{
+	int i = 0;
+	char c= 0;
+
+	while(s[i])
+	{
+		if(c == s[i])
+			c = 0;
+		else if(s[i] == '\'' || s[i] == '\"')
+			c = s[i];
+		else if(!c && s[i] == ch)
+			return i;
+		i++;
+	}
+	return i;
+}
 char	*ft_join(char *s1, char *s2)
 {
 	char	*str;
@@ -69,66 +157,84 @@ char	*ft_join(char *s1, char *s2)
 	str[i] = 0;
 	return (str);
 }
-char	*ft_strdup(char *src)
-{
-	int		l;
-	char	*cpy;
-	int		i;
 
-	i = 0;
-	l = ft_strlen(src);
-	cpy = (char *)malloc(sizeof(char) * (l + 1));
-	if (cpy == NULL)
-		return (NULL);
-	while (src[i])
+
+
+
+int	wc_cmpf(char **s1, char **s2)
+{
+	char c = 0;
+
+	while(**s2 && (c || **s2 != '*'))
 	{
-		cpy[i] = src[i];
-		i++;
+		if(c == **s2)
+			c = 0;
+		else if(**s2 == '\'' || **s2 == '\"')
+			c = **s2;
+		else if(**s1 != **s2)
+			return 1;
+		else
+			(*s1)++;
+		(*s2)++;
 	}
-	cpy[i] = '\0';
-	return (cpy);
+	if(!**s2)
+	{
+		if(**s1)
+			return 1;
+		return 2;
+	}
+	return 0;
 }
 
+int wc_cmpl(char *s1, char *s2)
+{
+	char c;
+
+	c = 0;
+	while (*s1)
+		s1++;
+	s2--;
+	s1--;
+	while(*s2 && (c || *s2 != '*'))
+	{
+		if(c == *s2)
+			c = 0;
+		else if(*s2 == '\'' || *s2 == '\"')
+			c = *s2;
+		else if(*s1 != *s2)
+			return 0;
+		else
+			s1--;
+		s2--;
+	}
+	return 1;
+}
 
 int wc_cmp(char *s1, char *s2)
 {
 	int	i;
+	int	len;
+	char *tmp;
 
-	i = 0;
-	while(*s2 && *s2 != '*')
-	{
-		if(*s1 != *s2)
-			return 0;
-		s1++;
-		s2++;
-	}
-	if(!*s2)
-	{
-		if(*s1)
-			return 0;
-		return 1;
-	}
+	i = wc_cmpf(&s1,&s2);
+	if(i)
+		return i - 1;
 	while(*(s2))
 	{
 		if(*s2 != '*')
 		{
+			len = ft_strchr(s2, '*');
+			tmp = wft_substr(s2, 0 , len);
 			i = 0;
-			s1 = ft_strstr(s1, s2);
+			s1 = ft_strstr(s1, tmp);
+			free(tmp);
 			if(!s1)
 				return 0;
+			s2 += len - 1; 
 		}
 		s2++;
 	}
-	while (*s1)
-		s1++;
-	while(*s2 != '*')
-	{
-		if(*s1 != *s2)
-			return 0;
-		s2--;
-		s1--;
-	}
-	return 1;
+	return wc_cmpl(s1,s2);
 }
 
 t_var *wc_creat(char *path, char *name)
@@ -181,7 +287,7 @@ t_var *wc_all(char *str, char *path)
 		if(dirp->d_name[0] != '.' && wc_cmp(dirp->d_name, str))
 			head = wc_append(head, wc_creat(path, dirp->d_name));
 	}
-	// free(path);
+	free(path);
 	return head;
 }
 
@@ -202,36 +308,9 @@ t_var *wc_dir(char *str, char *path)
 		if(dirp->d_type == 4 && dirp->d_name[0] != '.' && wc_cmp(dirp->d_name, str))
 			head = wc_append(head, wc_creat(path, dirp->d_name));
 	}
-	// free(path);
+	free(path);
 	return head;
 }
-
-char	*ft_substr(char *s, int start, int len)
-{
-	char	*ptr;
-	int	i;
-
-	if (!s)
-		return (NULL);
-	i = 0;
-	if (start > ft_strlen(s))
-		return (ft_strdup(""));
-	else if (ft_strlen(s) < len)
-		ptr = (char *) malloc(sizeof(char) * ft_strlen(s) + 1);
-	else
-		ptr = (char *)malloc(sizeof(char) * len + 1);
-	if (!ptr)
-		return (NULL);
-	while (s[start] && i < len)
-	{
-		ptr[i] = s[start];
-		i++;
-		start++;
-	}
-	ptr[i] = '\0';
-	return (ptr);
-}
-
 
 t_var *wc_handler(char *str, char *path)
 {
@@ -248,24 +327,18 @@ t_var *wc_handler(char *str, char *path)
 	while(str && str[i] && str[i] != '/')
 		i++;
 	if(!str[i])
-	{
-		printf("her %s    %s\n\n", path, str);
-		// return NULL;
 		return wc_all(str, path);
-	}
 	head = wc_dir(ft_substr(str , 0 , i), path);
 	node = head;
-	// if(path)
-	// 	path = ft_join(path, "/");
-	// if(*(str + i + 1))
-	// 	printf("%s", str + i+ 1);
-
+	if(!*(str+i+1))
+		return head;
 	while(node)
 	{
 		sub = wc_append(sub, wc_handler(str + i + 1, node->s));
+        head = node;
 		node = node->next;
+		// free(head->s);
 	}
-	// free(path);
 	return sub;
 }
 
@@ -278,7 +351,7 @@ int main(int argc, char *argv[])
 	if(argc != 2)
 		return 0;
 	// var = wc_all("*" , "//");
-	var = wc_handler((char *) argv[1], NULL);
+	var = wc_handler(ft_strdup(argv[1]), NULL);
 	while(var)
 	{
 		printf("%s\n", var->s);

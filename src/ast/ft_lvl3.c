@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 02:13:01 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/31 00:58:29 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/03 06:42:37 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ t_node *ft_ast_lev3(char *buf)
 	if(!buf)
 		return NULL;
 	len = find_lev3(&token, buf);
-	if(len > 0)
+	if(len >= 0)
 	{
 		node = add_node(NULL, token);
 		end_wd = ft_next_word(buf + len + 1);
@@ -70,6 +70,7 @@ t_node *ft_ast_lev3(char *buf)
 			node->right = ft_read_eof(right_str);
 		else
 			node->right = ft_cmd(right_str);
+		free(right_str);
 		return node;
 	}
 	return ft_cmd(buf);

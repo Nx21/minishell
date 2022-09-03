@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 00:16:57 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/28 00:38:41 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/02 05:42:04 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char *ft_comp_oq(char *buf)
 	if(!line)
 	{
 		ft_putstr_fd("minishell: unexpected EOF while looking for matching `\"\'\n", 2);
-		ft_putstr_fd("minishell: syntax error: unexpected end of file", 2);
+		ft_putstr_fd("minishell: syntax error: unexpected end of file\n", 2);
 		add_history(buf);
 		free(buf);
 		return NULL;
