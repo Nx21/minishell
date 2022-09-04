@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 01:23:45 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/03 09:57:30 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/04 09:26:31 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,15 @@
 # include "utils.h"
 # include "ast.h"
 # include "env.h"
-char *ft_parcing(char *buf);
 
+
+typedef struct s_global
+{
+    int a;
+    int b;
+}   t_global;
+char *ft_parcing(char *buf);
+int G_global;
 t_node *ft_ast_lev1(char *buf);
 t_node *ft_ast_lev2(char *buf);
 int		ft_echo(char **str);

@@ -6,11 +6,11 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 23:52:41 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/31 01:40:34 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/04 09:28:39 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ast.h"
+#include "minishell.h"
 
 int	find_lev1(t_token *token, char *str)
 {
@@ -40,7 +40,7 @@ t_node *ft_ast_lev1(char *buf)
 	t_node	*node;
 	t_token token;
 	
-	if(!buf)
+	if(!buf || !G_global)
 		return NULL;
 	len = find_lev1(&token, buf);
 	if(len > 0)

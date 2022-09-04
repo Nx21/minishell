@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 03:56:28 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/03 09:53:34 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/04 09:15:56 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ int ft_pipe(t_node *node, t_data *data)
         exit(state);
     }
     waitpid(pid, &state, 0);
-    free(node);
     return state;
 }
 

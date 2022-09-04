@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 23:21:19 by rjaanit           #+#    #+#             */
-/*   Updated: 2022/09/03 09:51:14 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/04 09:15:47 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,5 @@ int     ft_lr(t_node *node, t_data *data)
     close(fd);
     status =  excu_ast(node->left, data);
     dup2(back_fd,STDIN_FILENO);
-    free(node);
     return(status);
 }

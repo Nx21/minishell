@@ -6,16 +6,18 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 23:37:26 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/03 06:42:07 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/04 09:41:11 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ast.h"
+#include "minishell.h"
 
 t_node *ft_cmd(char *buf)
 {
 	int	len;
 	t_node *node;
+	if(!G_global)
+		return NULL;
 	while(*buf && ft_instr(" \n\t", *buf) >= 0)
 		buf++;
 	len = ft_strlen(buf) - 1;

@@ -36,6 +36,5 @@ int     ft_dlr(t_node *node, t_data *data)
         exit(state);
     }
     waitpid(pid, &state, 0);
-    free(node);
     return 1;
 }

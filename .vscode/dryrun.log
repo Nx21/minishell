@@ -16,11 +16,11 @@ mkdir -p obj/list
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/list/list.c -o obj/list/list.o
  
 mkdir -p obj/list
- 
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/list/list_split.c -o obj/list/list_split.o
  
 mkdir -p obj/list
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/list/list_join.c -o obj/list/list_join.o
+ 
 mkdir -p obj/list
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/list/list_expand.c -o obj/list/list_expand.o
  
@@ -28,24 +28,27 @@ mkdir -p obj/list
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/list/list_append.c -o obj/list/list_append.o
 mkdir -p obj/list
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/list/wc_cmp.c -o obj/list/wc_cmp.o
+ 
 mkdir -p obj/list
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/list/wc_handler.c -o obj/list/wc_handler.o
 mkdir -p obj/list
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/list/wc_creat.c -o obj/list/wc_creat.o
 mkdir -p obj/utils
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/utils/ft_atoi.c -o obj/utils/ft_atoi.o
+ 
 mkdir -p obj/utils
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/utils/ft_join.c -o obj/utils/ft_join.o
+ 
 mkdir -p obj/utils
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/utils/ft_putstr_fd.c -o obj/utils/ft_putstr_fd.o
- 
 mkdir -p obj/utils
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/utils/ft_split.c -o obj/utils/ft_split.o
+ 
 mkdir -p obj/utils
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/utils/ft_memset.c -o obj/utils/ft_memset.o
+ 
 mkdir -p obj/utils
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/utils/ft_strcmp.c -o obj/utils/ft_strcmp.o
- 
 mkdir -p obj/utils
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/utils/ft_strdup.c -o obj/utils/ft_strdup.o
  
@@ -105,13 +108,11 @@ cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include
  
 mkdir -p obj/excu
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/excu/ft_lr.c -o obj/excu/ft_lr.o
- 
 mkdir -p obj/ast
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/ast/add_node.c -o obj/ast/add_node.o
  
 mkdir -p obj/ast
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/ast/ft_cmd.c -o obj/ast/ft_cmd.o
- 
 mkdir -p obj/ast
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/ast/ft_lvl1.c -o obj/ast/ft_lvl1.o
  
@@ -129,8 +130,8 @@ echo " ____ _______ _____ _    _  "
 echo "|  _ \__   __/ ____| |  | | "
 echo "| |_) | | | | (___ | |__| | " 
 echo "|  _ <  | |  \___ \|  __  | "
- 
 echo "| |_) | | |  ____) | |  | | "
 echo "|____/  |_| |_____/|_|  |_| "                        
+ 
 make: Leaving directory `/Users/nhanafi/Desktop/minishell'
  

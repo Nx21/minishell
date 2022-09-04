@@ -9,6 +9,10 @@
         "__node_handle": "c",
         "array": "c",
         "string_view": "c",
-        "vector": "c"
+        "vector": "c",
+        "algorithm": "c",
+        "term.h": "c",
+        "stdio.h": "c",
+        "unistd.h": "c"
     }
 }

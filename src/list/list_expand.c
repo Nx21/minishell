@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 01:18:32 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/03 09:29:11 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/04 10:28:37 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ char *find_var(char *str, t_data *data, char c)
 	char *dst;
 	char *var;
 
-	var = find_one(data->unsort_env, str);
+	var = find_one(data->l_env, str);
 	dst = var_alloc(var, c);
 	i = 0;
 	j = 0;

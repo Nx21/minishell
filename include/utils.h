@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 09:17:28 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/03 05:39:05 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/04 08:57:59 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,5 @@ char    *ft_strstr(char *str, char *ch1);
 int    ft_isalnum( int str );
 void	*ft_calloc(int number, int size);
 char	*ft_strcat(char *dest, char *src);
+int	ft_get_first_ind(char *str, char *to_find);
 #endif

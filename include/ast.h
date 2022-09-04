@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 13:17:27 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/03 06:28:52 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/04 10:28:18 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,7 @@ typedef enum e_token
 
 typedef struct s_data
 {
-    struct s_list  *sort_env;
-	struct s_list 	*unsort_env;
+	struct s_list 	*l_env;
     char	**env;
     struct s_list  *last;
 } t_data;

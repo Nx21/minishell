@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 00:06:14 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/03 10:10:24 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/04 10:28:47 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int exe(char **str, t_data *data)
     pid = fork();
     if(pid == 0)
     {
-        s = get_path(getenv("PATH"));
+        s = get_path(find_one(data->l_env, "PATH"));
         state = execve(get_command(s, *str), str, data->env);
         ft_putstr_fd(str[0], 2);
         ft_putstr_fd(": command not found\n", 2);

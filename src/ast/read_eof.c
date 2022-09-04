@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 00:57:50 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/01 00:35:09 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/04 09:41:33 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,16 @@ t_node	*ft_read_eof(char *eof)
 	line =  readline("> ");
 	while(line && ft_strcmp(line, eof))
 	{
-		list->str = ft_join(list->str , "\n");
 		list->str = ft_join(list->str , line);
-		line =  readline("> ");
+		free(line);
+		if(!G_global)
+		{
+			free(list->str);
+			free(list);
+			return NULL;
+		}
+		list->str = ft_join(list->str , "\n");
+		line = readline("> ");
 	}
 	return (add_node(list, W));
 }
