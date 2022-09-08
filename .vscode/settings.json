@@ -13,6 +13,16 @@
         "algorithm": "c",
         "term.h": "c",
         "stdio.h": "c",
-        "unistd.h": "c"
+        "unistd.h": "c",
+        "types.h": "c",
+        "__config": "c",
+        "_types.h": "c",
+        "__functional_03": "c",
+        "__functional_base": "c",
+        "bitset": "c",
+        "chrono": "c",
+        "exception": "c",
+        "functional": "c",
+        "tuple": "c"
     }
 }

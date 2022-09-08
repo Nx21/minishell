@@ -6,13 +6,13 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 02:33:07 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/04 09:22:58 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/08 13:43:28 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "env.h"
 
-t_list	*add_one_sort(t_list *head, t_list *list)
+t_list	*add_one(t_list *head, t_list *list)
 {
 	t_list *node;
 
@@ -24,12 +24,6 @@ t_list	*add_one_sort(t_list *head, t_list *list)
 	node = head;
 	while(node->next)
 	{
-		if(ft_strcmp(node->next->key, list->key) > 0)
-		{
-			list->next = node->next;
-			node->next = list;
-			return head;
-		}
 		if(!ft_strcmp(node->key, list->key))
 		{
 			node->key = list->key;
@@ -41,6 +35,17 @@ t_list	*add_one_sort(t_list *head, t_list *list)
 	}
 	node->next = list;
 	return head;
+}
+
+t_list *new_list(char *key, char *val)
+{
+	t_list *node;
+
+	node = malloc(sizeof(t_list));
+	node->key = key;
+	node->value = val;
+	node->next = NULL;
+	return node;
 }
 
 t_list *env_list(char **str)
@@ -93,16 +98,15 @@ t_list *del_one(t_list *head, char *str)
 	return head;	
 }
 
-char	*find_one(t_list *head, char *str)
+char	*find_one(t_list *head, char *key)
 {
-	if(ft_strcmp("?", str) == 0)
+	if(ft_strcmp("?", key) == 0)
 		ft_strdup("1");
 	while(head)
 	{
-		if(ft_strcmp(head->key, str) == 0)
+		if(ft_strcmp(head->key, key) == 0)
 			return ft_strdup(head->value);
 		head = head->next;
 	}
 	return ft_strdup("");
 }
-

@@ -26,19 +26,21 @@ cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include
  
 mkdir -p obj/list
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/list/list_append.c -o obj/list/list_append.o
+ 
 mkdir -p obj/list
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/list/wc_cmp.c -o obj/list/wc_cmp.o
  
 mkdir -p obj/list
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/list/wc_handler.c -o obj/list/wc_handler.o
+ 
 mkdir -p obj/list
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/list/wc_creat.c -o obj/list/wc_creat.o
+ 
 mkdir -p obj/utils
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/utils/ft_atoi.c -o obj/utils/ft_atoi.o
  
 mkdir -p obj/utils
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/utils/ft_join.c -o obj/utils/ft_join.o
- 
 mkdir -p obj/utils
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/utils/ft_putstr_fd.c -o obj/utils/ft_putstr_fd.o
 mkdir -p obj/utils
@@ -46,12 +48,10 @@ cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include
  
 mkdir -p obj/utils
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/utils/ft_memset.c -o obj/utils/ft_memset.o
- 
 mkdir -p obj/utils
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/utils/ft_strcmp.c -o obj/utils/ft_strcmp.o
 mkdir -p obj/utils
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/utils/ft_strdup.c -o obj/utils/ft_strdup.o
- 
 mkdir -p obj/utils
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/utils/ft_strlen.c -o obj/utils/ft_strlen.o
  
@@ -75,7 +75,6 @@ cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include
  
 mkdir -p obj/excu
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/excu/ft_cd.c -o obj/excu/ft_cd.o
- 
 mkdir -p obj/excu
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/excu/ft_echo.c -o obj/excu/ft_echo.o
  
@@ -87,13 +86,10 @@ cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include
  
 mkdir -p obj/excu
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/excu/exec_ast.c -o obj/excu/exec_ast.o
- 
 mkdir -p obj/excu
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/excu/ft_or_and.c -o obj/excu/ft_or_and.o
- 
 mkdir -p obj/excu
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/excu/ft_pipe.c -o obj/excu/ft_pipe.o
- 
 mkdir -p obj/excu
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/excu/get_path.c -o obj/excu/get_path.o
  
@@ -108,11 +104,13 @@ cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include
  
 mkdir -p obj/excu
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/excu/ft_lr.c -o obj/excu/ft_lr.o
+ 
 mkdir -p obj/ast
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/ast/add_node.c -o obj/ast/add_node.o
  
 mkdir -p obj/ast
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/ast/ft_cmd.c -o obj/ast/ft_cmd.o
+ 
 mkdir -p obj/ast
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/ast/ft_lvl1.c -o obj/ast/ft_lvl1.o
  

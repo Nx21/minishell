@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 00:06:14 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/04 10:28:47 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/08 13:55:19 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,12 @@ int ft_word(t_node *node, t_data *data)
 
 	str = list_to_arr(node->list, data);
 	free(node);
-    state = exe(str, data);
+    if(!ft_strcmp(str[0], "cd"))
+        state = ft_cd(str, data);
+    else if(!ft_strcmp(str[0], "pwd"))
+        ft_pwd(data);
+    else
+        state = exe(str, data);
     i = 0;
     while (str[i])
     {

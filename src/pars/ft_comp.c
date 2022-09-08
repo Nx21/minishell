@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 00:16:57 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/04 09:40:41 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/04 22:30:27 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char *ft_comp_oq(char *buf)
 	char	*line;
 
 	line = readline("> ");
+	if(!G_global)
+		return buf;
 	if(!line)
 	{
 		ft_putstr_fd("minishell: unexpected EOF while looking for matching `\"\'\n", 2);
@@ -29,8 +31,6 @@ char *ft_comp_oq(char *buf)
 	buf = ft_join(buf, "\n");
 	buf = ft_join(buf, line);
 	free(line);
-	if(!G_global)
-		return NULL;
 	return ft_parcing(buf);
 }
 
@@ -40,7 +40,7 @@ char *ft_comp_op(char *buf)
 
 	line = readline("> ");
 	if(!G_global)
-		return NULL;
+		return buf;
 	if(!line)
 	{
 		ft_putstr_fd("minishell: syntax error: unexpected end of file\n",2);
