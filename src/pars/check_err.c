@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 00:17:26 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/09 16:14:59 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/09 16:24:55 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,10 @@
 int ft_error(char *str)
 {
     ft_putstr_fd("minishell: syntax error near unexpected token `", 2);
-    write(2, str, 1 + (str[0] == str[1]));
+    if(str)
+        write(2, str, 1 + (str[0] == str[1]));
+    else
+        ft_putstr_fd("newline", 2);
     ft_putstr_fd("\'\n", 2);
     return 1;
 }
@@ -67,15 +70,15 @@ int check_err(char *str, t_token token, int par)
 
     while(str && *str && ft_instr(" \n\t", *str) >= 0)
         str++;
+    if(token > PIPE && (str || *str))
+        return ft_error(NULL);
     if(ft_instr("()><", *str) >= 0)
     {
         if(token > PIPE)
             return ft_error(str);
-        else
-        {
+        if(*str == '(')
             par++;
-            str++;
-        }
+        str++;
     }
     if(ft_instr("|&", *str) >= 0)
         return ft_error(str);
