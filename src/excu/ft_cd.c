@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 23:34:01 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/08 13:51:34 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/08 16:31:32 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,13 +62,14 @@ int	ft_chdir(char *path, t_data *data)
 
 	ch = chdir(path);
 	printf("here");
-    // if (ch < 0)
-	// {
-	// 	free(path);
-    // 	perror("minishell");
-	// 	return (1);
-	// }
-	data->l_env = add_one(data->l_env, new_list(ft_strdup("OLDPWD"), find_one(data->l_env, "PWD")));
+    if (ch < 0)
+	{
+		free(path);
+    	perror("minishell");
+		return (1);
+	}
+	data->l_env = add_one(data->l_env, new_list(ft_strdup("OLDPWD")\
+	, find_one(data, "PWD")));
 	data->l_env = add_one(data->l_env, new_list(ft_strdup("PWD"), path));
 	return (0);
 }
@@ -79,11 +80,11 @@ char *check_dir(char **str, t_data *data)
 	char *path;
 
 	if(!str[1])
-		path = find_one(data->l_env, "HOME");
+		path = find_one(data, "HOME");
 	else if (!ft_strcmp(str[1], "-"))
-		path = find_one(data->l_env, "OLDPWD");
+		path = find_one(data, "OLDPWD");
 	else if(str[1][0] != '/')
-		path = find_abs_path(str[1], find_one(data->l_env, "PWD"));
+		path = find_abs_path(str[1], find_one(data, "PWD"));
 	else 
 		path = find_abs_path(str[1], ft_strdup("/"));
 	if(stat(path, &buf) < 0)
@@ -115,9 +116,6 @@ int	ft_cd(char **str, t_data *data)
 		return 1;
 	}
 	if(str[1] && !ft_strcmp(str[1], "-") && !ft_strcmp(path, ""))
-	{
-		ft_putstr_fd("cd: OLDPWD not set\n",2);
-		return 1;
-	}
+		return 1 && ft_putstr_fd("cd: OLDPWD not set\n",2);
 	return ft_chdir(path, data);		
 }

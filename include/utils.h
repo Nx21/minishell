@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 09:17:28 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/04 08:57:59 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/08 15:51:41 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char			*ft_strdup(char *src);
 char			*ft_substr(char *s, int start, int len);
 char			**ft_split(char *s, char c);
 int				ft_strcmp(char *str1, char *str2);
-void			ft_putstr_fd(char *s, int fd);
+int			ft_putstr_fd(char *s, int fd);
 unsigned int	ft_atoi(char *str);
 int             ft_get_last_ind(char *str, char *to_find);
 void    	    *ft_memset(void *str, int c, size_t n);

@@ -6,11 +6,12 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 02:33:07 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/08 13:43:28 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/09 11:24:45 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "env.h"
+
 
 t_list	*add_one(t_list *head, t_list *list)
 {
@@ -26,12 +27,19 @@ t_list	*add_one(t_list *head, t_list *list)
 	{
 		if(!ft_strcmp(node->key, list->key))
 		{
-			node->key = list->key;
+			free(node->value);
 			node->value = list->value;
 			free(list);
 			return head;
 		}
 		node = node->next;
+	}
+	if(!ft_strcmp(node->key, list->key))
+	{
+		free(node->value);
+		node->value = list->value;
+		free(list);
+		return head;
 	}
 	node->next = list;
 	return head;
@@ -55,11 +63,7 @@ t_list *env_list(char **str)
 
     while((*str)[i] != '=')
         i++;
-    list = malloc(sizeof(t_list));
-    list->key = ft_substr(*str, 0, i);
-    list->value = ft_strdup(*str + i + 1);
-    list->tag = 1;
-    list->next = NULL;
+	list = new_list(ft_substr(*str, 0, i), ft_strdup(*str + i + 1));
     if(*(str + 1))
         list->next = env_list(str + 1);
     return list;
@@ -98,10 +102,16 @@ t_list *del_one(t_list *head, char *str)
 	return head;	
 }
 
-char	*find_one(t_list *head, char *key)
+char	*find_one(t_data *data, char *key)
 {
-	if(ft_strcmp("?", key) == 0)
-		ft_strdup("1");
+	t_list *head;
+
+	head = data->l_env;
+	if(!ft_strcmp("?", key))
+	{
+		printf("hsgndks\n");	
+		return ft_strdup(data->state);
+	}
 	while(head)
 	{
 		if(ft_strcmp(head->key, key) == 0)

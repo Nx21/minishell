@@ -107,17 +107,23 @@
 #include <time.h>
 
 int main() {
-  struct stat info;
+  // struct stat info;
 
-  if (stat("test.py", &info) != 0)
-    perror("stat() error");
-  else {
-    puts("stat() returned the following information about root f/s:");
-    printf("  inode:   %d\n",   (int) info.st_flags);
-    printf(" dev id:   %d\n",   (int) info.st_dev);
-    printf("   mode:   %08x\n",       info.st_mode);
-    printf("  links:   %d\n",         info.st_nlink);
-    printf("    uid:   %d\n",   (int) info.st_uid);
-    printf("    gid:   %d\n",   (int) info.st_gid);
+  // if (stat("test.py", &info) != 0)
+  //   perror("stat() error");
+  // else {
+  //   puts("stat() returned the following information about root f/s:");
+  //   printf("  inode:   %d\n",   (int) info.st_flags);
+  //   printf(" dev id:   %d\n",   (int) info.st_dev);
+  //   printf("   mode:   %08x\n",       info.st_mode);
+  //   printf("  links:   %d\n",         info.st_nlink);
+  //   printf("    uid:   %d\n",   (int) info.st_uid);
+  //   printf("    gid:   %d\n",   (int) info.st_gid);
+
+  // }
+  for (size_t i = 0; i < 2048; i++)
+  {
+    printf("a");
   }
+  
 }

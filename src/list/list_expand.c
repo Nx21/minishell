@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 01:18:32 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/04 10:28:37 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/08 16:40:49 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ char *find_var(char *str, t_data *data, char c)
 	char *dst;
 	char *var;
 
-	var = find_one(data->l_env, str);
+	var = find_one(data, str);
 	dst = var_alloc(var, c);
 	i = 0;
 	j = 0;
@@ -72,7 +72,7 @@ char	*var_handler_v(char *str, char c, t_data *data)
 (void)c;
 	len = 0;
 	tmp = NULL;
-	while(str[len] && (ft_isalnum(str[len]) || str[len] == '_'))
+	while(str[len] && (ft_isalnum(str[len]) || str[len] == '_' || str[len] == '?'))
 		len++;
 	if(len)
 		dst = find_var(ft_substr(str, 0, len), data, c);

@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 13:17:27 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/04 10:28:18 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/08 16:29:21 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ typedef struct s_data
 	struct s_list 	*l_env;
     char	**env;
     struct s_list  *last;
+	char	*state;
 } t_data;
 
 typedef struct  s_var
@@ -69,4 +70,6 @@ char **list_to_arr(t_var *list, t_data *data);
 char	*var_handler(char *str, t_data *data, char c);
 char	*var_handler_v(char *str, char c, t_data *data);
 t_var *list_expand_var(t_var *list, t_data *data);
+char    *ft_itoa(int n);
+char	*find_one(t_data *data, char *key);
 #endif

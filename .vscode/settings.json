@@ -23,6 +23,14 @@
         "chrono": "c",
         "exception": "c",
         "functional": "c",
-        "tuple": "c"
+        "tuple": "c",
+        "__bit_reference": "c",
+        "__memory": "c",
+        "limits": "c",
+        "memory": "c",
+        "optional": "c",
+        "ratio": "c",
+        "system_error": "c",
+        "type_traits": "c"
     }
 }

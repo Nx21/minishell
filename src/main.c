@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 01:23:53 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/04 10:28:28 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/08 16:41:45 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ void    handler(int num)
 		pipe(fd);
    		dup2(fd[0], STDIN_FILENO);
 		ft_putstr_fd("\n", fd[1]);
-        rl_redisplay();
 	}
 
 }
@@ -112,7 +111,7 @@ int main(int argc, char **argv, char **envp)
 			add_history(buf);
 			head = ft_ast_lev1(buf);
 			// print_ast(head, 0, data);
-			excu_ast(head, data);
+			data->state = ft_itoa(excu_ast(head, data) % 256);
 		}
 		if(buf)
 			free(buf);

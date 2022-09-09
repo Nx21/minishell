@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 00:06:14 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/08 13:55:19 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/09 10:49:27 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,12 @@ int exe(char **str, t_data *data)
     pid = fork();
     if(pid == 0)
     {
-        s = get_path(find_one(data->l_env, "PATH"));
-        state = execve(get_command(s, *str), str, data->env);
+        s = get_path(find_one(data, "PATH"));
+        execve(get_command(s, *str), str, data->env);
         ft_putstr_fd(str[0], 2);
         ft_putstr_fd(": command not found\n", 2);
         free(s);
-        exit(state);
+        exit(127);
     }
     waitpid(pid,&state,0);
     return (state);
@@ -73,7 +73,17 @@ int ft_word(t_node *node, t_data *data)
     if(!ft_strcmp(str[0], "cd"))
         state = ft_cd(str, data);
     else if(!ft_strcmp(str[0], "pwd"))
-        ft_pwd(data);
+        state = ft_pwd(data);
+    else if(!ft_strcmp(str[0], "echo"))
+        state = ft_echo(str);
+    else if(!ft_strcmp(str[0], "exit"))
+        state = ft_exit(str);
+    else if(!ft_strcmp(str[0], "env"))
+        state = ft_env(str, data);
+    else if(!ft_strcmp(str[0], "unset"))
+        state = ft_unset(str, data);
+    else if(!ft_strcmp(str[0], "export"))
+        state = ft_export(str, data);
     else
         state = exe(str, data);
     i = 0;
