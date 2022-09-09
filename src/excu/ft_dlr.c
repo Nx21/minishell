@@ -10,8 +10,8 @@ int     ft_dlr(t_node *node, t_data *data)
         int fd1[ 2 ];
         pipe( fd1 );
         int back_fd = dup(STDIN_FILENO);
-
-        if ( (pid = fork()) > 0 ) {
+        if ( (pid = fork()) > 0 ) 
+        {
             if (dup2( fd1[ 0 ] , STDIN_FILENO ) < 0) {
                 perror("minishell:");
                 return (1);
