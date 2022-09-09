@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 23:34:01 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/08 16:31:32 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/09 13:19:02 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ int	ft_chdir(char *path, t_data *data)
 	int ch;
 
 	ch = chdir(path);
-	printf("here");
     if (ch < 0)
 	{
 		free(path);
@@ -101,7 +100,6 @@ int	ft_cd(char **str, t_data *data)
 	char *path;
 	
 	path = check_dir(str, data);
-	printf("%s\n", path);
 	if(!path && str[1] && !ft_strcmp(str[1], "."))
 	{
 		ft_putstr_fd("cd: error retrieving current directory:\
