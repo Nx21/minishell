@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 01:23:45 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/09 16:15:13 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/09 16:41:46 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ t_node	*ft_read_eof(char *eof);
 char	*ft_comp_oq(char *buf);
 char	*ft_comp_op(char *buf);
 t_node	*ft_read_eof(char *eof);
-int ft_check_token(char *str, int par);
+int ft_check_token(char *str, int par, char c);
 int check_err(char *str, t_token token, int par);
 
 int	excu_ast(t_node *node, t_data *data);
