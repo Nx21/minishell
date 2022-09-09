@@ -11,3 +11,16 @@ test1.c
 test1.py
 test2.c
 test3.c
+Makefile
+a
+a.out
+include
+minishell
+obj
+src
+test.c
+test.py
+test1.c
+test1.py
+test2.c
+test3.c

@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 00:17:26 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/09 16:43:30 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/09 17:05:11 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ int check_err(char *str, t_token token, int par)
 
     while(str && *str && ft_instr(" \n\t", *str) >= 0)
         str++;
-    if(token > PIPE && (str || *str))
+    if(token > PIPE && !(str && *str))
         return ft_error(NULL);
     while (ft_instr("()><", *str) >= 0)
     {

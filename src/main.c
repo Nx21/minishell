@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 01:23:53 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/09 14:25:26 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/09 18:08:58 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,47 +66,65 @@ void    handler(int num)
    		dup2(fd[0], STDIN_FILENO);
 		ft_putstr_fd("\n", fd[1]);
 	}
-
 }
 
+void get_state(t_data *data,int a)
+{
+	char *st;
+
+	st = ft_itoa(a);
+	free(data->state);
+	data->state = st;
+}
+
+void ft_loop(t_data *data, char *buf)
+{
+	t_node	*head;
+
+	
+	G_global = 1;
+	buf = ft_parcing(buf);
+	if(buf && G_global)
+	{
+		add_history(buf);
+		head = ft_ast_lev1(buf);
+		get_state(data, excu_ast(head, data));
+		free_ast(head);
+	}
+	if(buf)
+		free(buf);
+	else
+		get_state(data, 258);
+}
+
+void ft_signal()
+{
+	rl_catch_signals = 0;
+	signal(SIGINT, handler);
+	// signal(SIGQUIT, handler);
+}
 
 int main(int argc, char **argv, char **envp) 
 {
 	char	*buf;
-	t_node	*head;
-	int back_fd = dup(STDIN_FILENO);
+	int back_fd;
 	t_data	*data;
-	char	*st;
 
 	(void)argc;
 	(void)argv;
-	rl_catch_signals = 0;
-	signal(SIGINT, handler);
-	// signal(SIGQUIT, handler);
+	ft_signal();
+	back_fd = dup(STDIN_FILENO);
 	data = get_data(envp);
 	while (1)
 	{
 		dup2(back_fd, STDIN_FILENO);
 		G_global = 0;
-        rl_on_new_line();
 		buf = readline("minishell-1.0$ ");
 		if(!buf)
 			break;
-		G_global = 1;
-		buf = ft_parcing(buf);
-		if(buf && G_global)
-		{
-			add_history(buf);
-			head = ft_ast_lev1(buf);
-			st = ft_itoa(excu_ast(head, data) % 256);
-			free(data->state);
-			data->state = st;
-			free_ast(head);
-		}
-		if(buf)
-			free(buf);
+		ft_loop(data, buf);
+		
 	}
 	rl_clear_history();
-	// handler(0);
-
+	exit(0);
 }
