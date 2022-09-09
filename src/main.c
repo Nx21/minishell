@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 01:23:53 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/08 16:41:45 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/09 14:25:26 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,37 +14,23 @@
 
 
 
-void print_ast(t_node *node, int level, t_data *data)
+void free_ast(t_node *node)
 {
-	// t_var *list;
-	char **str;
-	int i =0;
-
-	for (int i = 0; i < level; i++)
-		printf("-----");
-	str = list_to_arr(node->list, data);
-	while(str[i])
+	t_var *list;
+	list =  node->list;
+	while (list)
 	{
-		printf("|%s|  ", str[i]);
-		free(str[i]);
-		i++;
+		list = node->list->next;
+		free(node->list->str);
+		free(node->list);
+		node->list = list;
 	}
-	free(str);
-	printf("  %d\n", node->token);
-	if(node->left)
-		print_ast(node->left, level + 1, data);
-	if(node->right)
-		print_ast(node->right, level + 1, data);
-	free(node);
-}
 
-void    ft_signal_ctrl_c(int sig)
-{
-    (void)sig;
-    printf("nasr");
-    // rl_replace_line("", 0);
-    // rl_on_new_line();
-    // rl_redisplay();
+	if(node->left)
+		free_ast(node->left);
+	if(node->right)
+		free_ast(node->right);
+	free(node);
 }
 
 t_data *get_data(char **envp)
@@ -53,6 +39,7 @@ t_data *get_data(char **envp)
 
 	data = malloc(sizeof(t_data));
 	data->env = envp;
+	data->state = NULL;
 	// data->sort_env = env_list_sorted(NULL,envp);
 	data->l_env = env_list(envp);
 	data->last =  NULL;
@@ -89,6 +76,7 @@ int main(int argc, char **argv, char **envp)
 	t_node	*head;
 	int back_fd = dup(STDIN_FILENO);
 	t_data	*data;
+	char	*st;
 
 	(void)argc;
 	(void)argv;
@@ -110,8 +98,10 @@ int main(int argc, char **argv, char **envp)
 		{
 			add_history(buf);
 			head = ft_ast_lev1(buf);
-			// print_ast(head, 0, data);
-			data->state = ft_itoa(excu_ast(head, data) % 256);
+			st = ft_itoa(excu_ast(head, data) % 256);
+			free(data->state);
+			data->state = st;
+			free_ast(head);
 		}
 		if(buf)
 			free(buf);

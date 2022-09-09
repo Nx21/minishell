@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 00:16:57 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/04 22:30:27 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/09 16:14:24 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ char *ft_comp_op(char *buf)
 		free(buf);
 		return NULL;
 	}
+	buf = ft_join(buf, " ");
 	buf = ft_join(buf, line);
 	free(line);
 	return ft_parcing(buf);

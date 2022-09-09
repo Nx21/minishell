@@ -6,61 +6,85 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 00:17:26 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/28 03:21:21 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/09 16:14:59 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int check_err_1(char *str)
+int ft_error(char *str)
 {
-    static int i;
-    int re = 0;
-
-    i = 0;
-    while (str[i] == ' ')
-        i++;
-    if (str[i] == '|' || str[i]=='&')
-        return(0);
-    while(str[i])
-    {
-        if ((str[i] == '|' && str[i+1] != '|') || (str[i] == '&' && str[i+1] != '&'))
-            return(check_err_1(str + (i+1)));
-        i++;
-        if ( str[i] == '|' || str[i] == '&')
-        {
-            re++;
-            if(re > 2)
-                return(0);
-        }
-    }
-    return(1);
+    ft_putstr_fd("minishell: syntax error near unexpected token `", 2);
+    write(2, str, 1 + (str[0] == str[1]));
+    ft_putstr_fd("\'\n", 2);
+    return 1;
 }
 
-int check_err_2(char *str, int bool)
+
+
+int ft_check_par(char *str, int par)
 {
-    int i;
-    int re = 0;
-    i = 0;
-    while (str[i] == ' ')
-        i++;
-    if (!str[i])
-        return(0);
-    if ((str[i] == '>' || str[i]=='<') && bool)
-        return(0);
-    if ((str[i] == '|' || str[i]=='&'))
-        return(0);
-    while(str[i])
+    int res;
+
+    if(par == -1)
+        return ft_error(")");
+    while(ft_instr(" \n\t", *str) >= 0)
+        str++;
+    res = ft_check_token(str, par);
+    if(res >= 0)
+        return res;
+    if(*str)
     {
-        if ((str[i] == '>' && str[i+1] != '>') || (str[i] == '<' && str[i+1] != '<'))
-            return(check_err_2(str+i+1 ,1));
-        if ( str[i] == '>' || str[i] == '<')
-        {
-            re++;
-            if(re > 1)
-                return(0);
-        }
-        i++;
+        ft_putstr_fd("minishell: syntax error near unexpected token `", 2);
+        while(ft_isalnum(*str))
+            write(2, str++, 1);
+        ft_putstr_fd("\'\n", 2);
+        return 1;
     }
-    return(1);
+    return 0;
+}
+
+int ft_check_token(char *str, int par)
+{
+    if(*str == '&' && str[1] == '&')
+        return check_err(str + 2, AND, par);
+    if(*str == '|' && str[1] == '|')
+        return check_err(str + 2, OR, par);
+    if(*str == '|')
+        return check_err(str+ 1, PIPE, par);
+    if(*str == '<' || *str == '>')
+        return check_err(str + 1 + (*str == str[1]) , PIPE + 1, par);
+    if(*str == '(')
+        return ft_error(str);
+    if(*str == ')')
+        return ft_check_par(str+ 1, par - 1);
+    return -1;
+}
+
+int check_err(char *str, t_token token, int par)
+{
+    int res;
+
+    while(str && *str && ft_instr(" \n\t", *str) >= 0)
+        str++;
+    if(ft_instr("()><", *str) >= 0)
+    {
+        if(token > PIPE)
+            return ft_error(str);
+        else
+        {
+            par++;
+            str++;
+        }
+    }
+    if(ft_instr("|&", *str) >= 0)
+        return ft_error(str);
+    while(*str)
+    {
+        res = ft_check_token(str, par);
+        if(res >= 0)
+            return res;
+        str++;
+    }
+    return 0;
 }

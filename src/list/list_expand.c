@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 01:18:32 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/08 16:40:49 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/09 14:22:52 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -194,12 +194,6 @@ void list_expand_q(t_var *list)
 
 t_var	*list_expand(t_var *list, t_data *data)
 {
-	// t_var *node;
-	// t_var *next;
-	// next = list
-	(void)data;
-	// if(!list)
-	// 	return NULL;
 	list = list_expand_var(list, data);
 	list = list_expand_wc(list);
 	list_expand_q(list);

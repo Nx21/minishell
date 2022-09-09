@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 06:27:59 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/31 01:43:19 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/09 16:12:44 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char *ft_parcing(char *buf)
 
 	i = 0;
 	c = 0;
-	if(!(check_err_1(buf) && check_err_2(buf, 0)))
+	if((check_err(buf , 0, 0)))
 	{
 		add_history(buf);
 		free(buf);
@@ -42,7 +42,7 @@ char *ft_parcing(char *buf)
 			c = buf[i];
 		else if(!c && ft_instr("(", buf[i]) >= 0)
 			c = buf[i] + 1;
-		else if(!c && ft_instr(")]", buf[i]) >= 0)
+		else if(!c && ft_instr(")", buf[i]) >= 0)
 			return buf;
 		i++;
 	}
