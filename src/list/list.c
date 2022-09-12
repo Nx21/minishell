@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rjaanit <rjaanit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 02:33:07 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/09 11:24:45 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/11 14:17:42 by rjaanit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,6 @@ char	*find_one(t_data *data, char *key)
 	head = data->l_env;
 	if(!ft_strcmp("?", key))
 	{
-		printf("hsgndks\n");	
 		return ft_strdup(data->state);
 	}
 	while(head)

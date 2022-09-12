@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rjaanit <rjaanit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 01:23:45 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/09 16:41:46 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/11 10:48:35 by rjaanit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,6 @@ int	ft_cd(char **str, t_data *data);
 int	ft_unset(char **str, t_data *data);
 int	ft_env(char **str, t_data *data);
 int	ft_export(char **str, t_data *data);
+t_data	*get_data(char **envp);
+void	get_state(t_data *data, int a);
 #endif

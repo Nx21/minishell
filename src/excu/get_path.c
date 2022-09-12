@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_path.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rjaanit <rjaanit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 00:06:14 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/09 14:25:30 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/11 14:25:21 by rjaanit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,10 @@ int exe(char **str, t_data *data)
         ft_putstr_fd(str[0], 2);
         ft_putstr_fd(": command not found\n", 2);
         free(s);
-        exit(127);
+        exit(1);
     }
     waitpid(pid,&state,0);
+    printf("%d\n", state);
     return (state);
 }
 
