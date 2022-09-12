@@ -3,15 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   list.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rjaanit <rjaanit@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 02:33:07 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/11 14:17:42 by rjaanit          ###   ########.fr       */
+/*   Updated: 2022/09/12 14:58:03 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "env.h"
 
+
+void chage_node(t_list *node, t_list *list)
+{
+	if(list->value)
+	{
+		free(node->value);
+		node->value = list->value;
+	}
+	free(list->key);
+	free(list);
+}
 
 t_list	*add_one(t_list *head, t_list *list)
 {
@@ -27,18 +38,14 @@ t_list	*add_one(t_list *head, t_list *list)
 	{
 		if(!ft_strcmp(node->key, list->key))
 		{
-			free(node->value);
-			node->value = list->value;
-			free(list);
+			chage_node(node, list);
 			return head;
 		}
 		node = node->next;
 	}
 	if(!ft_strcmp(node->key, list->key))
 	{
-		free(node->value);
-		node->value = list->value;
-		free(list);
+		chage_node(node, list);
 		return head;
 	}
 	node->next = list;
@@ -108,9 +115,7 @@ char	*find_one(t_data *data, char *key)
 
 	head = data->l_env;
 	if(!ft_strcmp("?", key))
-	{
 		return ft_strdup(data->state);
-	}
 	while(head)
 	{
 		if(ft_strcmp(head->key, key) == 0)

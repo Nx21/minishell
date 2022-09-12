@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 00:57:50 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/04 09:41:33 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/12 14:53:28 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,6 @@ t_node	*ft_read_eof(char *eof)
 		list->str = ft_join(list->str , "\n");
 		line = readline("> ");
 	}
+	free(line);
 	return (add_node(list, W));
 }

@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 23:34:43 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/28 00:34:30 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/11 19:43:43 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	is_numeric(char *str)
 {
 	while (*str)
 	{
-		if (ft_isdigit(*str) == 0)
+		if (ft_isdigit(*str) == 0 || *str == '-')
 			return (0);
 		str++;
 	}
