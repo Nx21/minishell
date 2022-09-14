@@ -32,6 +32,7 @@
         "ratio": "c",
         "system_error": "c",
         "type_traits": "c",
-        "sstream": "c"
+        "sstream": "c",
+        "minishell.h": "c"
     }
 }

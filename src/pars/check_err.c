@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_err.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rjaanit <rjaanit@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 00:17:26 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/12 13:51:03 by rjaanit          ###   ########.fr       */
+/*   Updated: 2022/09/12 15:05:53 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,8 @@ int	check_err(char *str, t_token token, int par)
 		str++;
 	if (token > PIPE && !(str && *str))
 		return (ft_error(NULL));
-	if(ft_instr("<>)", *str) >= 0 && token > PIPE)
-        return ft_error(str);
+	if (ft_instr("<>)", *str) >= 0 && token > PIPE)
+		return (ft_error(str));
 	while (ft_instr("(", *str) >= 0)
 	{
 		if (token > PIPE)

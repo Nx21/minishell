@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 00:14:29 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/25 04:55:43 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/13 14:03:02 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@ int    ft_strcmp(char *str1, char *str2)
 
     s1 = (unsigned char *)str1;
     s2 = (unsigned char *)str2;
+    if(!str1)
+        return -1;
+    if(!str2)
+        return 1;
     i = 0;
     while (s1[i] || s2[i])
     {

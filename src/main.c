@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rjaanit <rjaanit@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 01:23:53 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/11 23:16:25 by rjaanit          ###   ########.fr       */
+/*   Updated: 2022/09/13 11:48:02 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ t_data	*get_data(char **envp)
 	data = malloc(sizeof(t_data));
 	data->env = envp;
 	data->state = NULL;
-	// data->sort_env = env_list_sorted(NULL,envp);
 	data->l_env = env_list(envp);
 	data->last = NULL;
 	return (data);
@@ -98,7 +97,7 @@ void	ft_signal(void)
 {
 	rl_catch_signals = 0;
 	signal(SIGINT, handler);
-	// signal(SIGQUIT, handler);
+	signal(SIGQUIT, handler);
 }
 
 int	main(int argc, char **argv, char **envp)

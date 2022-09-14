@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 23:41:21 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/02 02:54:25 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/13 14:18:21 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,8 @@ t_var *list_split(char *str)
     list = malloc(sizeof(t_var));
     i = 0;
     c = 0;
-    while(str[i])
+    while(str[i] && !(!c && ft_instr("\n\t ", str[i]) >= 0))
     {
-        if(!c && ft_instr("\n\t ", str[i]) >= 0)
-            break;
         if(str[i] == c)
 			c = 0;
 		else if(!c && ft_instr("\"\'", str[i]) >= 0)
