@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lvl2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rjaanit <rjaanit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 23:52:44 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/04 09:28:44 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/14 14:14:43 by rjaanit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,38 +18,38 @@ int	find_lev2(t_token *token, char *str)
 	int			max;
 	int			idx;
 	int			i;
-	
+
 	max = -1;
 	i = 0;
-	while(i < 1)
+	while (i < 1)
 	{
 		idx = ft_get_last_ind(str, (char *)lev[i]);
-		if(idx > max)
+		if (idx > max)
 		{
 			max = idx;
 			*token = i + 3;
 		}
 		i++;
 	}
-	return max;
+	return (max);
 }
 
-t_node *ft_ast_lev2(char *buf)
+t_node	*ft_ast_lev2(char *buf)
 {	
-	int len;
+	int		len;
 	t_node	*node;
-	t_token token;
-	
-	if(!buf || !G_global)
-		return NULL;
+	t_token	token;
+
+	if (!buf || !G_global)
+		return (NULL);
 	len = find_lev2(&token, buf);
-	if(len > 0)
+	if (len > 0)
 	{
 		buf[len] = 0;
 		node = add_node(NULL, token);
 		node->left = ft_ast_lev2(buf);
 		node->right = ft_ast_lev3(buf + len + 1);
-		return node;
+		return (node);
 	}
-	return ft_ast_lev3(buf);
+	return (ft_ast_lev3(buf));
 }

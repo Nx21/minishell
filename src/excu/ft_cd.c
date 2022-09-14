@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_cd.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rjaanit <rjaanit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 23:34:01 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/09 13:19:02 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/14 14:29:22 by rjaanit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,57 +14,55 @@
 #include <sys/stat.h>
 
 
-char *ft_append_path(char *str, char *path)
+char	*ft_append_path(char *str, char *path)
 {
-	int	j;
-	char *tmp;
-	
-	if(!ft_strcmp(str, "."))
+	int		j;
+	char	*tmp;
+
+	if (!ft_strcmp(str, "."))
 	{
 		free(str);
 		return (path);
 	}
-	if(!ft_strcmp(str, ".."))
+	if (!ft_strcmp(str, ".."))
 	{
 		j = ft_strlen(path);
-		while(path[j] != '/')
+		while (path[j] != '/')
 			j--;
 		tmp = ft_substr(path, 0, j);
 		free(path);
-		return tmp;
+		return (tmp);
 	}
-	path = ft_join(path,"/");
+	path = ft_join(path, "/");
 	path = ft_join(path, str);
 	free(str);
-	return path;
+	return (path);
 }
 
-
-char *find_abs_path(char *str, char *path)
+char	*find_abs_path(char *str, char *path)
 {
-	char *tmp;
-	int	i;
+	char	*tmp;
+	int		i;
 
-	if(!str || !str[0])
-		return path;
+	if (!str || !str[0])
+		return (path);
 	i = 0;
-	while(str[i] && str[i] != '/')
+	while (str[i] && str[i] != '/')
 		i++;
 	tmp = ft_substr(str, 0, i);
 	path = ft_append_path(tmp, path);
-	return find_abs_path(str + i + 1, path);
+	return (find_abs_path(str + i + 1, path));
 }
-
 
 int	ft_chdir(char *path, t_data *data)
 {
-	int ch;
+	int		ch;
 
 	ch = chdir(path);
     if (ch < 0)
 	{
 		free(path);
-    	perror("minishell");
+		perror("minishell");
 		return (1);
 	}
 	data->l_env = add_one(data->l_env, new_list(ft_strdup("OLDPWD")\
@@ -73,23 +71,23 @@ int	ft_chdir(char *path, t_data *data)
 	return (0);
 }
 
-char *check_dir(char **str, t_data *data)
+char	*check_dir(char **str, t_data *data)
 {
-	struct stat buf;
-	char *path;
+	struct stat	buf;
+	char		*path;
 
-	if(!str[1])
+	if (!str[1])
 		path = find_one(data, "HOME");
 	else if (!ft_strcmp(str[1], "-"))
 		path = find_one(data, "OLDPWD");
-	else if(str[1][0] != '/')
+	else if (str[1][0] != '/')
 		path = find_abs_path(str[1], find_one(data, "PWD"));
 	else 
 		path = find_abs_path(str[1], ft_strdup("/"));
-	if(stat(path, &buf) < 0)
+	if (stat(path, &buf) < 0)
 	{
 		free(path);
-		return NULL;
+		return (NULL);
 	}
 	return path;
 }

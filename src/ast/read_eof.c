@@ -3,26 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   read_eof.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rjaanit <rjaanit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 00:57:50 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/12 14:53:28 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/14 14:18:51 by rjaanit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-static char *del_spc(char *buf)
+static char	*del_spc(char *buf)
 {
-	int len;
-	
-	while(*buf && ft_instr(" \n\t", *buf) >= 0)
+	int		len;
+
+	while (*buf && ft_instr(" \n\t", *buf) >= 0)
 		buf++;
 	len = ft_strlen(buf) - 1;
-	while(len >= 0 && ft_instr(" \n\t", buf[len]) >= 0)
+	while (len >= 0 && ft_instr(" \n\t", buf[len]) >= 0)
 		len--;
 	buf[len + 1] = 0;
-	return buf;
+	return (buf);
 }
 
 t_node	*ft_read_eof(char *eof)
@@ -31,21 +31,21 @@ t_node	*ft_read_eof(char *eof)
 	char	*line;
 
 	eof = del_spc(eof);
-	list =  malloc(sizeof(t_var));
+	list = malloc(sizeof(t_var));
 	list->next = NULL;
 	list->str = NULL;
-	line =  readline("> ");
-	while(line && ft_strcmp(line, eof))
+	line = readline("> ");
+	while (line && ft_strcmp(line, eof))
 	{
-		list->str = ft_join(list->str , line);
+		list->str = ft_join(list->str, line);
 		free(line);
-		if(!G_global)
+		if (!G_global)
 		{
 			free(list->str);
 			free(list);
-			return NULL;
+			return (NULL);
 		}
-		list->str = ft_join(list->str , "\n");
+		list->str = ft_join(list->str, "\n");
 		line = readline("> ");
 	}
 	free(line);

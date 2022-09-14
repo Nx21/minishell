@@ -6,7 +6,7 @@
 /*   By: rjaanit <rjaanit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 01:23:53 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/11 23:16:25 by rjaanit          ###   ########.fr       */
+/*   Updated: 2022/09/14 12:05:19 by rjaanit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	free_ast(t_node *node)
 t_data	*get_data(char **envp)
 {
 	t_data		*data;
-
+ 
 	data = malloc(sizeof(t_data));
 	data->env = envp;
 	data->state = NULL;
