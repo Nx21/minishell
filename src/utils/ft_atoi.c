@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rjaanit <rjaanit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 04:11:13 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/28 00:35:16 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/14 17:03:15 by rjaanit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ unsigned int	ft_atoi(char *str)
 	int	a;
 	int	neg;
 
-	if(!str)
+	if (!str)
 		return (0);
 	i = 0;
 	neg = check_negative(str, &i);
@@ -45,7 +45,7 @@ unsigned int	ft_atoi(char *str)
 	{
 		a *= 10;
 		a += str[i] - 48;
-        a %= 256;
+		a %= 256;
 		i++;
 	}
 	if (neg % 2)

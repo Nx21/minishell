@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 01:18:32 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/09 14:22:52 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/13 11:23:38 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,10 +170,7 @@ void list_expand_q(t_var *list)
 	c = 0;
 	str =  malloc(ft_strlen(list->str) + 1);
 	if(!str)
-	{
-		printf("here\n");
-		exit(0);
-	}
+		exit(1);
 	i = 0;
 	j = 0;
 	while(list->str[j])

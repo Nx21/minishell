@@ -6,13 +6,12 @@
 /*   By: rjaanit <rjaanit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 23:34:01 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/14 14:29:22 by rjaanit          ###   ########.fr       */
+/*   Updated: 2022/09/14 14:37:57 by rjaanit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 #include <sys/stat.h>
-
 
 char	*ft_append_path(char *str, char *path)
 {
@@ -59,13 +58,13 @@ int	ft_chdir(char *path, t_data *data)
 	int		ch;
 
 	ch = chdir(path);
-    if (ch < 0)
+	if (ch < 0)
 	{
 		free(path);
 		perror("minishell");
 		return (1);
 	}
-	data->l_env = add_one(data->l_env, new_list(ft_strdup("OLDPWD")\
+	data->l_env = add_one(data->l_env, new_list(ft_strdup("OLDPWD") \
 	, find_one(data, "PWD")));
 	data->l_env = add_one(data->l_env, new_list(ft_strdup("PWD"), path));
 	return (0);
@@ -82,36 +81,36 @@ char	*check_dir(char **str, t_data *data)
 		path = find_one(data, "OLDPWD");
 	else if (str[1][0] != '/')
 		path = find_abs_path(str[1], find_one(data, "PWD"));
-	else 
+	else
 		path = find_abs_path(str[1], ft_strdup("/"));
 	if (stat(path, &buf) < 0)
 	{
 		free(path);
 		return (NULL);
 	}
-	return path;
+	return (path);
 }
-
 
 int	ft_cd(char **str, t_data *data)
 {
-	char *path;
-	
+	char	*path;
+
 	path = check_dir(str, data);
-	if(!path && str[1] && !ft_strcmp(str[1], "."))
+	if (!path && str[1] && !ft_strcmp(str[1], "."))
 	{
 		ft_putstr_fd("cd: error retrieving current directory:\
-		\ngetcwd: cannot access parent directories: No such file or directory\n",2);
-		return 1;
+		\ngetcwd: cannot access parent directories: No such \
+		file or directory\n", 2);
+		return (1);
 	}
-	if(!path)
+	if (!path)
 	{
-		ft_putstr_fd("cd: ",2);
-		ft_putstr_fd(str[1],2);
-		ft_putstr_fd(": No such file or directory\n",2);
-		return 1;
+		ft_putstr_fd("cd: ", 2);
+		ft_putstr_fd(str[1], 2);
+		ft_putstr_fd(": No such file or directory\n", 2);
+		return (1);
 	}
-	if(str[1] && !ft_strcmp(str[1], "-") && !ft_strcmp(path, ""))
-		return 1 && ft_putstr_fd("cd: OLDPWD not set\n",2);
-	return ft_chdir(path, data);		
+	if (str[1] && !ft_strcmp(str[1], "-") && !ft_strcmp(path, ""))
+		return (1 && ft_putstr_fd("cd: OLDPWD not set\n", 2));
+	return (ft_chdir(path, data));
 }

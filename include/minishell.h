@@ -6,7 +6,7 @@
 /*   By: rjaanit <rjaanit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 01:23:45 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/11 10:48:35 by rjaanit          ###   ########.fr       */
+/*   Updated: 2022/09/14 18:01:25 by rjaanit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,41 +22,41 @@
 # include <string.h>
 # include <unistd.h>
 # include <fcntl.h>
-#include <sys/types.h>
-#include <sys/types.h>
-#include <sys/wait.h>
+# include <sys/types.h>
+# include <sys/types.h>
+# include <sys/wait.h>
+# include <errno.h>
 # include "utils.h"
 # include "ast.h"
 # include "env.h"
 
-
 char	*ft_parcing(char *buf);
-int		G_global;
+int		g_global;
 t_node	*ft_ast_lev1(char *buf);
 t_node	*ft_ast_lev2(char *buf);
 int		ft_echo(char **str);
 int		ft_exit(char **str);
-int	ft_pwd(t_data *data);
+int		ft_pwd(t_data *data);
 t_node	*ft_read_eof(char *eof);
 char	*ft_comp_oq(char *buf);
 char	*ft_comp_op(char *buf);
 t_node	*ft_read_eof(char *eof);
-int ft_check_token(char *str, int par, char c);
-int check_err(char *str, t_token token, int par);
-
-int	excu_ast(t_node *node, t_data *data);
-int	ft_or(t_node *node, t_data *data);
-int	ft_and(t_node *node, t_data *data);
-int	ft_pipe(t_node *node, t_data *data);
-int	ft_drr(t_node *node, t_data *data);
-int	ft_rr(t_node *node, t_data *data);
-int	ft_dlr(t_node *node, t_data *data);
-int	ft_lr(t_node *node, t_data *data);
-int	ft_word(t_node *node, t_data *data);
-int	ft_cd(char **str, t_data *data);
-int	ft_unset(char **str, t_data *data);
-int	ft_env(char **str, t_data *data);
-int	ft_export(char **str, t_data *data);
+int		ft_check_token(char *str, int par, char c);
+int		check_err(char *str, t_token token, int par);
+int		exe(char **str, t_data *data);
+int		excu_ast(t_node *node, t_data *data);
+int		ft_or(t_node *node, t_data *data);
+int		ft_and(t_node *node, t_data *data);
+int		ft_pipe(t_node *node, t_data *data);
+int		ft_drr(t_node *node, t_data *data);
+int		ft_rr(t_node *node, t_data *data);
+int		ft_dlr(t_node *node, t_data *data);
+int		ft_lr(t_node *node, t_data *data);
+int		ft_word(t_node *node, t_data *data);
+int		ft_cd(char **str, t_data *data);
+int		ft_unset(char **str, t_data *data);
+int		ft_env(char **str, t_data *data);
+int		ft_export(char **str, t_data *data);
 t_data	*get_data(char **envp);
 void	get_state(t_data *data, int a);
 #endif

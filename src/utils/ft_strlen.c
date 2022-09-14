@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rjaanit <rjaanit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 09:14:05 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/25 04:54:35 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/14 17:22:12 by rjaanit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ int	ft_strlen(char *str)
 {
 	int	len;
 
-	if(!str)
-		return 0;
+	if (!str)
+		return (0);
 	len = 0;
-	while(str && str[len])
+	while (str && str[len])
 		len++;
-	return (len);	
+	return (len);
 }

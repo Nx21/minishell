@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rjaanit <rjaanit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 05:36:12 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/03 06:25:10 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/14 17:04:57 by rjaanit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_calloc(int number, int size)
 {
-	int	i;
+	int		i;
 	char	*c;
 
 	i = 0;

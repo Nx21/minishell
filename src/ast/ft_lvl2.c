@@ -6,7 +6,7 @@
 /*   By: rjaanit <rjaanit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 23:52:44 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/14 14:14:43 by rjaanit          ###   ########.fr       */
+/*   Updated: 2022/09/14 18:07:06 by rjaanit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ t_node	*ft_ast_lev2(char *buf)
 	t_node	*node;
 	t_token	token;
 
-	if (!buf || !G_global)
+	if (!buf || !g_global)
 		return (NULL);
 	len = find_lev2(&token, buf);
 	if (len > 0)

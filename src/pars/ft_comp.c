@@ -6,7 +6,7 @@
 /*   By: rjaanit <rjaanit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 00:16:57 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/12 10:55:43 by rjaanit          ###   ########.fr       */
+/*   Updated: 2022/09/14 18:04:11 by rjaanit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_comp_oq(char *buf)
 	char	*line;
 
 	line = readline("> ");
-	if (!G_global)
+	if (!g_global)
 		return (buf);
 	if (!line)
 	{
@@ -39,7 +39,7 @@ char	*ft_comp_op(char *buf)
 	char	*line;
 
 	line = readline("> ");
-	if (!G_global)
+	if (!g_global)
 		return (buf);
 	if (!line)
 	{

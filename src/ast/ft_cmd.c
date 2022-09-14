@@ -6,7 +6,7 @@
 /*   By: rjaanit <rjaanit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 23:37:26 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/14 14:08:35 by rjaanit          ###   ########.fr       */
+/*   Updated: 2022/09/14 18:06:19 by rjaanit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_node	*ft_cmd(char *buf)
 	int		len;
 	t_node	*node;
 
-	if (!G_global)
+	if (!g_global)
 		return (NULL);
 	while (*buf && ft_instr(" \n\t", *buf) >= 0)
 		buf++;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_join.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rjaanit <rjaanit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 09:07:07 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/08/25 04:54:13 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/14 17:14:20 by rjaanit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char	*ft_join(char *s1, char *s2)
 		str[i] = s2[i - len1];
 		i++;
 	}
-	if(s1)
+	if (s1)
 		free(s1);
 	str[i] = 0;
 	return (str);

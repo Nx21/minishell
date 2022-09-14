@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_exit.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rjaanit <rjaanit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 23:34:43 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/11 19:43:43 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/14 15:20:41 by rjaanit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ int	is_numeric(char *str)
 	return (1);
 }
 
-int     how_many_arg(char **str)
+int	how_many_arg(char **str)
 {
-   int		i;
+	int		i;
 
 	i = 0;
 	while (str[i])
@@ -41,7 +41,7 @@ int     how_many_arg(char **str)
 	return (i);
 }
 
-int    ft_exit(char **str)
+int	ft_exit(char **str)
 {
 	printf("exit\n");
 	if (str[1] && !is_numeric(str[1]))
@@ -51,8 +51,8 @@ int    ft_exit(char **str)
 	}
 	if (how_many_arg(str) > 2)
 	{
-        printf("too many arguments \n");
-    	return (1);
+		printf("too many arguments \n");
+		return (1);
 	}
 	exit (ft_atoi(str[1]));
 }

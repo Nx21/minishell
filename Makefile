@@ -6,7 +6,7 @@
 #    By: rjaanit <rjaanit@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/03 10:54:07 by nhanafi           #+#    #+#              #
-#    Updated: 2022/09/11 11:24:05 by rjaanit          ###   ########.fr        #
+#    Updated: 2022/09/14 15:15:31 by rjaanit          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,9 +22,9 @@ INC = -I./include
 HEADERS = include/minishell.h include/utils.h include/env.h include/ast.h
 
 ODIR = obj
-FILES = main pars/check_err pars/ft_comp pars/ft_parsing pars/ft_comp\
+FILES = main pars/check_error pars/ft_comp pars/ft_parsing pars/ft_comp\
 	list/list list/list_split list/list_join list/list_expand list/list_append\
-	list/wc_cmp list/wc_handler list/wc_creat\
+	list/wc_cmp list/wc_handler list/wc_creat excu/ft_word\
 	utils/ft_atoi utils/ft_join utils/ft_putstr_fd utils/ft_split utils/ft_memset\
 	utils/ft_strcmp utils/ft_strdup utils/ft_strlen utils/ft_substr utils/instr\
 	utils/ft_strstr utils/ft_isalnum utils/ft_calloc utils/ft_strcat utils/ft_itoa\

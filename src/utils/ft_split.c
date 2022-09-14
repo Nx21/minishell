@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rjaanit <rjaanit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 11:52:08 by rjaanit           #+#    #+#             */
-/*   Updated: 2022/08/18 02:17:51 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/14 17:20:35 by rjaanit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,19 @@ static int	check1(char const *str, char c)
 	int		i;
 	int		count;
 	int		j;
-    char    s;
+	char	s;
 
 	j = 0;
 	i = 0;
 	count = 0;
-    s = 0;
+	s = 0;
 	while (str[i] != '\0')
 	{
-        if(str[i] == s)
+		if (str[i] == s)
 			s = 0;
-		else if(!s && ft_instr("\"\'", str[i]) >= 0)
+		else if (!s && ft_instr("\"\'", str[i]) >= 0)
 			s = str[i];
-		else if(!s && ft_instr("(", str[i]) >= 0)
+		else if (!s && ft_instr("(", str[i]) >= 0)
 			s = str[i] + 1;
 		if (str[i] != c && j == 0)
 		{
@@ -46,21 +46,21 @@ static int	check1(char const *str, char c)
 static int	check2(char const *str, char c)
 {
 	int		count;
-    char    s;
+	char	s;
 
 	count = 0;
-    s = 0;
+	s = 0;
 	if (*str == c)
 		str++;
 	while (*str != '\0')
-	{   
-        if(!s && *str == c)
-            break;
-        if(*str == s)
+	{
+		if (!s && *str == c)
+			break ;
+		if (*str == s)
 			s = 0;
-		else if(!s && ft_instr("\"\'", *str) >= 0)
+		else if (!s && ft_instr("\"\'", *str) >= 0)
 			s = *str;
-		else if(!s && ft_instr("(", *str) >= 0)
+		else if (!s && ft_instr("(", *str) >= 0)
 			s = *str + 1;
 		count++;
 		str++;

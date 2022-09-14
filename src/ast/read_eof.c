@@ -6,7 +6,7 @@
 /*   By: rjaanit <rjaanit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 00:57:50 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/14 14:18:51 by rjaanit          ###   ########.fr       */
+/*   Updated: 2022/09/14 18:07:31 by rjaanit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ t_node	*ft_read_eof(char *eof)
 	{
 		list->str = ft_join(list->str, line);
 		free(line);
-		if (!G_global)
+		if (!g_global)
 		{
 			free(list->str);
 			free(list);
