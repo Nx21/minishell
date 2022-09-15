@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 23:21:19 by rjaanit           #+#    #+#             */
-/*   Updated: 2022/09/15 14:57:26 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/15 16:00:55 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	ft_lr(t_node *node, t_data *data)
 	if (fd < 0)
 	{
 		ft_putstr_fd("minishell: ", 2);
-		perror(node->right->list->str);
+		perror(str[0]);
 		return (1);
 	}
 	back_fd = dup(STDIN_FILENO);

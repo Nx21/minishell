@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 04:55:00 by rjaanit           #+#    #+#             */
-/*   Updated: 2022/09/15 14:55:32 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/15 16:01:44 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ int	red_err(char *str, char **list)
 	free(list);
 	return (1);
 }
-
-
 
 int	ft_drr(t_node *node, t_data *data)
 {
