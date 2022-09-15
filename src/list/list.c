@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 02:33:07 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/15 12:28:19 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/15 22:06:14 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ t_list *env_list(char **str)
     t_list *list;
     int     i = 0;
 
+	if(!str || !*str)
+		return NULL;
     while((*str)[i] != '=')
         i++;
 	list = new_list(ft_substr(*str, 0, i), ft_strdup(*str + i + 1));

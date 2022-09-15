@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 01:23:53 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/15 12:26:13 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/15 23:15:25 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_data	*get_data(char **envp)
 
 	data = malloc(sizeof(t_data));
 	data->env = envp;
-	data->state = NULL;
+	data->state = ft_strdup("0");
 	data->l_env = env_list(envp);
 	data->last = NULL;
 	return (data);

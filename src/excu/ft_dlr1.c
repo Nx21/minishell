@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_dlr.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rjaanit <rjaanit@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 09:18:34 by rjaanit           #+#    #+#             */
-/*   Updated: 2022/09/14 15:00:42 by rjaanit          ###   ########.fr       */
+/*   Updated: 2022/09/15 23:39:33 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,19 @@ static void	ft_child1(int *fd1, t_data *data, t_node *node, int back_fd)
 	dup2(back_fd, STDIN_FILENO);
 }
 
-static void	ft_child2(int *fd1, t_node *node)
+static void	ft_child2(int *fd1, t_node *node, t_data *data)
 {
+	char	**str;
+
 	if (dup2(fd1[1], 1) < 0)
 		error();
 	close(fd1[0]);
 	close(fd1[1]);
 	if (node->right->list && node->right->list->str)
-		printf("%s", node->right->list->str);
+	{
+		str = list_to_arr(node->right->list, data);
+		printf("%s", str[0]);
+	}
 	exit(0);
 }
 
@@ -59,7 +64,7 @@ int	ft_dlr(t_node *node, t_data *data)
 		if (pid > 0)
 			ft_child1(fd1, data, node, back_fd);
 		else if (pid == 0)
-			ft_child2(fd1, node);
+			ft_child2(fd1, node, data);
 		exit(state);
 	}
 	waitpid(pid, &state, 0);

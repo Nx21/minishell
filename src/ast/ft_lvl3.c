@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lvl3.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rjaanit <rjaanit@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 02:13:01 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/14 18:07:12 by rjaanit          ###   ########.fr       */
+/*   Updated: 2022/09/15 16:11:32 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,20 @@ int	find_lev3(t_token *token, char *str)
 int	ft_next_word(char *str)
 {
 	int		i;
+	char	c;
 
 	i = 0;
+	c = 0;
 	while (str && str[i] && ft_instr("\t\n ", str[i]) >= 0)
 		i++;
-	while (str && str[i] && ft_instr("\t\n ", str[i]) < 0)
+	while (str && str[i] && (c || ft_instr("\t\n ", str[i]) < 0))
+	{
+		if (str[i] == c)
+			c = 0;
+		else if (!c && ft_instr("\"\'", str[i]) >= 0)
+			c = str[i];
 		i++;
+	}
 	return (i);
 }
 

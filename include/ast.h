@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 13:17:27 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/15 14:12:38 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/15 23:34:52 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,7 @@ t_var	*list_expand_var(t_var *list, t_data *data);
 char	*ft_itoa(int n);
 char	*find_one(t_data *data, char *key);
 int		red_err(char *str, char **list);
+char	*del_qu(char *buf);
+void	list_expand_q(t_var *list);
+t_var	*list_expand_var(t_var *list, t_data *data);
 #endif
