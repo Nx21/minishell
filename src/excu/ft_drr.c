@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_drr.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rjaanit <rjaanit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 04:55:00 by rjaanit           #+#    #+#             */
-/*   Updated: 2022/09/15 14:55:32 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/15 15:15:07 by rjaanit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,15 @@
 
 int	red_err(char *str, char **list)
 {
-	int i;
-	ft_putstr_fd("minishell: ",2);
+	int		i;
+
+	ft_putstr_fd("minishell: ", 2);
 	ft_putstr_fd(str, 2);
-	ft_putstr_fd(": ambiguous redirect\n",2);
+	ft_putstr_fd(": ambiguous redirect\n", 2);
 	i = 0;
 	(void) list;
 	free(str);
-	while(list[i])
+	while (list[i])
 	{
 		free(list[i]);
 		i++;
@@ -29,8 +30,6 @@ int	red_err(char *str, char **list)
 	free(list);
 	return (1);
 }
-
-
 
 int	ft_drr(t_node *node, t_data *data)
 {

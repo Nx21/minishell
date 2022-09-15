@@ -3,14 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_rr.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rjaanit <rjaanit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 21:40:11 by rjaanit           #+#    #+#             */
-/*   Updated: 2022/09/15 14:56:09 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/15 15:25:47 by rjaanit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+static int	print_err(void)
+{
+	perror("minishell");
+	return (1);
+}
 
 int	ft_rr(t_node *node, t_data *data)
 {
@@ -28,10 +34,7 @@ int	ft_rr(t_node *node, t_data *data)
 	fd = open(str[0], O_CREAT | O_RDWR | O_TRUNC, 0777);
 	(void) data;
 	if (fd < 0)
-	{
-		perror("minishell");
-		return (1);
-	}
+		return (print_err());
 	back_fd = dup(STDOUT_FILENO);
 	dup2(fd, STDOUT_FILENO);
 	close(fd);
