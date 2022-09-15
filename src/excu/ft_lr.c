@@ -6,7 +6,7 @@
 /*   By: rjaanit <rjaanit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 23:21:19 by rjaanit           #+#    #+#             */
-/*   Updated: 2022/09/14 15:36:18 by rjaanit          ###   ########.fr       */
+/*   Updated: 2022/09/15 00:21:22 by rjaanit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,12 @@ int	ft_lr(t_node *node, t_data *data)
 	int		fd;
 
 	(void)data;
-	fd = open(node->right->list->str, O_RDWR, 0777);
+	fd = open(node->right->list->str, O_RDONLY, 0777); // u don't need to open it for writing
 	if (fd < 0)
 	{
-		perror("minishell: ");
+		ft_putstr_fd("minishell: ", 2);
+		perror(node->right->list->str);
+		
 		return (1);
 	}
 	back_fd = dup(STDIN_FILENO);

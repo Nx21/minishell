@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rjaanit <rjaanit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 02:33:07 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/13 11:19:47 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/15 00:11:47 by rjaanit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ t_list *env_list(char **str)
     t_list *list;
     int     i = 0;
 
+	if (!*str)
+		return NULL;
     while((*str)[i] != '=')
         i++;
 	list = new_list(ft_substr(*str, 0, i), ft_strdup(*str + i + 1));

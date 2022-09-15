@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_err.c                                        :+:      :+:    :+:   */
+/*   check_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rjaanit <rjaanit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 15:09:09 by rjaanit           #+#    #+#             */
-/*   Updated: 2022/09/14 15:09:10 by rjaanit          ###   ########.fr       */
+/*   Updated: 2022/09/15 12:09:02 by rjaanit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,17 +90,15 @@ int	check_err(char *str, t_token token, int par)
 		str++;
 	if (token > PIPE && !(str && *str))
 		return (ft_error(NULL));
-	if (ft_instr("<>)", *str) >= 0 && token > PIPE)
+	if (ft_instr("<>", *str) >= 0 && token > PIPE)
 		return (ft_error(str));
-	while (ft_instr("(", *str) >= 0)
+	if (ft_instr("(", *str) >= 0)
 	{
 		if (token > PIPE)
 			return (ft_error(str));
-		if (*str == '(')
-			par++;
-	str++;
+		return (check_err(str + 1, token, par + 1));
 	}
-	if (ft_instr("|&", *str) >= 0)
+	if (ft_instr("|&)", *str) >= 0)
 		return (ft_error(str));
 	return (check_str(str, par));
 }

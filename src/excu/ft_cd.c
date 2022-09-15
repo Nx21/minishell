@@ -6,7 +6,7 @@
 /*   By: rjaanit <rjaanit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 23:34:01 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/14 14:37:57 by rjaanit          ###   ########.fr       */
+/*   Updated: 2022/09/14 23:25:30 by rjaanit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,9 +98,8 @@ int	ft_cd(char **str, t_data *data)
 	path = check_dir(str, data);
 	if (!path && str[1] && !ft_strcmp(str[1], "."))
 	{
-		ft_putstr_fd("cd: error retrieving current directory:\
-		\ngetcwd: cannot access parent directories: No such \
-		file or directory\n", 2);
+		perror("cd: error retrieving current directory:\
+ getcwd: cannot access parent directories");
 		return (1);
 	}
 	if (!path)
