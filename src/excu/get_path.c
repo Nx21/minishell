@@ -6,11 +6,19 @@
 /*   By: rjaanit <rjaanit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 00:06:14 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/15 11:55:34 by rjaanit          ###   ########.fr       */
+/*   Updated: 2022/09/15 15:07:01 by rjaanit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+static void	print_err(char *str)
+{
+	ft_putstr_fd(str, 2);
+	ft_putstr_fd(": ", 2);
+	ft_putstr_fd(strerror(errno), 2);
+	ft_putstr_fd("\n", 2);
+}
 
 char	**get_path(char *s)
 {
@@ -35,7 +43,6 @@ char	*get_command(char **paths, char *command)
 		res = access(get, X_OK);
 		if (!res)
 			break ;
-		// free(get);
 		paths++;
 	}
 	if (*paths == NULL)
@@ -60,19 +67,15 @@ int	exe(char **str, t_data *data)
 		state = 1;
 		s = get_path(find_one(data, "PATH"));
 		execve(get_command(s, *str), str, data->env);
-		// free(s);
 		if (errno == EACCES)
 			state = 126;
 		else if (errno == ENOENT)
 			state = 127;
-		ft_putstr_fd(str[0], 2);
-		ft_putstr_fd(": ", 2);
-		ft_putstr_fd(strerror(errno), 2);
-		ft_putstr_fd("\n", 2);
-		exit(state);	
+		print_err(str[0]);
+		exit(state);
 	}
 	waitpid(pid, &state, 0);
-	if (WIFEXITED(state)) 
+	if (WIFEXITED(state))
 		return (WEXITSTATUS(state));
 	else if (WIFSIGNALED(state))
 		return (128 + WTERMSIG(state));
