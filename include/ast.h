@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ast.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rjaanit <rjaanit@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 13:17:27 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/14 17:55:39 by rjaanit          ###   ########.fr       */
+/*   Updated: 2022/09/15 14:12:38 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,5 @@ char	*var_handler_v(char *str, char c, t_data *data);
 t_var	*list_expand_var(t_var *list, t_data *data);
 char	*ft_itoa(int n);
 char	*find_one(t_data *data, char *key);
+int		red_err(char *str, char **list);
 #endif

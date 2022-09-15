@@ -3,33 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rjaanit <rjaanit@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 01:23:53 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/15 12:08:17 by rjaanit          ###   ########.fr       */
+/*   Updated: 2022/09/15 12:26:13 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-
-void	free_ast(t_node *node)
-{
-	t_var	*list;
-
-	list = node->list;
-	while (list)
-	{
-		list = node->list->next;
-		free(node->list->str);
-		free(node->list);
-		node->list = list;
-	}
-	if (node->left)
-		free_ast(node->left);
-	if (node->right)
-		free_ast(node->right);
-	free(node);
-}
 
 t_data	*get_data(char **envp)
 {
@@ -41,28 +22,6 @@ t_data	*get_data(char **envp)
 	data->l_env = env_list(envp);
 	data->last = NULL;
 	return (data);
-}
-
-void	handler(int num)
-{
-	int		fd[2];
-
-	if (num == SIGQUIT)
-		return ;
-	if (!g_global)
-	{
-		printf("\n");
-		rl_replace_line("", 0);
-		rl_on_new_line();
-		rl_redisplay();
-	}
-	else
-	{
-		g_global = 0;
-		pipe(fd);
-		dup2(fd[0], STDIN_FILENO);
-		ft_putstr_fd("\n", fd[1]);
-	}
 }
 
 void	get_state(t_data *data, int a)

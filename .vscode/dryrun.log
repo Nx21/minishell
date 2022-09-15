@@ -3,8 +3,14 @@ make: Entering directory `/Users/nhanafi/Desktop/minishell'
 mkdir -p obj
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/main.c -o obj/main.o
  
+mkdir -p obj
+cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/free_ast.c -o obj/free_ast.o
+ 
+mkdir -p obj
+cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/handler.c -o obj/handler.o
+ 
 mkdir -p obj/pars
-cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/pars/check_err.c -o obj/pars/check_err.o
+cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/pars/check_error.c -o obj/pars/check_error.o
  
 mkdir -p obj/pars
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/pars/ft_comp.c -o obj/pars/ft_comp.o
@@ -29,6 +35,7 @@ cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include
  
 mkdir -p obj/list
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/list/wc_cmp.c -o obj/list/wc_cmp.o
+ 
 mkdir -p obj/list
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/list/wc_handler.c -o obj/list/wc_handler.o
  
@@ -37,6 +44,12 @@ cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include
  
 mkdir -p obj/excu
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/excu/ft_word.c -o obj/excu/ft_word.o
+ 
+mkdir -p obj/list
+cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/list/sort_list.c -o obj/list/sort_list.o
+ 
+mkdir -p obj/list
+cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/list/append_one.c -o obj/list/append_one.o
  
 mkdir -p obj/utils
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/utils/ft_atoi.c -o obj/utils/ft_atoi.o
@@ -81,6 +94,7 @@ mkdir -p obj/utils
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/utils/ft_strcat.c -o obj/utils/ft_strcat.o
  
 mkdir -p obj/utils
+ 
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/utils/ft_itoa.c -o obj/utils/ft_itoa.o
  
 mkdir -p obj/excu
@@ -118,33 +132,25 @@ cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include
  
 mkdir -p obj/excu
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/excu/ft_dlr.c -o obj/excu/ft_dlr.o
- 
 mkdir -p obj/excu
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/excu/ft_lr.c -o obj/excu/ft_lr.o
- 
 mkdir -p obj/excu
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/excu/ft_unset.c -o obj/excu/ft_unset.o
- 
 mkdir -p obj/ast
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/ast/add_node.c -o obj/ast/add_node.o
- 
 mkdir -p obj/ast
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/ast/ft_cmd.c -o obj/ast/ft_cmd.o
- 
 mkdir -p obj/ast
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/ast/ft_lvl1.c -o obj/ast/ft_lvl1.o
- 
 mkdir -p obj/ast
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/ast/ft_lvl2.c -o obj/ast/ft_lvl2.o
- 
 mkdir -p obj/ast
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/ast/ft_lvl3.c -o obj/ast/ft_lvl3.o
 mkdir -p obj/ast
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/ast/read_eof.c -o obj/ast/read_eof.o
 mkdir -p obj/excu
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/excu/ft_export.c -o obj/excu/ft_export.o
- 
-cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -lreadline -L/Users/nhanafi/.brew/opt/readline/lib obj/main.o obj/pars/check_err.o obj/pars/ft_comp.o obj/pars/ft_parsing.o obj/list/list.o obj/list/list_split.o obj/list/list_join.o obj/list/list_expand.o obj/list/list_append.o obj/list/wc_cmp.o obj/list/wc_handler.o obj/list/wc_creat.o obj/excu/ft_word.o obj/utils/ft_atoi.o obj/utils/ft_join.o obj/utils/ft_putstr_fd.o obj/utils/ft_split.o obj/utils/ft_memset.o obj/utils/ft_strcmp.o obj/utils/ft_strdup.o obj/utils/ft_strlen.o obj/utils/ft_substr.o obj/utils/instr.o obj/utils/ft_strstr.o obj/utils/ft_isalnum.o obj/utils/ft_calloc.o obj/utils/ft_strcat.o obj/utils/ft_itoa.o obj/excu/ft_cd.o obj/excu/ft_echo.o obj/excu/ft_exit.o obj/excu/ft_pwd.o obj/excu/exec_ast.o obj/excu/ft_or_and.o obj/excu/ft_env.o obj/excu/ft_pipe.o obj/excu/get_path.o obj/excu/ft_drr.o obj/excu/ft_rr.o obj/excu/ft_dlr.o obj/excu/ft_lr.o obj/excu/ft_unset.o obj/ast/add_node.o obj/ast/ft_cmd.o obj/ast/ft_lvl1.o obj/ast/ft_lvl2.o obj/ast/ft_lvl3.o obj/ast/read_eof.o obj/excu/ft_export.o -o minishell
+cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -lreadline -L/Users/nhanafi/.brew/opt/readline/lib obj/main.o obj/free_ast.o obj/handler.o obj/pars/check_error.o obj/pars/ft_comp.o obj/pars/ft_parsing.o obj/list/list.o obj/list/list_split.o obj/list/list_join.o obj/list/list_expand.o obj/list/list_append.o obj/list/wc_cmp.o obj/list/wc_handler.o obj/list/wc_creat.o obj/excu/ft_word.o obj/list/sort_list.o obj/list/append_one.o obj/utils/ft_atoi.o obj/utils/ft_join.o obj/utils/ft_putstr_fd.o obj/utils/ft_split.o obj/utils/ft_memset.o obj/utils/ft_strcmp.o obj/utils/ft_strdup.o obj/utils/ft_strlen.o obj/utils/ft_substr.o obj/utils/instr.o obj/utils/ft_strstr.o obj/utils/ft_isalnum.o obj/utils/ft_calloc.o obj/utils/ft_strcat.o obj/utils/ft_itoa.o obj/excu/ft_cd.o obj/excu/ft_echo.o obj/excu/ft_exit.o obj/excu/ft_pwd.o obj/excu/exec_ast.o obj/excu/ft_or_and.o obj/excu/ft_env.o obj/excu/ft_pipe.o obj/excu/get_path.o obj/excu/ft_drr.o obj/excu/ft_rr.o obj/excu/ft_dlr.o obj/excu/ft_lr.o obj/excu/ft_unset.o obj/ast/add_node.o obj/ast/ft_cmd.o obj/ast/ft_lvl1.o obj/ast/ft_lvl2.o obj/ast/ft_lvl3.o obj/ast/read_eof.o obj/excu/ft_export.o -o minishell
 echo " ____ _______ _____ _    _  "
 echo "|  _ \__   __/ ____| |  | | "
 echo "| |_) | | | | (___ | |__| | " 

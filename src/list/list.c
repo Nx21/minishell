@@ -3,54 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   list.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rjaanit <rjaanit@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 02:33:07 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/15 00:11:47 by rjaanit          ###   ########.fr       */
+/*   Updated: 2022/09/15 12:28:19 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "env.h"
-
-
-void chage_node(t_list *node, t_list *list)
-{
-	if(list->value)
-	{
-		free(node->value);
-		node->value = list->value;
-	}
-	free(list->key);
-	free(list);
-}
-
-t_list	*add_one(t_list *head, t_list *list)
-{
-	t_list *node;
-
-	if(!head || ft_strcmp(head->key, list->key) > 0)
-	{
-		list->next = head;
-		return list;
-	}
-	node = head;
-	while(node->next)
-	{
-		if(!ft_strcmp(node->key, list->key))
-		{
-			chage_node(node, list);
-			return head;
-		}
-		node = node->next;
-	}
-	if(!ft_strcmp(node->key, list->key))
-	{
-		chage_node(node, list);
-		return head;
-	}
-	node->next = list;
-	return head;
-}
 
 t_list *new_list(char *key, char *val)
 {
@@ -68,8 +28,6 @@ t_list *env_list(char **str)
     t_list *list;
     int     i = 0;
 
-	if (!*str)
-		return NULL;
     while((*str)[i] != '=')
         i++;
 	list = new_list(ft_substr(*str, 0, i), ft_strdup(*str + i + 1));

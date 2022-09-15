@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_rr.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rjaanit <rjaanit@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 21:40:11 by rjaanit           #+#    #+#             */
-/*   Updated: 2022/09/14 15:43:58 by rjaanit          ###   ########.fr       */
+/*   Updated: 2022/09/15 14:56:09 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,15 @@ int	ft_rr(t_node *node, t_data *data)
 	int		status;
 	int		back_fd;
 	int		fd;
+	char	**str;
+	char	*s;
 
-	fd = open(node->right->list->str, O_CREAT | O_RDWR | O_TRUNC, 0777);
+	s = ft_strdup(node->right->list->str);
+	str = list_to_arr(node->right->list, data);
+	node->right->list = NULL;
+	if (str[0] && str[1])
+		return (red_err(s, str));
+	fd = open(str[0], O_CREAT | O_RDWR | O_TRUNC, 0777);
 	(void) data;
 	if (fd < 0)
 	{
@@ -30,5 +37,8 @@ int	ft_rr(t_node *node, t_data *data)
 	close(fd);
 	status = excu_ast(node->left, data);
 	dup2(back_fd, STDOUT_FILENO);
+	free(s);
+	free(str[0]);
+	free(str);
 	return (status);
 }

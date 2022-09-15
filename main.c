@@ -22,7 +22,7 @@ int main()
 	{
 		dup2(fds[1],1);
 		close(fds[0]);
-		execvp("cat", (char *[]){"cat", NULL});
+		execvp("ls", (char *[]){"ls", NULL});
 		exit(0);
 	}
 
@@ -31,7 +31,7 @@ int main()
 	{
 		dup2(fds[0], 0);
 		close(fds[1]);
-		execvp("ls", (char *[]){"ls", NULL});
+		execvp("wc", (char *[]){"wc", NULL});
 		exit(0);
 	}
 
