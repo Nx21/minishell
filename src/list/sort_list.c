@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 21:02:51 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/14 22:23:19 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/16 00:53:42 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_swap(char **str1, char **str2)
 	*str2 = swap;
 }
 
-t_list *list_sort(t_list *head)
+t_list	*list_sort(t_list *head)
 {
 	t_list	*node1;
 	int		change;
@@ -42,7 +42,7 @@ t_list *list_sort(t_list *head)
 			node1 = node1->next;
 		}
 	}
-	return head;
+	return (head);
 }
 
 void	ft_printsort(t_list *head)

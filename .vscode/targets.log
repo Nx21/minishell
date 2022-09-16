@@ -8,12 +8,12 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This program built for i386-apple-darwin11.3.0
  
 
-# Make data base, printed on Thu Sep 15 23:33:24 2022
+# Make data base, printed on Fri Sep 16 00:32:51 2022
 
 # Variables
 
-# automatic
  
+# automatic
 <D = $(patsubst %/,%,$(dir $<))
 # automatic
 ?F = $(notdir $?)
@@ -46,7 +46,7 @@ RLP = $(shell brew --prefix readline)
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000ccz400337s/T/vscode-ipc-734f1802-772a-4e78-a131-098de1e52ad2.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000ccz400337s/T/vscode-ipc-3b7546a9-af25-4466-b020-fc5482bd951e.sock
 # environment
 VSCODE_CWD = /
 # environment
@@ -168,7 +168,7 @@ LANG = C
 # environment
 VSCODE_PID = 6144
 # makefile (from `Makefile', line 25)
-FILES = main free_ast handler pars/check_error pars/ft_comp pars/ft_parsing pars/ft_comp list/list list/list_split list/list_join list/list_expand list/list_append list/wc_cmp list/wc_handler list/wc_creat excu/ft_word list/sort_list list/append_one utils/ft_atoi utils/ft_join utils/ft_putstr_fd utils/ft_split utils/ft_memset list/q_handler utils/ft_strcmp utils/ft_strdup utils/ft_strlen utils/ft_substr utils/instr list/var_handler utils/ft_strstr utils/ft_isalnum utils/ft_calloc utils/ft_strcat utils/ft_itoa excu/ft_cd excu/ft_echo excu/ft_exit excu/ft_pwd excu/exec_ast excu/ft_or_and excu/ft_env excu/ft_pipe excu/get_path excu/ft_drr excu/ft_rr excu/ft_dlr excu/ft_lr excu/ft_unset ast/add_node ast/ft_cmd ast/ft_lvl1 ast/ft_lvl2 ast/ft_lvl3 ast/read_eof excu/ft_export
+FILES = main free_ast handler pars/check_error pars/ft_comp pars/ft_parsing pars/ft_comp list/list list/list_split list/list_join list/list_expand list/list_append list/wc_cmp list/wc_handler list/wc_creat excu/ft_word list/sort_list list/append_one utils/ft_atoi utils/ft_join utils/ft_putstr_fd utils/ft_split utils/ft_memset list/q_handler utils/ft_strcmp utils/ft_strdup utils/ft_strlen utils/ft_substr utils/instr list/var_handler utils/ft_strstr utils/ft_isalnum utils/ft_calloc utils/ft_strcat utils/ft_itoa list/find_var excu/ft_cd excu/ft_echo excu/ft_exit excu/ft_pwd excu/exec_ast excu/ft_or_and excu/ft_env excu/ft_pipe excu/get_path excu/ft_drr excu/ft_rr excu/ft_dlr excu/ft_lr excu/ft_unset ast/add_node ast/ft_cmd ast/ft_lvl1 ast/ft_lvl2 ast/ft_lvl3 ast/read_eof excu/ft_export
 # variable set hash-table stats:
 # Load=78/1024=8%, Rehash=0, Collisions=3/119=3%
 
@@ -180,11 +180,9 @@ FILES = main free_ast handler pars/check_error pars/ft_comp pars/ft_parsing pars
 
 # include (device 16777225, inode 3594478): 6 files, no impossibilities so far.
 # . (device 16777225, inode 3594406): 24 files, no impossibilities.
-# src/list (device 16777225, inode 3594566): 8 files, no impossibilities so far.
 # src (device 16777225, inode 3594541): 8 files, no impossibilities so far.
-# src/pars (device 16777225, inode 3594576): 5 files, no impossibilities so far.
 
-# 51 files, no impossibilities in 5 directories.
+# 38 files, no impossibilities in 3 directories.
 
 # Implicit Rules
 
@@ -211,42 +209,10 @@ obj/utils/ft_substr.o:
 #  File has not been updated.
 
 # Not a target:
-src/list/list.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-09-15 22:06:14
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-obj/list/list_expand.o: src/list/list_expand.c include/minishell.h include/utils.h include/env.h include/ast.h
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `list/list_expand'
-#  Last modified 2022-09-15 23:15:38
-#  File has been updated.
-#  Needs to be updated (-q is set).
-# automatic
-# @ := obj/list/list_expand.o
-# automatic
-# % := 
-# automatic
-# * := list/list_expand
-# automatic
-# + := src/list/list_expand.c include/minishell.h include/utils.h include/env.h include/ast.h
-# automatic
-# | := 
-# automatic
-# < := src/list/list_expand.c
-# automatic
-# ^ := src/list/list_expand.c include/minishell.h include/utils.h include/env.h include/ast.h
-# automatic
-# ? := src/list/list_expand.c
-# variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=3/21=14%
-#  commands to execute (from `Makefile', line 50):
-	@mkdir -p $(@D)
-	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
-	
+obj/list/list_expand.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 all: minishell
 #  Phony target (prerequisite of .PHONY).
@@ -290,7 +256,6 @@ include/env.h:
 #  Last modified 2022-09-14 22:55:44
 #  File has been updated.
 #  Successfully updated.
- 
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
@@ -337,19 +302,11 @@ obj/ast/add_node.o:
 #  File has not been updated.
 
 # Not a target:
+ 
 obj/utils/ft_strdup.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-
-# Not a target:
-src/handler.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-09-14 20:56:02
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
 obj/excu/ft_lr.o:
@@ -360,11 +317,27 @@ obj/excu/ft_lr.o:
 obj/main.o: src/main.c include/minishell.h include/utils.h include/env.h include/ast.h
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `main'
-#  Last modified 2022-09-15 23:15:37
+#  Last modified 2022-09-16 00:25:21
 #  File has been updated.
-#  Successfully updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := obj/main.o
+# automatic
+# % := 
+# automatic
+# * := main
+# automatic
+# + := src/main.c include/minishell.h include/utils.h include/env.h include/ast.h
+# automatic
+# | := 
+# automatic
+# < := src/main.c
+# automatic
+# ^ := src/main.c include/minishell.h include/utils.h include/env.h include/ast.h
+# automatic
+# ? := include/ast.h
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+# Load=8/32=25%, Rehash=0, Collisions=3/21=14%
 #  commands to execute (from `Makefile', line 50):
 	@mkdir -p $(@D)
 	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
@@ -376,36 +349,22 @@ obj/main.o: src/main.c include/minishell.h include/utils.h include/env.h include
 #  Modification time never checked.
 #  File has not been updated.
 
-obj/list/list_split.o: src/list/list_split.c include/minishell.h include/utils.h include/env.h include/ast.h
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `list/list_split'
-#  Last modified 2022-09-15 23:15:38
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 50):
-	@mkdir -p $(@D)
-	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
-	
+# Not a target:
+obj/list/list_split.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
-obj/list/list_join.o: src/list/list_join.c include/minishell.h include/utils.h include/env.h include/ast.h
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `list/list_join'
-#  Last modified 2022-09-15 23:15:38
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 50):
-	@mkdir -p $(@D)
-	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
-	
+# Not a target:
+obj/list/list_join.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-09-15 23:33:05
+#  Last modified 2022-09-16 00:32:41
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -422,15 +381,6 @@ obj/utils/instr.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-
-# Not a target:
-src/list/list_expand.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-09-15 23:32:02
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
 obj/ast/ft_lvl3.o:
@@ -450,18 +400,11 @@ obj/excu/ft_echo.o:
 #  Modification time never checked.
 #  File has not been updated.
 
-obj/free_ast.o: src/free_ast.c include/minishell.h include/utils.h include/env.h include/ast.h
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `free_ast'
-#  Last modified 2022-09-15 23:15:37
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 50):
-	@mkdir -p $(@D)
-	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
-	
+# Not a target:
+obj/free_ast.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 obj/utils/ft_strstr.o:
@@ -476,13 +419,10 @@ obj/list/sort_list.o:
 #  File has not been updated.
 
 # Not a target:
-src/pars/ft_parsing.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-09-14 18:54:30
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+obj/list/find_var.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 obj/list/wc_creat.o:
@@ -514,9 +454,9 @@ obj/utils/ft_atoi.o:
 #  Modification time never checked.
 #  File has not been updated.
 
-minishell: obj/main.o obj/free_ast.o obj/handler.o obj/pars/check_error.o obj/pars/ft_comp.o obj/pars/ft_parsing.o obj/pars/ft_comp.o obj/list/list.o obj/list/list_split.o obj/list/list_join.o obj/list/list_expand.o obj/list/list_append.o obj/list/wc_cmp.o obj/list/wc_handler.o obj/list/wc_creat.o obj/excu/ft_word.o obj/list/sort_list.o obj/list/append_one.o obj/utils/ft_atoi.o obj/utils/ft_join.o obj/utils/ft_putstr_fd.o obj/utils/ft_split.o obj/utils/ft_memset.o obj/list/q_handler.o obj/utils/ft_strcmp.o obj/utils/ft_strdup.o obj/utils/ft_strlen.o obj/utils/ft_substr.o obj/utils/instr.o obj/list/var_handler.o obj/utils/ft_strstr.o obj/utils/ft_isalnum.o obj/utils/ft_calloc.o obj/utils/ft_strcat.o obj/utils/ft_itoa.o obj/excu/ft_cd.o obj/excu/ft_echo.o obj/excu/ft_exit.o obj/excu/ft_pwd.o obj/excu/exec_ast.o obj/excu/ft_or_and.o obj/excu/ft_env.o obj/excu/ft_pipe.o obj/excu/get_path.o obj/excu/ft_drr.o obj/excu/ft_rr.o obj/excu/ft_dlr.o obj/excu/ft_lr.o obj/excu/ft_unset.o obj/ast/add_node.o obj/ast/ft_cmd.o obj/ast/ft_lvl1.o obj/ast/ft_lvl2.o obj/ast/ft_lvl3.o obj/ast/read_eof.o obj/excu/ft_export.o
+minishell: obj/main.o obj/free_ast.o obj/handler.o obj/pars/check_error.o obj/pars/ft_comp.o obj/pars/ft_parsing.o obj/pars/ft_comp.o obj/list/list.o obj/list/list_split.o obj/list/list_join.o obj/list/list_expand.o obj/list/list_append.o obj/list/wc_cmp.o obj/list/wc_handler.o obj/list/wc_creat.o obj/excu/ft_word.o obj/list/sort_list.o obj/list/append_one.o obj/utils/ft_atoi.o obj/utils/ft_join.o obj/utils/ft_putstr_fd.o obj/utils/ft_split.o obj/utils/ft_memset.o obj/list/q_handler.o obj/utils/ft_strcmp.o obj/utils/ft_strdup.o obj/utils/ft_strlen.o obj/utils/ft_substr.o obj/utils/instr.o obj/list/var_handler.o obj/utils/ft_strstr.o obj/utils/ft_isalnum.o obj/utils/ft_calloc.o obj/utils/ft_strcat.o obj/utils/ft_itoa.o obj/list/find_var.o obj/excu/ft_cd.o obj/excu/ft_echo.o obj/excu/ft_exit.o obj/excu/ft_pwd.o obj/excu/exec_ast.o obj/excu/ft_or_and.o obj/excu/ft_env.o obj/excu/ft_pipe.o obj/excu/get_path.o obj/excu/ft_drr.o obj/excu/ft_rr.o obj/excu/ft_dlr.o obj/excu/ft_lr.o obj/excu/ft_unset.o obj/ast/add_node.o obj/ast/ft_cmd.o obj/ast/ft_lvl1.o obj/ast/ft_lvl2.o obj/ast/ft_lvl3.o obj/ast/read_eof.o obj/excu/ft_export.o
 #  Implicit rule search has not been done.
-#  Last modified 2022-09-15 23:15:40
+#  Last modified 2022-09-16 00:25:23
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
@@ -534,51 +474,29 @@ minishell: obj/main.o obj/free_ast.o obj/handler.o obj/pars/check_error.o obj/pa
 # Not a target:
 include/ast.h:
 #  Implicit rule search has been done.
-#  Last modified 2022-09-15 20:31:06
+#  Last modified 2022-09-16 00:32:07
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
-obj/pars/ft_parsing.o: src/pars/ft_parsing.c include/minishell.h include/utils.h include/env.h include/ast.h
-#  Implicit rule search has been done.
- 
-#  Implicit/static pattern stem: `pars/ft_parsing'
-#  Last modified 2022-09-15 23:15:37
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 50):
-	@mkdir -p $(@D)
-	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
-	
+# Not a target:
+obj/pars/ft_parsing.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
-obj/pars/ft_comp.o: src/pars/ft_comp.c include/minishell.h include/utils.h include/env.h include/ast.h
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `pars/ft_comp'
-#  Last modified 2022-09-15 23:15:37
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 50):
-	@mkdir -p $(@D)
-	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
-	
+# Not a target:
+obj/pars/ft_comp.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
-obj/pars/check_error.o: src/pars/check_error.c include/minishell.h include/utils.h include/env.h include/ast.h
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `pars/check_error'
-#  Last modified 2022-09-15 23:15:37
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 50):
-	@mkdir -p $(@D)
-	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
-	
+# Not a target:
+obj/pars/check_error.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 fclean: clean
 #  Phony target (prerequisite of .PHONY).
@@ -605,24 +523,6 @@ obj/excu/ft_pipe.o:
 #  File has not been updated.
 
 # Not a target:
-src/list/list_split.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-09-14 18:54:30
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-# Not a target:
-src/list/list_join.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-09-14 18:54:30
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-# Not a target:
 obj/ast/read_eof.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -639,15 +539,6 @@ obj/utils/ft_strlen.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-
-# Not a target:
-src/free_ast.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-09-14 20:54:22
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
 .DEFAULT:
@@ -688,6 +579,7 @@ clean:
 	rm -rf $(ODIR)
 	
 
+ 
 # Not a target:
 obj/ast/ft_lvl1.o:
 #  Implicit rule search has not been done.
@@ -713,28 +605,10 @@ obj/utils/ft_split.o:
 #  File has not been updated.
 
 # Not a target:
-src/pars/ft_comp.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-09-14 18:54:30
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-# Not a target:
 obj/utils/ft_join.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-
-# Not a target:
-src/pars/check_error.c:
-#  Implicit rule search has been done.
-#  Last modified 2022-09-15 12:11:29
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
 obj/excu/ft_dlr.o:
@@ -748,18 +622,11 @@ obj/excu/ft_pwd.o:
 #  Modification time never checked.
 #  File has not been updated.
 
-obj/list/list.o: src/list/list.c include/minishell.h include/utils.h include/env.h include/ast.h
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `list/list'
-#  Last modified 2022-09-15 23:15:38
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 50):
-	@mkdir -p $(@D)
-	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
-	
+# Not a target:
+obj/list/list.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 obj/excu/get_path.o:
@@ -806,21 +673,14 @@ include/utils.h:
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
-obj/handler.o: src/handler.c include/minishell.h include/utils.h include/env.h include/ast.h
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `handler'
-#  Last modified 2022-09-15 23:15:37
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 50):
-	@mkdir -p $(@D)
-	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
-	
+# Not a target:
+obj/handler.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # files hash-table stats:
-# Load=78/1024=8%, Rehash=0, Collisions=3/265=1%
+# Load=70/1024=7%, Rehash=0, Collisions=0/159=0%
 # VPATH Search Paths
 
 # No `vpath' search paths.
@@ -832,6 +692,6 @@ obj/handler.o: src/handler.c include/minishell.h include/utils.h include/env.h i
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Thu Sep 15 23:33:24 2022
+# Finished Make data base on Fri Sep 16 00:32:51 2022
 
  

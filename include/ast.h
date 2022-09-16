@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 13:17:27 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/15 23:34:52 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/16 00:32:07 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,5 @@ int		red_err(char *str, char **list);
 char	*del_qu(char *buf);
 void	list_expand_q(t_var *list);
 t_var	*list_expand_var(t_var *list, t_data *data);
+char	*find_var(char *str, t_data *data, char c);
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rjaanit <rjaanit@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/09 11:52:08 by rjaanit           #+#    #+#             */
-/*   Updated: 2022/09/14 17:20:35 by rjaanit          ###   ########.fr       */
+/*   Created: 2022/09/16 02:08:04 by nhanafi           #+#    #+#             */
+/*   Updated: 2022/09/16 02:09:10 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,21 @@
 
 static int	check1(char const *str, char c)
 {
-	int		i;
-	int		count;
-	int		j;
-	char	s;
+	int	i;
+	int	count;
+	int	j;
 
 	j = 0;
 	i = 0;
 	count = 0;
-	s = 0;
 	while (str[i] != '\0')
 	{
-		if (str[i] == s)
-			s = 0;
-		else if (!s && ft_instr("\"\'", str[i]) >= 0)
-			s = str[i];
-		else if (!s && ft_instr("(", str[i]) >= 0)
-			s = str[i] + 1;
 		if (str[i] != c && j == 0)
 		{
 			count++;
 			j = 1;
 		}
-		if (!s && str[i] == c && j == 1)
+		if (str[i] == c && j == 1)
 			j = 0;
 		i++;
 	}
@@ -45,23 +37,13 @@ static int	check1(char const *str, char c)
 
 static int	check2(char const *str, char c)
 {
-	int		count;
-	char	s;
+	int	count;
 
 	count = 0;
-	s = 0;
 	if (*str == c)
 		str++;
-	while (*str != '\0')
+	while (*str != c && *str != '\0')
 	{
-		if (!s && *str == c)
-			break ;
-		if (*str == s)
-			s = 0;
-		else if (!s && ft_instr("\"\'", *str) >= 0)
-			s = *str;
-		else if (!s && ft_instr("(", *str) >= 0)
-			s = *str + 1;
 		count++;
 		str++;
 	}
@@ -79,7 +61,7 @@ char	*ft_free(int i, char **s)
 	return (NULL);
 }
 
-char	**ft_split(char *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	int		i;
 	int		j;

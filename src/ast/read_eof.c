@@ -5,12 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/28 00:57:50 by nhanafi           #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2022/09/15 22:48:06 by nhanafi          ###   ########.fr       */
-=======
-/*   Updated: 2022/09/15 16:15:31 by rjaanit          ###   ########.fr       */
->>>>>>> e69acf7582765843b05c4a37c5d8d2cf59a972db
+/*   Created: 2022/09/15 23:54:28 by nhanafi           #+#    #+#             */
+/*   Updated: 2022/09/15 23:55:26 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +27,11 @@ static char	*del_spc(char *buf)
 	return (str);
 }
 
-
-static char *read_lines(char *eof, char *s)
+static char	*read_lines(char *eof, char *s)
 {
 	char	*str;
 	char	*line;
-	
+
 	str = ft_strdup(s);
 	line = readline("> ");
 	while (line && ft_strcmp(line, eof))
@@ -62,15 +57,15 @@ t_node	*ft_read_eof(char *eof)
 	char	*line;
 	char	*s;
 
-	if(ft_instr(eof, '\"') >= 0 || ft_instr(eof, '\'') >= 0 )
+	if (ft_instr(eof, '\"') >= 0 || ft_instr(eof, '\'') >= 0)
 		s = ft_strdup("\'");
 	else
 		s = ft_strdup("\"");
 	eof = del_spc(eof);
 	line = read_lines(eof, s);
 	free(eof);
-	if(!line)
-		return NULL;
+	if (!line)
+		return (NULL);
 	list = malloc(sizeof(t_var));
 	list->next = NULL;
 	list->str = line;

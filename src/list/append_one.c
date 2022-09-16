@@ -6,23 +6,22 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 22:50:48 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/15 15:02:48 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/16 00:49:28 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "env.h"
 
-
-void append_node(t_list *node, char *key, char *value)
+void	append_node(t_list *node, char *key, char *value)
 {
 	node->value = ft_join(node->value, value);
 	free(value);
 	free(key);
 }
 
-void chage_node(t_list *node, t_list *list)
+void	chage_node(t_list *node, t_list *list)
 {
-	if(list->value)
+	if (list->value)
 	{
 		free(node->value);
 		node->value = list->value;
@@ -61,24 +60,24 @@ t_list	*append_one(t_list *head, char *key, char *value)
 
 t_list	*add_one(t_list *head, t_list *list)
 {
-	t_list *node;
+	t_list	*node;
 
-	if(!head)
-		return list;
+	if (!head)
+		return (list);
 	node = head;
-	while(node->next)
+	while (node->next)
 	{
-		if(!ft_strcmp(node->key, list->key))
+		if (!ft_strcmp(node->key, list->key))
 		{
 			chage_node(node, list);
-			return head;
+			return (head);
 		}
 		node = node->next;
 	}
-	if(!ft_strcmp(node->key, list->key))
+	if (!ft_strcmp(node->key, list->key))
 	{
 		chage_node(node, list);
-		return head;
+		return (head);
 	}
 	node->next = list;
 	return (head);

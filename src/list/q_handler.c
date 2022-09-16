@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 20:29:29 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/15 22:34:09 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/15 23:57:29 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,21 @@
 char	*del_qu(char *buf)
 {
 	char	*str;
-	int 	i;
+	int		i;
 	int		j;
 	char	c;
 
 	str = malloc(ft_strlen(buf) + 1);
-	if(!str)
+	if (!str)
 		exit(1);
 	i = 0;
 	j = 0;
 	c = 0;
-	while(buf[j])
+	while (buf[j])
 	{
-		if(c == buf[j])
+		if (c == buf[j])
 			c = 0;
-		else if(!c && (buf[j] == '\'' || buf[j] == '\"'))
+		else if (!c && (buf[j] == '\'' || buf[j] == '\"'))
 			c = buf[j];
 		else
 			str[i++] = buf[j];
@@ -41,9 +41,9 @@ char	*del_qu(char *buf)
 
 void	list_expand_q(t_var *list)
 {
-	char *str;
-	
-	if(!list)
+	char	*str;
+
+	if (!list)
 		return ;
 	str = del_qu(list->str);
 	free(list->str);
