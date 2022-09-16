@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rjaanit <rjaanit@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 02:33:07 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/16 02:42:24 by rjaanit          ###   ########.fr       */
+/*   Updated: 2022/09/16 02:46:46 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@ void	check_shlvl(char **str, int i)
 	char *val;
 
 	sub = ft_substr(*str, 0, i);
-	if(!ft_strcmp(sub, "SHLVL"))
+	if(ft_strcmp(sub, "SHLVL"))
 	{
 		free(sub);
 		return ;
 	}
 	val = ft_strdup(*str + i + 1);
-	free(*str);
+	// free(*str);
 	*str = ft_join(sub, "=");
 	*str = ft_join(*str, ft_itoa(ft_atoi(val) + 1));
 	free(val);
