@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rjaanit <rjaanit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 02:33:07 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/16 00:53:19 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/16 02:42:24 by rjaanit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,24 @@ t_list	*new_list(char *key, char *val)
 	return (node);
 }
 
+void	check_shlvl(char **str, int i)
+{
+	char *sub;
+	char *val;
+
+	sub = ft_substr(*str, 0, i);
+	if(!ft_strcmp(sub, "SHLVL"))
+	{
+		free(sub);
+		return ;
+	}
+	val = ft_strdup(*str + i + 1);
+	free(*str);
+	*str = ft_join(sub, "=");
+	*str = ft_join(*str, ft_itoa(ft_atoi(val) + 1));
+	free(val);
+}
+
 t_list	*env_list(char **str)
 {
 	t_list	*list;
@@ -33,6 +51,7 @@ t_list	*env_list(char **str)
 		return (NULL);
 	while ((*str)[i] != '=')
 		i++;
+	check_shlvl(str, i);
 	list = new_list(ft_substr(*str, 0, i), ft_strdup(*str + i + 1));
 	if (*(str + 1))
 		list->next = env_list(str + 1);

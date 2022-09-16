@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: rjaanit <rjaanit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 02:08:04 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/16 02:09:10 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/16 02:22:23 by rjaanit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 
-static int	check1(char const *str, char c)
+static int	check1(char *str, char c)
 {
 	int	i;
 	int	count;
@@ -35,7 +35,7 @@ static int	check1(char const *str, char c)
 	return (count);
 }
 
-static int	check2(char const *str, char c)
+static int	check2(char *str, char c)
 {
 	int	count;
 
@@ -61,7 +61,7 @@ char	*ft_free(int i, char **s)
 	return (NULL);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(char *s, char c)
 {
 	int		i;
 	int		j;
