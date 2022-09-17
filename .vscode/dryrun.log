@@ -11,10 +11,13 @@ cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -g -I./incl
  
 mkdir -p obj/pars
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -g -I./include -c src/pars/check_error.c -o obj/pars/check_error.o
+ 
 mkdir -p obj/pars
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -g -I./include -c src/pars/ft_comp.c -o obj/pars/ft_comp.o
+ 
 mkdir -p obj/pars
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -g -I./include -c src/pars/ft_parsing.c -o obj/pars/ft_parsing.o
+ 
 mkdir -p obj/list
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -g -I./include -c src/list/list.c -o obj/list/list.o
  
@@ -154,6 +157,7 @@ mkdir -p obj/ast
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -g -I./include -c src/ast/ft_lvl1.c -o obj/ast/ft_lvl1.o
  
 mkdir -p obj/ast
+ 
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -g -I./include -c src/ast/ft_lvl2.c -o obj/ast/ft_lvl2.o
  
 mkdir -p obj/ast
@@ -170,8 +174,8 @@ echo " ____ _______ _____ _    _  "
 echo "|  _ \__   __/ ____| |  | | "
 echo "| |_) | | | | (___ | |__| | " 
 echo "|  _ <  | |  \___ \|  __  | "
+ 
 echo "| |_) | | |  ____) | |  | | "
 echo "|____/  |_| |_____/|_|  |_| "                        
- 
 make: Leaving directory `/Users/nhanafi/Desktop/minishell'
  

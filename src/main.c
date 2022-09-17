@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 01:23:53 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/15 23:15:25 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/17 22:38:57 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void	ft_loop(t_data *data, char *buf)
 	{
 		add_history(buf);
 		head = ft_ast_lev1(buf);
+		g_global= 2;
 		get_state(data, excu_ast(head, data));
 		free_ast(head);
 	}

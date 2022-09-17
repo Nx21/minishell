@@ -6,9 +6,8 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # PARTICULAR PURPOSE.
 
 # This program built for i386-apple-darwin11.3.0
- 
 
-# Make data base, printed on Sat Sep 17 13:27:39 2022
+# Make data base, printed on Sat Sep 17 19:49:41 2022
 
 # Variables
 
@@ -35,7 +34,6 @@ SHELL = /bin/sh
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # environment
- 
 _ = /usr/bin/make
 # makefile (from `Makefile', line 18)
 CFLAGS = $(CPPFLAGS) -Wall -Werror -Wextra -g
@@ -46,13 +44,13 @@ RLP = $(shell brew --prefix readline)
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000ccz400337s/T/vscode-ipc-24b81fe8-6aa1-4c5e-8dac-0346e4d7fc40.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000ccz400337s/T/vscode-ipc-19eb788d-044a-4803-9cdf-946e5cd938b6.sock
 # environment
 VSCODE_CWD = /
 # environment
-Apple_PubSub_Socket_Render = /private/tmp/com.apple.launchd.ZH5JD5aeOX/Render
+Apple_PubSub_Socket_Render = /private/tmp/com.apple.launchd.a5EMnPIT5D/Render
 # environment
-PATH = /Users/nhanafi/goinfre/.brew/bin:/Users/nhanafi/.brew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki
+PATH = /Users/nhanafi/goinfre/.brew/bin:/Users/nhanafi/.brew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki:/Library/Frameworks/Mono.framework/Versions/Current/Commands
 # environment
 LSCOLORS = Gxfxcxdxbxegedabagacad
 # environment
@@ -64,7 +62,7 @@ LDFLAGS = -L$(RLP)/lib
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.tpGWlzI23u/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.bkmpSStjap/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -80,7 +78,7 @@ VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
 HOME = /Users/nhanafi
 # default
-MAKEFILEPATH = $(shell /usr/bin/xcode-select -print-path 2>/dev/null || echo /Developer)/Makefiles
+MAKEFILEPATH := /Applications/Xcode.app/Contents/Developer/Makefiles
 # environment
 VSCODE_CODE_CACHE_PATH = /Users/nhanafi/Library/Application Support/Code/CachedData/57fd6d0195bb9b9d1b49f6da5db789060795de47
 # environment
@@ -122,7 +120,7 @@ LESS = -R
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
 # default
-MAKE_COMMAND := /Library/Developer/CommandLineTools/usr/bin/make
+MAKE_COMMAND := /Applications/Xcode.app/Contents/Developer/usr/bin/make
 # makefile (from `Makefile', line 20)
 INC = -I./include
 # default
@@ -140,13 +138,15 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-XPC_SERVICE_NAME = com.microsoft.VSCode.2704
+XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x10000001.Electron
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
 +F = $(notdir $+)
 # environment
 __CF_USER_TEXT_ENCODING = 0x18CF9:0:0
+# environment
+COMMAND_MODE = unix2003
 # default
 MAKEFILES := 
 # environment
@@ -157,6 +157,8 @@ HOMEBREW_NO_AUTO_UPDATE = 1
 PAGER = less
 # environment
 LC_ALL = C
+# environment
+SECURITYSESSIONID = 186a8
 # automatic
 ^F = $(notdir $^)
 # default
@@ -168,18 +170,17 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 1948
+VSCODE_PID = 9941
 # makefile (from `Makefile', line 25)
 FILES = main free_ast handler pars/check_error pars/ft_comp pars/ft_parsing pars/ft_comp list/list list/list_split list/list_join list/list_expand list/list_append list/wc_cmp list/wc_handler list/wc_creat excu/ft_word list/sort_list list/append_one utils/ft_atoi utils/ft_join utils/ft_putstr_fd utils/ft_split utils/ft_memset list/q_handler utils/ft_strcmp utils/ft_strdup utils/ft_strlen utils/ft_substr utils/instr list/var_handler utils/ft_strstr utils/ft_isalnum utils/ft_calloc utils/ft_strcat utils/ft_itoa list/find_var excu/ft_cd excu/ft_echo excu/ft_exit excu/ft_pwd excu/exec_ast excu/ft_or_and excu/ft_env excu/ft_pipe excu/get_path excu/ft_drr excu/ft_rr excu/ft_dlr excu/ft_lr excu/ft_unset ast/add_node ast/ft_cmd ast/ft_lvl1 ast/ft_lvl2 ast/ft_lvl3 ast/read_eof excu/ft_export
 # variable set hash-table stats:
-# Load=79/1024=8%, Rehash=0, Collisions=3/110=3%
+# Load=81/1024=8%, Rehash=0, Collisions=3/112=3%
 
 # Pattern-specific Variable Values
 
 # No pattern-specific variable values.
 
 # Directories
- 
 
 # include (device 16777227, inode 3594478): 6 files, no impossibilities so far.
 # . (device 16777227, inode 3594406): 9 files, no impossibilities.
@@ -259,6 +260,7 @@ src/list/list.c:
 
 # Not a target:
 src/excu/get_path.c:
+ 
 #  Implicit rule search has been done.
 #  Last modified 2022-09-15 23:53:07
 #  File has been updated.
@@ -433,7 +435,6 @@ src/excu/ft_word.c:
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
- 
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 obj/utils/ft_isalnum.o: src/utils/ft_isalnum.c include/minishell.h include/utils.h include/env.h include/ast.h
@@ -510,6 +511,7 @@ obj/excu/ft_lr.o: src/excu/ft_lr.c include/minishell.h include/utils.h include/e
 	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
 	
 
+ 
 obj/main.o: src/main.c include/minishell.h include/utils.h include/env.h include/ast.h
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `main'
@@ -673,7 +675,6 @@ obj/utils/ft_strstr.o: src/utils/ft_strstr.c include/minishell.h include/utils.h
 	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
 	
 
- 
 obj/list/sort_list.o: src/list/sort_list.c include/minishell.h include/utils.h include/env.h include/ast.h
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `list/sort_list'
@@ -753,6 +754,7 @@ obj/excu/ft_export.o: src/excu/ft_export.c include/minishell.h include/utils.h i
 	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
 	
 
+ 
 obj/list/list_append.o: src/list/list_append.c include/minishell.h include/utils.h include/env.h include/ast.h
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `list/list_append'
@@ -892,7 +894,6 @@ src/utils/ft_strcmp.c:
 # Not a target:
 src/ast/add_node.c:
 #  Implicit rule search has been done.
- 
 #  Last modified 2022-09-14 18:54:30
 #  File has been updated.
 #  Successfully updated.
@@ -982,6 +983,7 @@ src/list/list_join.c:
 # Not a target:
 src/excu/exec_ast.c:
 #  Implicit rule search has been done.
+ 
 #  Last modified 2022-09-15 22:52:41
 #  File has been updated.
 #  Successfully updated.
@@ -1169,7 +1171,6 @@ obj/utils/ft_memset.o: src/utils/ft_memset.c include/minishell.h include/utils.h
 
 # Not a target:
 src/list/wc_handler.c:
- 
 #  Implicit rule search has been done.
 #  Last modified 2022-09-16 01:06:56
 #  File has been updated.
@@ -1249,6 +1250,7 @@ obj/list/q_handler.o: src/list/q_handler.c include/minishell.h include/utils.h i
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 #  commands to execute (from `Makefile', line 50):
+ 
 	@mkdir -p $(@D)
 	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
 	
@@ -1419,7 +1421,6 @@ obj/excu/ft_unset.o: src/excu/ft_unset.c include/minishell.h include/utils.h inc
 src/utils/ft_itoa.c:
 #  Implicit rule search has been done.
 #  Last modified 2022-09-14 18:54:30
- 
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -1510,6 +1511,7 @@ src/excu/ft_exit.c:
 #  Implicit rule search has been done.
 #  Last modified 2022-09-14 18:54:30
 #  File has been updated.
+ 
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
@@ -1567,6 +1569,6 @@ obj/handler.o: src/handler.c include/minishell.h include/utils.h include/env.h i
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Sat Sep 17 13:27:39 2022
+# Finished Make data base on Sat Sep 17 19:49:41 2022
 
  
