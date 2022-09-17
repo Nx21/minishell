@@ -6,7 +6,7 @@
 #    By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/03 10:54:07 by nhanafi           #+#    #+#              #
-#    Updated: 2022/09/16 00:32:41 by nhanafi          ###   ########.fr        #
+#    Updated: 2022/09/16 14:11:35 by nhanafi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ RLP=$(shell brew --prefix readline)
 LDFLAGS= -L$(RLP)/lib
 CPPFLAGS= -I$(RLP)/include
 
-CFLAGS = $(CPPFLAGS) -Wall -Werror -Wextra
+CFLAGS = $(CPPFLAGS) -Wall -Werror -Wextra -g
 
 INC = -I./include
 

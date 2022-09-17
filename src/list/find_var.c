@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 00:31:29 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/16 00:45:54 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/16 14:14:12 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,8 @@ char	*find_var(char *str, t_data *data, char c)
 	char	*var;
 
 	var = find_one(data, str);
+	if (!var)
+		return ft_strdup("");
 	if (c)
 		dst = find_var_dq(var, c);
 	else
