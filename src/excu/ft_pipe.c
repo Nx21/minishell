@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 03:56:28 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/16 13:53:23 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/18 21:59:47 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ int	ft_pipe(t_node *node, t_data *data)
 	int		pid;
 	int		state;
 	int		fd1[2];
-	// int		i = -1;
 
 	pipe(fd1);
 	pid = fork();

@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 20:55:05 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/17 22:42:19 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/18 22:00:13 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,11 @@ void	handler(int num)
 		rl_on_new_line();
 		rl_redisplay();
 	}
-	else if(g_global == 1)
+	else if (g_global == 1)
 	{
 		g_global = 0;
 		pipe(fd);
 		dup2(fd[0], STDIN_FILENO);
 		ft_putstr_fd("\n", fd[1]);
 	}
-	else
-		printf("\n");
 }

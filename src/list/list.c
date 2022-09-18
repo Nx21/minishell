@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 02:33:07 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/16 02:46:46 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/18 22:04:12 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,20 +25,22 @@ t_list	*new_list(char *key, char *val)
 
 void	check_shlvl(char **str, int i)
 {
-	char *sub;
-	char *val;
+	char	*sub;
+	char	*val;
+	char	*nval;
 
 	sub = ft_substr(*str, 0, i);
-	if(ft_strcmp(sub, "SHLVL"))
+	if (ft_strcmp(sub, "SHLVL"))
 	{
 		free(sub);
 		return ;
 	}
 	val = ft_strdup(*str + i + 1);
-	// free(*str);
 	*str = ft_join(sub, "=");
-	*str = ft_join(*str, ft_itoa(ft_atoi(val) + 1));
+	nval = ft_itoa(ft_atoi(val) + 1);
+	*str = ft_join(*str, nval);
 	free(val);
+	free(nval);
 }
 
 t_list	*env_list(char **str)

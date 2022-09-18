@@ -157,7 +157,6 @@ mkdir -p obj/ast
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -g -I./include -c src/ast/ft_lvl1.c -o obj/ast/ft_lvl1.o
  
 mkdir -p obj/ast
- 
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -g -I./include -c src/ast/ft_lvl2.c -o obj/ast/ft_lvl2.o
  
 mkdir -p obj/ast
@@ -174,7 +173,6 @@ echo " ____ _______ _____ _    _  "
 echo "|  _ \__   __/ ____| |  | | "
 echo "| |_) | | | | (___ | |__| | " 
 echo "|  _ <  | |  \___ \|  __  | "
- 
 echo "| |_) | | |  ____) | |  | | "
 echo "|____/  |_| |_____/|_|  |_| "                        
 make: Leaving directory `/Users/nhanafi/Desktop/minishell'
