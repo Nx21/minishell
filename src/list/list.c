@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 02:33:07 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/18 22:04:12 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/18 22:08:31 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,20 +91,4 @@ t_list	*del_one(t_list *head, char *str)
 		node = node->next;
 	}
 	return (head);
-}
-
-char	*find_one(t_data *data, char *key)
-{
-	t_list	*head;
-
-	head = data->l_env;
-	if (!ft_strcmp("?", key))
-		return (ft_strdup(data->state));
-	while (head)
-	{
-		if (ft_strcmp(head->key, key) == 0)
-			return (ft_strdup(head->value));
-		head = head->next;
-	}
-	return (ft_strdup(""));
 }
