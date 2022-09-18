@@ -6,11 +6,29 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 00:06:14 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/18 21:59:05 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/18 23:25:00 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+int	print_sig(int state)
+{
+	if (WIFEXITED(state))
+		return (WEXITSTATUS(state));
+	else if (WIFSIGNALED(state))
+	{
+		if (WTERMSIG(state) != SIGINT)
+		{
+			if (WTERMSIG(state) == SIGQUIT)
+				printf("Quit: ");
+			printf("%d", WTERMSIG(state));
+		}	
+		printf("\n");
+		return (128 + WTERMSIG(state));
+	}
+	return (1);
+}
 
 static void	print_err(char *str)
 {
@@ -64,6 +82,8 @@ int	exe(char **str, t_data *data)
 	pid = fork();
 	if (pid == 0)
 	{
+		signal(SIGINT, SIG_DFL);
+		signal(SIGQUIT, SIG_DFL);
 		state = 1;
 		s = get_path(find_one(data, "PATH"));
 		execve(get_command(s, *str), str, data->env);
@@ -75,9 +95,5 @@ int	exe(char **str, t_data *data)
 		exit(state);
 	}
 	waitpid(pid, &state, 0);
-	if (WIFEXITED(state))
-		return (WEXITSTATUS(state));
-	else if (WIFSIGNALED(state))
-		return (128 + WTERMSIG(state));
-	return (1);
+	return (print_sig(state));
 }

@@ -8,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This program built for i386-apple-darwin11.3.0
  
 
-# Make data base, printed on Sun Sep 18 22:08:52 2022
+# Make data base, printed on Sun Sep 18 23:26:40 2022
 
 # Variables
 
@@ -45,7 +45,7 @@ RLP = $(shell brew --prefix readline)
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000ccz400337s/T/vscode-ipc-40914ad0-d311-4fc2-ae08-179b5a37c766.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000ccz400337s/T/vscode-ipc-896b2532-2412-4b94-a553-3c8739223bbb.sock
 # environment
 VSCODE_CWD = /
 # environment
@@ -139,15 +139,13 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x10000002.Electron
+XPC_SERVICE_NAME = com.microsoft.VSCode.2620
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
 +F = $(notdir $+)
 # environment
 __CF_USER_TEXT_ENCODING = 0x18CF9:0:0
-# environment
-COMMAND_MODE = unix2003
 # default
 MAKEFILES := 
 # environment
@@ -158,8 +156,6 @@ HOMEBREW_NO_AUTO_UPDATE = 1
 PAGER = less
 # environment
 LC_ALL = C
-# environment
-SECURITYSESSIONID = 186a8
 # automatic
 ^F = $(notdir $^)
 # default
@@ -171,11 +167,11 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 1796
+VSCODE_PID = 22511
 # makefile (from `Makefile', line 25)
 FILES = main free_ast handler pars/check_error pars/ft_comp pars/ft_parsing pars/ft_comp list/list list/list_split list/list_join list/list_expand list/list_append list/wc_cmp list/wc_handler list/wc_creat excu/ft_word list/sort_list list/append_one utils/ft_atoi utils/ft_join utils/ft_putstr_fd utils/ft_split utils/ft_memset list/q_handler utils/ft_strcmp utils/ft_strdup utils/ft_strlen utils/ft_substr utils/instr list/var_handler utils/ft_strstr utils/ft_isalnum utils/ft_calloc utils/ft_strcat utils/ft_itoa list/find_var excu/ft_cd excu/ft_echo excu/ft_exit excu/ft_pwd excu/exec_ast excu/ft_or_and excu/ft_env excu/ft_pipe excu/get_path excu/ft_drr excu/ft_rr excu/ft_dlr excu/ft_lr excu/ft_unset ast/add_node ast/ft_cmd ast/ft_lvl1 ast/ft_lvl2 ast/ft_lvl3 ast/read_eof excu/ft_export list/find_one
 # variable set hash-table stats:
-# Load=81/1024=8%, Rehash=0, Collisions=3/122=2%
+# Load=79/1024=8%, Rehash=0, Collisions=3/120=2%
 
 # Pattern-specific Variable Values
 
@@ -184,17 +180,17 @@ FILES = main free_ast handler pars/check_error pars/ft_comp pars/ft_parsing pars
 # Directories
 
 # include (device 16777227, inode 3594478): 6 files, no impossibilities so far.
-# . (device 16777227, inode 3594406): 7 files, no impossibilities.
+# . (device 16777227, inode 3594406): 9 files, no impossibilities.
 # src (device 16777227, inode 3594541): 8 files, no impossibilities so far.
 
-# 21 files, no impossibilities in 3 directories.
+# 23 files, no impossibilities in 3 directories.
 
 # Implicit Rules
 
 obj/%.o: src/%.c include/minishell.h include/utils.h include/env.h include/ast.h
 #  commands to execute (from `Makefile', line 50):
 	@mkdir -p $(@D)
-	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
+	$(CC) $(CFLAGS) $(INC) -c $< -o $@
 	
 
 # 1 implicit rules, 0 (0.0%) terminal.
@@ -292,12 +288,12 @@ obj/ast/ft_cmd.o:
 obj/utils/ft_isalnum.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
- 
 #  File has not been updated.
 
 # Not a target:
 obj/utils/ft_strcmp.o:
 #  Implicit rule search has not been done.
+ 
 #  Modification time never checked.
 #  File has not been updated.
 
@@ -328,7 +324,7 @@ obj/list/find_one.o:
 obj/main.o: src/main.c include/minishell.h include/utils.h include/env.h include/ast.h
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `main'
-#  File does not exist.
+#  Last modified 2022-09-18 23:25:05
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # automatic
@@ -346,12 +342,12 @@ obj/main.o: src/main.c include/minishell.h include/utils.h include/env.h include
 # automatic
 # ^ := src/main.c include/minishell.h include/utils.h include/env.h include/ast.h
 # automatic
-# ? := src/main.c include/minishell.h include/utils.h include/env.h include/ast.h
+# ? := src/main.c
 # variable set hash-table stats:
 # Load=8/32=25%, Rehash=0, Collisions=3/21=14%
 #  commands to execute (from `Makefile', line 50):
 	@mkdir -p $(@D)
-	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
+	$(CC) $(CFLAGS) $(INC) -c $< -o $@
 	
 
 # Not a target:
@@ -375,7 +371,7 @@ obj/list/list_join.o:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-09-18 22:08:49
+#  Last modified 2022-09-18 23:26:25
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -467,7 +463,7 @@ obj/utils/ft_atoi.o:
 
 minishell: obj/main.o obj/free_ast.o obj/handler.o obj/pars/check_error.o obj/pars/ft_comp.o obj/pars/ft_parsing.o obj/pars/ft_comp.o obj/list/list.o obj/list/list_split.o obj/list/list_join.o obj/list/list_expand.o obj/list/list_append.o obj/list/wc_cmp.o obj/list/wc_handler.o obj/list/wc_creat.o obj/excu/ft_word.o obj/list/sort_list.o obj/list/append_one.o obj/utils/ft_atoi.o obj/utils/ft_join.o obj/utils/ft_putstr_fd.o obj/utils/ft_split.o obj/utils/ft_memset.o obj/list/q_handler.o obj/utils/ft_strcmp.o obj/utils/ft_strdup.o obj/utils/ft_strlen.o obj/utils/ft_substr.o obj/utils/instr.o obj/list/var_handler.o obj/utils/ft_strstr.o obj/utils/ft_isalnum.o obj/utils/ft_calloc.o obj/utils/ft_strcat.o obj/utils/ft_itoa.o obj/list/find_var.o obj/excu/ft_cd.o obj/excu/ft_echo.o obj/excu/ft_exit.o obj/excu/ft_pwd.o obj/excu/exec_ast.o obj/excu/ft_or_and.o obj/excu/ft_env.o obj/excu/ft_pipe.o obj/excu/get_path.o obj/excu/ft_drr.o obj/excu/ft_rr.o obj/excu/ft_dlr.o obj/excu/ft_lr.o obj/excu/ft_unset.o obj/ast/add_node.o obj/ast/ft_cmd.o obj/ast/ft_lvl1.o obj/ast/ft_lvl2.o obj/ast/ft_lvl3.o obj/ast/read_eof.o obj/excu/ft_export.o obj/list/find_one.o
 #  Implicit rule search has not been done.
-#  File does not exist.
+#  Last modified 2022-09-18 23:25:09
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
@@ -521,7 +517,7 @@ fclean: clean
 # Not a target:
 src/main.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-09-18 22:05:46
+#  Last modified 2022-09-18 23:26:01
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -567,13 +563,13 @@ obj/excu/ft_rr.o:
 obj/utils/ft_memset.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
- 
 #  File has not been updated.
 
 re: fclean all
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
+ 
 #  File has not been updated.
 
 # Not a target:
@@ -703,6 +699,6 @@ obj/handler.o:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Sun Sep 18 22:08:52 2022
+# Finished Make data base on Sun Sep 18 23:26:40 2022
 
  

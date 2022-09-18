@@ -6,7 +6,7 @@
 #    By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/03 10:54:07 by nhanafi           #+#    #+#              #
-#    Updated: 2022/09/18 22:08:49 by nhanafi          ###   ########.fr        #
+#    Updated: 2022/09/18 23:26:25 by nhanafi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,7 @@ $(NAME): $(OBJ)
 
 $(ODIR)/%.o: src/%.c $(HEADERS)
 	@mkdir -p $(@D)
-	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
+	$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
 clean:
 	rm -rf $(ODIR)
