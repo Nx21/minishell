@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 01:23:45 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/20 22:47:39 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/20 22:54:49 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,6 @@ void	get_state(t_data *data, int a);
 void	free_ast(t_node *node);
 void	handler(int num);
 void	ft_printsort(t_list *head);
-int     ft_par(t_node *node, t_data *data);
+int		ft_par(t_node *node, t_data *data);
 char	*var_handler_dlr(char *str, t_data *data);
 #endif

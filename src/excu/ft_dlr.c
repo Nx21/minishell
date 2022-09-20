@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 09:18:34 by rjaanit           #+#    #+#             */
-/*   Updated: 2022/09/20 22:50:03 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/20 22:55:24 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ static void	ft_child2(int *fd1, t_node *node, t_data *data)
 		error();
 	close(fd1[0]);
 	close(fd1[1]);
-	if(node->right->token == W)
+	if (node->right->token == W)
 		s = var_handler_dlr(node->right->list->str, data);
-	else 
+	else
 		s = node->right->list->str;
 	if (s)
 	{

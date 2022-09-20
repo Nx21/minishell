@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 23:53:33 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/20 21:51:22 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/20 22:55:46 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_par(t_node *node, t_data *data)
 	int	state;
 
 	pid = fork();
-	if(pid == 0)
+	if (pid == 0)
 	{
 		state = excu_ast(node->left, data);
 		exit(state);

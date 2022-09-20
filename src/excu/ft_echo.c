@@ -3,14 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   ft_echo.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rjaanit <rjaanit@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 23:32:11 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/14 15:17:14 by rjaanit          ###   ########.fr       */
+/*   Updated: 2022/09/20 23:02:18 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+static int	check_nflag(char *str)
+{
+	int	i;
+
+	i = 1;
+	if (str[0] != '-')
+		return (0);
+	while (str[i])
+	{
+		if (str[i] != 'n')
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
 
 int	ft_echo(char **str)
 {
@@ -18,14 +35,14 @@ int	ft_echo(char **str)
 
 	str++;
 	flag = 0;
-	if (!ft_strcmp(*str, "-n"))
+	while (check_nflag(*str))
 	{
 		str++;
 		flag = 1;
 	}
 	while (*str)
 	{
-		printf("%s ", *str);
+		printf("%s", *str);
 		str++;
 	}
 	if (!flag)

@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 22:40:23 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/20 22:49:16 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/20 22:56:13 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ char	*var_handler_dlr(char *str, t_data *data)
 		return (NULL);
 	while (str[len])
 	{
-	    if (str[len] == '$')
+		if (str[len] == '$')
 			break ;
 		len++;
 	}
