@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 13:17:27 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/16 00:32:07 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/19 21:50:12 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ typedef enum e_token
 	W = 8,
 	ARG = 9,
 	SQ = 10,
+	PAR = 11,
+	N = 12
 }	t_token;
 
 typedef struct s_data

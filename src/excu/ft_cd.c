@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_cd.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rjaanit <rjaanit@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 23:34:01 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/14 23:25:30 by rjaanit          ###   ########.fr       */
+/*   Updated: 2022/09/20 21:55:18 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,10 +96,15 @@ int	ft_cd(char **str, t_data *data)
 	char	*path;
 
 	path = check_dir(str, data);
+	if (!path && str[1] && !ft_strcmp(str[1], "-"))
+	{
+		ft_putstr_fd("cd: OLDPWD not set\n", 2);
+		return (1);
+	}
 	if (!path && str[1] && !ft_strcmp(str[1], "."))
 	{
-		perror("cd: error retrieving current directory:\
- getcwd: cannot access parent directories");
+		ft_putstr_fd("cd: error retrieving current directory:\
+ getcwd: cannot access parent directories\n", 2);
 		return (1);
 	}
 	if (!path)

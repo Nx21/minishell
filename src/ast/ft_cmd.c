@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_cmd.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rjaanit <rjaanit@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 23:37:26 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/14 18:06:19 by rjaanit          ###   ########.fr       */
+/*   Updated: 2022/09/20 21:44:21 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,9 @@ t_node	*ft_cmd(char *buf)
 	{
 		buf[len] = 0;
 		buf++;
-		return (ft_ast_lev1(buf));
+		node = add_node(NULL, PAR);
+		node->left = ft_ast_lev1(buf);
+		return (node);
 	}
 	buf[len + 1] = 0;
 	node = add_node(list_split(buf), W);

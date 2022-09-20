@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 23:54:28 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/15 23:55:26 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/19 21:48:30 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ static char	*del_spc(char *buf)
 	return (str);
 }
 
-static char	*read_lines(char *eof, char *s)
+static char	*read_lines(char *eof)
 {
 	char	*str;
 	char	*line;
 
-	str = ft_strdup(s);
+	str = NULL;
 	line = readline("> ");
 	while (line && ft_strcmp(line, eof))
 	{
@@ -46,7 +46,6 @@ static char	*read_lines(char *eof, char *s)
 		str = ft_join(str, "\n");
 		line = readline("> ");
 	}
-	str = ft_join(str, s);
 	free(line);
 	return (str);
 }
@@ -55,20 +54,19 @@ t_node	*ft_read_eof(char *eof)
 {
 	t_var	*list;
 	char	*line;
-	char	*s;
+	int		token;
 
 	if (ft_instr(eof, '\"') >= 0 || ft_instr(eof, '\'') >= 0)
-		s = ft_strdup("\'");
+		token = N;
 	else
-		s = ft_strdup("\"");
+		token = W;
 	eof = del_spc(eof);
-	line = read_lines(eof, s);
+	line = read_lines(eof);
 	free(eof);
 	if (!line)
 		return (NULL);
 	list = malloc(sizeof(t_var));
 	list->next = NULL;
 	list->str = line;
-	free(s);
-	return (add_node(list, W));
+	return (add_node(list, token));
 }
