@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 23:32:11 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/20 23:02:18 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/20 23:04:38 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ static int	check_nflag(char *str)
 	}
 	return (1);
 }
-
 
 int	ft_echo(char **str)
 {
