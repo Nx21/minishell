@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 01:23:53 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/18 23:26:01 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/20 23:44:11 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,12 @@ void	ft_loop(t_data *data, char *buf)
 
 	g_global = 1;
 	buf = ft_parcing(buf);
-	signal(SIGINT, SIG_IGN);
 	if (buf && g_global)
 	{
 		add_history(buf);
 		head = ft_ast_lev1(buf);
 		g_global = 2;
+		signal(SIGINT, SIG_IGN);
 		get_state(data, excu_ast(head, data));
 		free_ast(head);
 	}
