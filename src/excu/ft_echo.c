@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 23:32:11 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/20 23:04:38 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/22 18:04:00 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	ft_echo(char **str)
 
 	str++;
 	flag = 0;
-	while (check_nflag(*str))
+	while (*str && check_nflag(*str))
 	{
 		str++;
 		flag = 1;
@@ -42,6 +42,8 @@ int	ft_echo(char **str)
 	while (*str)
 	{
 		printf("%s", *str);
+		if(*str && *(str))
+			printf(" ");
 		str++;
 	}
 	if (!flag)
