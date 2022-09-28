@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 02:13:01 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/15 16:11:32 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/09/28 20:33:38 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	ft_next_word(char *str)
 	c = 0;
 	while (str && str[i] && ft_instr("\t\n ", str[i]) >= 0)
 		i++;
-	while (str && str[i] && (c || ft_instr("\t\n ", str[i]) < 0))
+	while (str && str[i] && (c || ft_instr("\t\n <>", str[i]) < 0))
 	{
 		if (str[i] == c)
 			c = 0;

@@ -4,19 +4,14 @@ mkdir -p obj
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/main.c -o obj/main.o
 mkdir -p obj
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/free_ast.c -o obj/free_ast.o
- 
 mkdir -p obj
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/handler.c -o obj/handler.o
- 
 mkdir -p obj/pars
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/pars/check_error.c -o obj/pars/check_error.o
- 
 mkdir -p obj/pars
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/pars/ft_comp.c -o obj/pars/ft_comp.o
- 
 mkdir -p obj/pars
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/pars/ft_parsing.c -o obj/pars/ft_parsing.o
- 
 mkdir -p obj/list
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/list/list.c -o obj/list/list.o
  
@@ -31,13 +26,10 @@ cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include
  
 mkdir -p obj/list
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/list/list_append.c -o obj/list/list_append.o
- 
 mkdir -p obj/list
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/list/wc_cmp.c -o obj/list/wc_cmp.o
- 
 mkdir -p obj/list
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/list/wc_handler.c -o obj/list/wc_handler.o
- 
 mkdir -p obj/list
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/list/wc_creat.c -o obj/list/wc_creat.o
  
@@ -46,7 +38,6 @@ cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include
  
 mkdir -p obj/list
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/list/sort_list.c -o obj/list/sort_list.o
- 
 mkdir -p obj/list
 cc -I/Users/nhanafi/.brew/opt/readline/include -Wall -Werror -Wextra -I./include -c src/list/append_one.c -o obj/list/append_one.o
  
@@ -183,6 +174,5 @@ echo "| |_) | | | | (___ | |__| | "
 echo "|  _ <  | |  \___ \|  __  | "
 echo "| |_) | | |  ____) | |  | | "
 echo "|____/  |_| |_____/|_|  |_| "                        
- 
 make: Leaving directory `/Users/nhanafi/Desktop/minishell'
  
