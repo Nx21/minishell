@@ -6,7 +6,7 @@
 #    By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/03 10:54:07 by nhanafi           #+#    #+#              #
-#    Updated: 2022/09/20 23:48:09 by nhanafi          ###   ########.fr        #
+#    Updated: 2022/10/01 23:06:41 by nhanafi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,8 +16,6 @@ LDFLAGS= -L$(RLP)/lib
 CPPFLAGS= -I$(RLP)/include
 
 CFLAGS = $(CPPFLAGS) -Wall -Werror -Wextra
-
-INC = -I./include
 
 HEADERS = include/minishell.h include/utils.h include/env.h include/ast.h
 

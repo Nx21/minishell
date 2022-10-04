@@ -6,7 +6,7 @@
 /*   By: nhanafi <nhanafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 19:04:29 by nhanafi           #+#    #+#             */
-/*   Updated: 2022/09/15 15:09:09 by nhanafi          ###   ########.fr       */
+/*   Updated: 2022/10/03 20:21:09 by nhanafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ int	ft_export(char **str, t_data *data)
 		ft_printsort(data->l_env);
 		exit(0);
 	}
+	dat
 	wait(0);
 	return (0);
 }
